@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Titre titre="Titre" />
-      <p> Bienvenue dans l'espace !</p>
+      <p> Bienvenue dans lespace !</p>
       <DailyPicture />
       <FunFactList />
       <WidgetList />
