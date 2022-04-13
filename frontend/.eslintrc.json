@@ -17,6 +17,7 @@
   },
   "plugins": ["react", "import"],
   "rules": {
+    "linebreak-style": 0,
     "no-console": "off",
     "no-restricted-syntax": [
       "error",
