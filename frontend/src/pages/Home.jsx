@@ -9,12 +9,7 @@ export default function Home() {
   return (
     <>
       <Titre titre="Titre" />
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque
-        magnam illum laudantium fugit ullam itaque voluptates, repellat iure
-        maxime modi iste vel odio, facilis earum quasi, enim dolores quis
-        provident.
-      </p>
+      <p> Bienvenue dans l'espace !</p>
       <DailyPicture />
       <FunFactList />
       <WidgetList />
