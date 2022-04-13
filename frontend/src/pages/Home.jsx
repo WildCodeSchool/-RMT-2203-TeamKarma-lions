@@ -1,36 +1,23 @@
-import Counter from "@components/Counter";
-import logo from "@assets/logo.svg";
+import React from "react";
+import "../styles/Home.css";
+import Titre from "../components/Titre";
+import DailyPicture from "../components/DailyPicture";
+import FunFactList from "../components/FunFactList";
+import WidgetList from "../components/WidgetList";
 
 export default function Home() {
   return (
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>Hello Vite + React !</p>
-
-      <Counter />
-
+    <>
+      <Titre titre="Titre" />
       <p>
-        Edit <code>App.jsx</code> and save to test HMR updates.
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque
+        magnam illum laudantium fugit ullam itaque voluptates, repellat iure
+        maxime modi iste vel odio, facilis earum quasi, enim dolores quis
+        provident.
       </p>
-      <p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        {" | "}
-        <a
-          className="App-link"
-          href="https://vitejs.dev/guide/features.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Vite Docs
-        </a>
-      </p>
-    </header>
+      <DailyPicture />
+      <FunFactList />
+      <WidgetList />
+    </>
   );
 }
