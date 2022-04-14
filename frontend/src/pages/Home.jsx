@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Home.css";
 import Titre from "../components/Titre";
-import DailyPicture from "../components/DailyPicture";
+import DailyPicture from "../components/DailyPicture/DailyPicture";
 import FunFactList from "../components/FunFactList";
 import WidgetList from "../components/WidgetList";
 
