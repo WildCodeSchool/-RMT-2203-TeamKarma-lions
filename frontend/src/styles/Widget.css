@@ -1,0 +1,38 @@
+.widgetsContainer {
+    margin:auto;
+    margin-top: 20px;
+    width: 100vw;
+    background-color: #432f64;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+.widget {
+    margin: 20px;
+    color: white;
+    padding: 1rem;
+    width: 20rem;
+    border-radius: 10px;
+    background-color: #1C0444;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    transition: .3s;
+
+}
+
+.widget:hover {
+    transform: scale(1.05);
+    transition: 3s;
+    border: 1px solid #f8f5f5;
+}
+
+@media screen and (max-width: 767.98px) {
+    .widget:hover {
+        transform: none;
+        border: none;
+    }
+}
