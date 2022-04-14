@@ -1,33 +1,42 @@
 import React from "react";
 import "../styles/Navbar.scss";
+import ItemNavbar from "./ItemNavbar";
 
 export default function Navbar() {
+  const icones = [
+    { className: "logo", image: "src/assets/lion-logo.png", alt: "logo" },
+    {
+      className: "planete-icone",
+      image: "src/assets/planete-icone.png",
+      alt: "firstIcone",
+    },
+    {
+      className: "planete-icone",
+      image: "src/assets/satellite.png",
+      alt: "secondIcone",
+    },
+    {
+      className: "planete-icone",
+      image: "src/assets/comete.png",
+      alt: "thirdIcone",
+    },
+    {
+      className: "planete-icone",
+      image: "src/assets/tornade.png",
+      alt: "fourthIcone",
+    },
+    {
+      className: "login",
+      image: "src/assets/login.png",
+      alt: "login",
+    },
+  ];
+
   return (
     <div className="navbar">
-      <img className="logo" src="src/assets/lion-logo.png" alt="logo" />
-      <div className="icones">
-        <img
-          className="planete-icone"
-          src="src/assets/planete-icone.png"
-          alt="icone"
-        />
-        <img
-          className="planete-icone"
-          src="src/assets/planete-icone.png"
-          alt="icone"
-        />
-        <img
-          className="planete-icone"
-          src="src/assets/planete-icone.png"
-          alt="icone"
-        />
-        <img
-          className="planete-icone"
-          src="src/assets/planete-icone.png"
-          alt="icone"
-        />
-      </div>
-      <img className="login" src="src/assets/login.png" alt="login" />
+      {icones.map((icone) => (
+        <ItemNavbar key={icone.alt} {...icone} />
+      ))}
     </div>
   );
 }
