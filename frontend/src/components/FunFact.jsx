@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function FunFact({ textFront, factData, textBack }) {
+export default function FunFact({ textFront, factData }) {
   return (
     <>
-      {textFront} {factData} {textBack}
+      {textFront} {factData}
     </>
   );
 }
