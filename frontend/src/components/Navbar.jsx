@@ -34,8 +34,13 @@ export default function Navbar() {
 
   return (
     <div className="navbar">
-      {icones.map((icone) => (
-        <ItemNavbar key={icone.alt} {...icone} />
+      {icones.map((props) => (
+        <ItemNavbar
+          key={props.alt}
+          className={props.className}
+          image={props.image}
+          alt={props.alt}
+        />
       ))}
     </div>
   );
