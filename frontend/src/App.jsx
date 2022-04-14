@@ -2,7 +2,8 @@ import { BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import MainPage from "./components/MainPage";
 
-import "./styles/App.css";
+import "./styles/reset.css";
+import "./styles/App.scss";
 
 function App() {
   return (
