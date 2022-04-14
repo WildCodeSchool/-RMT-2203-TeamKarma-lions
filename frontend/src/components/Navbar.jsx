@@ -3,8 +3,17 @@ import "../styles/Navbar.scss";
 import ItemNavbar from "./ItemNavbar";
 
 export default function Navbar() {
-  const icones = [
+  const logoIcone = [
     { className: "logo", image: "src/assets/lion-logo.png", alt: "logo" },
+  ];
+  const loginIcone = [
+    {
+      className: "login",
+      image: "src/assets/login.png",
+      alt: "login",
+    },
+  ];
+  const icones = [
     {
       className: "planete-icone",
       image: "src/assets/planete-icone.png",
@@ -25,23 +34,40 @@ export default function Navbar() {
       image: "src/assets/tornade.png",
       alt: "fourthIcone",
     },
-    {
-      className: "login",
-      image: "src/assets/login.png",
-      alt: "login",
-    },
   ];
 
   return (
-    <div className="navbar">
-      {icones.map((props) => (
-        <ItemNavbar
-          key={props.alt}
-          className={props.className}
-          image={props.image}
-          alt={props.alt}
-        />
-      ))}
+    <div className="navbarContainer">
+      <div className="logoContainer">
+        {logoIcone.map((props) => (
+          <ItemNavbar
+            key={props.alt}
+            className={props.className}
+            image={props.image}
+            alt={props.alt}
+          />
+        ))}
+      </div>
+      <div className="navbar">
+        {icones.map((props) => (
+          <ItemNavbar
+            key={props.alt}
+            className={props.className}
+            image={props.image}
+            alt={props.alt}
+          />
+        ))}
+      </div>
+      <div className="loginContainer">
+        {loginIcone.map((props) => (
+          <ItemNavbar
+            key={props.alt}
+            className={props.className}
+            image={props.image}
+            alt={props.alt}
+          />
+        ))}
+      </div>
     </div>
   );
 }

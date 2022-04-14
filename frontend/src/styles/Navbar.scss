@@ -1,8 +1,14 @@
-.navbar {
+.navbarContainer {
   background-color: #432f64;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 3.5rem;
+}
+
+.navbar{
+  width:17rem;
+  display: flex;
+  justify-content: space-around;
 }
 
 .logo {
@@ -15,12 +21,24 @@
   margin: 0.5rem 0;
 }
 
-.icones {
-  display: flex;
-  justify-content: space-between;
-}
-
 .login {
   width: 2.5rem;
   padding: 0.5rem;
+}
+
+
+
+@media screen and (min-width:767.98px) {
+  .navbarContainer{
+    flex-direction:column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 4rem;
+    height: 100vw;
+  }
+  #root{
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-start;
+  }
 }
