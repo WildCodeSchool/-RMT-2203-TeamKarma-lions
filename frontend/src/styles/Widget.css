@@ -24,7 +24,7 @@
   justify-content: center;  
 }
 
-/*
+@media screen and (min-width: 767.98px) {
 
 .widgetsContainer {
   margin-top: 20px;
@@ -33,7 +33,7 @@
   border: 2px solid red;
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-columns: repeat(2, 300px);
 }
 
 .widget {
@@ -53,15 +53,9 @@
   border: 1px solid #f8f5f5;
 }
 
-@media screen and (max-width: 767.98px) {
-  .widget:hover {
+.widget:hover {
     transform: none;
     border: none;
   }
-} */
+} 
 
-/* 
-.widget:hover {
-  transform: scale(1.05);
-  transition: 3s;
-  border: 1px solid #f8f5f5; */
