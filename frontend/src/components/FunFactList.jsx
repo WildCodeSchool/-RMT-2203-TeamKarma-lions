@@ -29,20 +29,34 @@ export default function FunFactList() {
       });
   }, []);
 
+  const [fireBallImpact, setFireBallImpact] = useState(0);
+
+  useEffect(() => {
+    axios
+      .get(`https://ssd-api.jpl.nasa.gov/fireball.api?limit=1`)
+      .then((response) => response.data)
+      .then((data) => {
+        setFireBallImpact(data.data["0"][2]);
+      });
+  }, []);
+
   const funFacts = [
     {
-      text: "la température maximum sur Mars aujourdhui est de",
-      factData: `${marsTemp} C°`,
+      text1: "Maximum temperature for Curiosity on Mars today:",
+      factData: marsTemp,
+      text2: " C°",
     },
 
     {
-      text: "Nombre d'exoplanètes découvertes:",
+      text1: "Number of exoplanets discovered:",
       factData: nbExo,
+      text2: "",
     },
 
     {
-      text: "la température sur Saturne est de",
-      factData: 666,
+      text1: "Impact of the last Fireball on Earth:",
+      factData: fireBallImpact,
+      text2: " kt",
     },
   ];
 
@@ -50,9 +64,10 @@ export default function FunFactList() {
     <>
       {funFacts.map((funFact) => (
         <FunFact
-          key={`${funFact.factData}`}
-          textFront={funFact.text}
+          key={`${funFact.text1}`}
+          textFront={funFact.text1}
           factData={funFact.factData}
+          textBack={funFact.text2}
         />
       ))}
     </>
