@@ -6,6 +6,10 @@ import PicDescrition from "./PicDescrition";
 
 const API_KEY = "bMqccA5lJ3eoRSDx90IuwirLCn5kikVqOxDymCp0";
 
+function easeOutExpo(x) {
+  return x === 1 ? 1 : 1 - 2 ** (-5 * x);
+}
+
 export default function DailyPicture() {
   const [dailyPic, setDailyPic] = useState({});
   const [cropPic, setCropPic] = useState(true);
@@ -18,23 +22,39 @@ export default function DailyPicture() {
       .then((res) => setDailyPic(res)); // le chargement de l'image doit être une promesse !!
   }, []);
 
-  const animation = (startTime, AnimationDuration) => {
+  const animation = (startTime, AnimationDuration, reverse = false) => {
     const now = new Date().getTime();
-    if (now - startTime < AnimationDuration) {
-      const showPicVal = ((now - startTime) / AnimationDuration) * 100;
-      console.log(showPicVal);
-      setShowPic(showPicVal);
-      requestAnimationFrame(() => animation(startTime, AnimationDuration));
-    } else setShowPic(100);
+    if (!reverse) {
+      if (now - startTime < AnimationDuration) {
+        const showPicVal = easeOutExpo((now - startTime) / AnimationDuration);
+        // console.log(showPicVal);
+        setShowPic(showPicVal);
+        requestAnimationFrame(() => animation(startTime, AnimationDuration));
+      } else setShowPic(1);
+    }
+    if (reverse) {
+      if (now - startTime < AnimationDuration) {
+        const showPicVal = 1 - (now - startTime) / AnimationDuration;
+        // console.log(showPicVal);
+        setShowPic(showPicVal);
+        requestAnimationFrame(() =>
+          animation(startTime, AnimationDuration, true)
+        );
+      } else setShowPic(0);
+    }
   };
 
   useEffect(() => {
+    const startTime = new Date().getTime();
+
     if (!cropPic) {
       // workaround à la con qui ne marche pas car le useEffect se lance direct
-      console.log("useEffect cropPic");
-      const startTime = new Date().getTime();
+      // console.log("useEffect cropPic");
       const AnimationDuration = 2000;
       animation(startTime, AnimationDuration);
+    } else if (showPic > 0.5) {
+      const AnimationDuration = 1000;
+      animation(startTime, AnimationDuration, true);
     }
   }, [cropPic]);
 
@@ -47,7 +67,13 @@ export default function DailyPicture() {
         handleTogglePic={handleTogglePic}
         showPic={showPic}
       />
-      <PicDescrition dailyPic={dailyPic} />
+      <PicDescrition
+        title={dailyPic.title}
+        explanation={dailyPic.explanation}
+        date={dailyPic.date}
+        copyright={dailyPic.copyright}
+        showDes={!cropPic}
+      />
     </div>
   );
 }
