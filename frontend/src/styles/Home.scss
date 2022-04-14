@@ -1,0 +1,18 @@
+@import "./App.scss";
+
+.mainpage{
+    position: relative;
+    background-color: $primary-color ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;    
+}
+
+@media screen and (min-width: 768px) {
+    .intro-site{
+        order: -1;
+        margin: 1.5em;
+    }  
+}
