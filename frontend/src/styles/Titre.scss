@@ -1,10 +1,11 @@
-@import "./App.scss";
+@import "./variables.scss";
 
 .mainTitle{
     font-family: $font-title;
     font-size: $title-size;
     color: #ffffff;
     margin-top:1rem;
+    z-index: 10;
 
     @media screen and (min-width: 768px)  {
         order: -1;
