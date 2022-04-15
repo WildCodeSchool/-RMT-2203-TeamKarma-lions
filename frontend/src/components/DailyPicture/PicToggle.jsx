@@ -17,6 +17,8 @@ export default function PicToggle({ handleTogglePic }) {
       tabIndex={0}
       style={styleToggle}
     >
+      {/* <div className="picToggleCircle"></div> */}
+
       <img className="picToggleImg" src={openImage} alt="more info" />
     </div>
   );
