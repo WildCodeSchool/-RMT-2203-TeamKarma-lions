@@ -1,0 +1,14 @@
+@import "./variables.scss";
+
+body {
+  margin: auto;
+}
+
+p {
+  font-family: $font-text;
+  color: #ffffff;
+}
+
+*{
+  box-sizing: border-box;
+}

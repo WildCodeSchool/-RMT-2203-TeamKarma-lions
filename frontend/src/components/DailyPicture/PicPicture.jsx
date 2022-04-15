@@ -40,8 +40,7 @@ export default function PicPicture({ url, handleTogglePic, showPic }) {
 
       // console.log("showPic", showPic);
       // console.log(styleObj.clipPath)
-
-      styleObj.zIndex = 100;
+      if (showPic) styleObj.zIndex = 100;
     }
 
     if (urlraw !== "") styleObj.backgroundImage = `url(${urlraw})`;
