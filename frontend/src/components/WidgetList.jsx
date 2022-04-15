@@ -1,0 +1,23 @@
+import React from "react";
+import Widget from "./Widget";
+
+import "../styles/Widget.scss";
+
+export default function WidgetList() {
+  return (
+    <div className="widgetsContainer">
+      <article>
+        <Widget />
+      </article>
+      <article>
+        <Widget />
+      </article>
+      <article>
+        <Widget />
+      </article>
+      <article>
+        <Widget />
+      </article>
+    </div>
+  );
+}

@@ -1,13 +1,14 @@
-import Home from "@pages/Home";
-
-import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import "./styles/App.scss";
+import Navbar from "./components/Navbar";
+import MainPage from "./components/MainPage";
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-      <p>coucou</p>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <MainPage />
+    </BrowserRouter>
   );
 }
 
