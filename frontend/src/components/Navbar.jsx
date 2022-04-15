@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Navbar.scss";
 import ItemNavbar from "./ItemNavbar";
+import LogoLoginNav from "./LogoLoginNav";
 
 export default function Navbar() {
   const logoIcone = [
@@ -17,22 +18,22 @@ export default function Navbar() {
     {
       className: "planete-icone",
       image: "src/assets/planete-icone.png",
-      alt: "firstIcone",
+      alt: "Mars' weather",
     },
     {
       className: "planete-icone",
       image: "src/assets/satellite.png",
-      alt: "secondIcone",
+      alt: "Perseverance/Curiosity",
     },
     {
       className: "planete-icone",
       image: "src/assets/comete.png",
-      alt: "thirdIcone",
+      alt: "Meteorites",
     },
     {
       className: "planete-icone",
       image: "src/assets/tornade.png",
-      alt: "fourthIcone",
+      alt: "Natural events",
     },
   ];
 
@@ -40,7 +41,7 @@ export default function Navbar() {
     <div className="navbarContainer">
       <div className="logoContainer">
         {logoIcone.map((props) => (
-          <ItemNavbar
+          <LogoLoginNav
             key={props.alt}
             className={props.className}
             image={props.image}
@@ -60,7 +61,7 @@ export default function Navbar() {
       </div>
       <div className="loginContainer">
         {loginIcone.map((props) => (
-          <ItemNavbar
+          <LogoLoginNav
             key={props.alt}
             className={props.className}
             image={props.image}
