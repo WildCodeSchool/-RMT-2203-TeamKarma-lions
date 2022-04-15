@@ -46,26 +46,26 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 29rem;
+    margin-bottom: auto;
     margin-top: 8rem;
   }
 
-  .ongletContainer {
-    background-color: #432f64;
-    width: 12rem;
-    height: 3rem;
-    border-radius: 5px;
-    //border: solid 1.5px black;
-    // border-image: linear-gradient(360deg, rgba(251,68,29,1) 0%, rgba(254,190,60,1) 100%);
-    // border-image-slice: 1;
-    padding: 1px;
-    text-align: center;
-    font-size: 0.7rem;
-    color: rgba(254, 190, 60, 1);
-    position: absolute;
-    z-index: -1;
-    margin-left: 3rem;
-  }
+  // .ongletContainer {
+  //   background-color: #432f64;
+  //   width: 12rem;
+  //   height: 3rem;
+  //   border-radius: 5px;
+  //   //border: solid 1.5px black;
+  //   // border-image: linear-gradient(360deg, rgba(251,68,29,1) 0%, rgba(254,190,60,1) 100%);
+  //   // border-image-slice: 1;
+  //   padding: 1px;
+  //   text-align: center;
+  //   font-size: 0.7rem;
+  //   color: rgba(254, 190, 60, 1);
+  //   position: absolute;
+  //   z-index: -1;
+  //   margin-left: 3rem;
+  // }
 
   // .planete-icone:hover{
 
@@ -78,5 +78,6 @@
 
   .login{
     margin-right:0;
+    margin-bottom: 1rem;
   }
 }
