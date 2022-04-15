@@ -1,26 +1,26 @@
 @import "./variables.scss";
 
-.mainpage{
-    position: relative;
-    background-color: $primary-color ;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 100vh;    
+.mainpage {
+  position: relative;
+  background-color: $primary-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
 }
 
-.intro-site{
-    z-index: 10;
+.intro-site {
+  z-index: 10;
 }
 
 @media screen and (min-width: 768px) {
-    .intro-site{
-        order: -1;
-        margin: 1.5em;
-    }
-    
-    .mainpage{
-        margin-left:4rem;
-    }
+  .intro-site {
+    order: -1;
+    margin: 1.5em;
+  }
+
+  .mainpage {
+    margin-left: 4rem;
+  }
 }
