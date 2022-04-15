@@ -1,6 +1,9 @@
+@import "./App.scss";
+
 .navbarContainer {
   background-color: #432f64;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   height: 3.5rem;
 }
@@ -13,7 +16,8 @@
 
 .logo {
   width: 2.5rem;
-  padding: 0.5rem;
+  margin-left:0.5rem;
+  // padding: 0.5rem;
 }
 
 .planete-icone {
@@ -23,8 +27,10 @@
 
 .login {
   width: 2.5rem;
-  padding: 0.5rem;
+  margin-right:0.5rem;
+  // padding: 0.5rem;
 }
+
 
 @media screen and (min-width: 767.98px) {
   .navbarContainer {
@@ -32,7 +38,7 @@
     justify-content: flex-start;
     align-items: center;
     width: 4rem;
-    height: 100vw;
+    height: 100vh;
     position: fixed;
   }
 
@@ -41,7 +47,7 @@
     justify-content: flex-start;
     align-items: center;
     margin-bottom: 29rem;
-    margin-top: 7rem;
+    margin-top: 8rem;
   }
 
   .ongletContainer {
@@ -64,4 +70,13 @@
   // .planete-icone:hover{
 
   // }
+
+  .logo {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+
+  .login{
+    margin-right:0;
+  }
 }
