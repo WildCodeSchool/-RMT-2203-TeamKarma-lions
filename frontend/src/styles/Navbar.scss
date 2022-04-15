@@ -5,8 +5,8 @@
   height: 3.5rem;
 }
 
-.navbar{
-  width:17rem;
+.navbar {
+  width: 17rem;
   display: flex;
   justify-content: space-around;
 }
@@ -26,24 +26,22 @@
   padding: 0.5rem;
 }
 
-
-
-@media screen and (min-width:767.98px) {
-  .navbarContainer{
-    flex-direction:column;
+@media screen and (min-width: 767.98px) {
+  .navbarContainer {
+    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     width: 4rem;
     height: 100vw;
-    position:fixed;
+    position: fixed;
   }
-  
+
   .navbar {
-    flex-direction:column;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     margin-bottom: 29rem;
-    margin-top:7rem;
+    margin-top: 7rem;
   }
 
   .ongletContainer {
@@ -55,15 +53,15 @@
     // border-image: linear-gradient(360deg, rgba(251,68,29,1) 0%, rgba(254,190,60,1) 100%);
     // border-image-slice: 1;
     padding: 1px;
-    text-align:center;
+    text-align: center;
     font-size: 0.7rem;
-    color: rgba(254,190,60,1);
+    color: rgba(254, 190, 60, 1);
     position: absolute;
     z-index: -1;
     margin-left: 3rem;
   }
 
   // .planete-icone:hover{
-    
+
   // }
 }
