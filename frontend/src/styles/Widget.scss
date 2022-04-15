@@ -1,9 +1,10 @@
+@import "./App.scss";
+
 * {
   box-sizing: border-box;
 }
 
 .widgetsContainer {
-  margin: auto;
   margin-top: 20px;
   width: 100vw;
   background-color: #432f64;
@@ -14,48 +15,53 @@
 
 .widget {
   margin: 10px;
-  color: white;
+  color: #ffffff;
   padding: 1rem;
-  width: 20rem;
   border-radius: 10px;
   background-color: #1c0444;
-  cursor: pointer;
   display: flex;
-  justify-content: center;  
+  justify-content: center; 
+  font-family: $font-text;
+  text-align: center;
+  align-items: center;
+
 }
 
 @media screen and (min-width: 767.98px) {
 
 .widgetsContainer {
   margin-top: 20px;
-  width: 100%;
+  width: 60%;
   background-color: #432f64;
-  border: 2px solid red;
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(2, 300px);
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-gap: 10px;
 }
 
-.widget {
-
-  color: white;
-  padding: 1rem;
-  width: 20rem;
+article {
+  color: #ffffff;
+  padding: 0rem;
+  margin: 0;
   border-radius: 10px;
   background-color: #1c0444;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.widget:hover {
+article:hover {
   transform: scale(1.05);
   transition: 3s;
-  border: 1px solid #f8f5f5;
+  border: 1px solid #f310f3;
 }
+.widget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-.widget:hover {
-    transform: none;
-    border: none;
+}
+img {
+  width: 50px;
   }
 } 
 

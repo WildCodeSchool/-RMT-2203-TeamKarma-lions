@@ -1,11 +1,13 @@
 import React from "react";
-import "../styles/Widget.css";
+import "../styles/Widget.scss";
+import "../styles/App.scss";
 
 export default function Widget() {
   return (
     <div className="widget">
-      Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit
-      ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+      <img src="../assets/satellite.png"
+      alt="satellite picture" />
+      <h1>Curiosity Persévérance</h1>
     </div>
   );
 }

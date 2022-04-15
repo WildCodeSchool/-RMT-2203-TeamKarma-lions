@@ -1,7 +1,7 @@
 import React from "react";
 import Widget from "./Widget";
 
-import "../styles/Widget.css";
+import "../styles/Widget.scss";
 
 export default function WidgetList() {
   return (
