@@ -5,9 +5,8 @@ import "../styles/App.scss";
 export default function Widget() {
   return (
     <div className="widget">
-      <img src="../assets/satellite.png"
-      alt="satellite picture" />
-      <h1>Curiosity Persévérance</h1>
+      <img src="../src/assets/satellite.png" alt="satellite" />
+      <h3>Curiosity Persévérance</h3>
     </div>
   );
 }
