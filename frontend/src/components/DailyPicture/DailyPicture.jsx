@@ -48,8 +48,6 @@ export default function DailyPicture() {
     const startTime = new Date().getTime();
 
     if (!cropPic) {
-      // workaround à la con qui ne marche pas car le useEffect se lance direct
-      // console.log("useEffect cropPic");
       const AnimationDuration = 2000;
       animation(startTime, AnimationDuration);
     } else if (showPic > 0.5) {
