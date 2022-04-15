@@ -29,6 +29,7 @@
     "react/react-in-jsx-scope": "off",
     "react/jsx-one-expression-per-line": "off"
   },
+
   "settings": {
     "import/resolver": {
       "eslint-import-resolver-custom-alias": {
