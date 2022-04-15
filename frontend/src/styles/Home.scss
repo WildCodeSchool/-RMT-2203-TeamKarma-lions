@@ -1,4 +1,4 @@
-@import "./App.scss";
+@import "./variables.scss";
 
 .mainpage{
     position: relative;
@@ -10,9 +10,17 @@
     height: 100vh;    
 }
 
+.intro-site{
+    z-index: 10;
+}
+
 @media screen and (min-width: 768px) {
     .intro-site{
         order: -1;
         margin: 1.5em;
-    }  
+    }
+    
+    .mainpage{
+        margin-left:4rem;
+    }
 }
