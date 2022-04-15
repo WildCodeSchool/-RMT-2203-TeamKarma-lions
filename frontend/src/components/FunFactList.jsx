@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../styles/Funfactlist.scss";
 import axios from "axios";
 import FunFact from "./FunFact";
 
@@ -42,26 +43,26 @@ export default function FunFactList() {
 
   const funFacts = [
     {
-      text1: "Maximum temperature for Curiosity on Mars today:",
+      text1: "Max Temp for Curiosity :",
       factData: marsTemp,
       text2: " C°",
     },
 
     {
-      text1: "Number of exoplanets discovered:",
+      text1: "Exoplanets discovered:",
       factData: nbExo,
       text2: "",
     },
 
     {
-      text1: "Impact of the last Fireball on Earth:",
+      text1: "Impact of the last Fireball:",
       factData: fireBallImpact,
       text2: " kt",
     },
   ];
 
   return (
-    <>
+    <div className="funfactlist">
       {funFacts.map((funFact) => (
         <FunFact
           key={`${funFact.text1}`}
@@ -70,6 +71,6 @@ export default function FunFactList() {
           textBack={funFact.text2}
         />
       ))}
-    </>
+    </div>
   );
 }
