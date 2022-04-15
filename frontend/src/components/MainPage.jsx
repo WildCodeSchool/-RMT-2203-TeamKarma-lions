@@ -5,7 +5,7 @@ import Footer from "./Footer";
 
 export default function MainPage() {
   return (
-    <div>
+    <div className="mainpage">
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
