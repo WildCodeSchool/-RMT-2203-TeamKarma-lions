@@ -50,7 +50,7 @@ export default function PicPicture({ url, handleTogglePic, showPic }) {
 
   return (
     <div className="picPicture" style={setBackgroundImage(url)}>
-      <PicToggle handleTogglePic={handleTogglePic} />
+      <PicToggle handleTogglePic={handleTogglePic} showPic={showPic} />
     </div>
   );
 }

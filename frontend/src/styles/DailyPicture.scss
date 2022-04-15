@@ -25,6 +25,7 @@
   filter: opacity(0);
   transition: filter 2s ease-in-out;
   padding: 1rem;
+  user-select: none;
 
   h3 {
     font-weight: normal;
@@ -55,12 +56,81 @@
 .picToggle {
   position: absolute;
   // bottom: 50%;
-  top:0px;
+  top: 0px;
   right: 0px;
   width: 150px;
   height: 150px;
   background-color: #000;
   cursor: pointer;
+  .picToggleCircleContainer {
+    width: 150px;
+    height: 150px;
+    transition: transform 0.4s ease-in-out;
+    transform-origin: 106px 46px;
+
+    .bar {
+      position: absolute;
+      right: 3.5px;
+      top: 18px;
+      width: 35px;
+      height: 5px;
+      background: rgb(164, 62, 104);
+      background: linear-gradient(
+        45deg,
+        rgba(164, 62, 104, 1) 0%,
+        rgba(251, 68, 29, 1) 51%,
+        rgba(254, 190, 60, 1) 100%
+      );
+      // border: 4px solid red;
+      border-radius: 20px;
+    }
+
+    .vertical {
+      transform: rotateZ(90deg);
+      transition: transform ease-in 0.4s;
+    }
+
+    .verticalToHorizontal {
+      transform: rotateZ(0deg);
+    }
+  }
+
+  .picToggleCircleContainer:hover {
+    transform: scale(1.25);
+  }
+}
+
+.picToggleCircle {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 50px;
+  height: 50px;
+
+  $border: 4px;
+  color: #fff;
+  background: #000;
+  background-clip: padding-box; /* !importanté */
+  border: solid $border transparent; /* !importanté */
+  border-radius: 25px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -$border; /* !importanté */
+    border-radius: inherit; /* !importanté */
+    background: linear-gradient(
+      45deg,
+      rgba(164, 62, 104, 1) 0%,
+      rgba(251, 68, 29, 1) 51%,
+      rgba(254, 190, 60, 1) 100%
+    );
+  }
 }
 
 .picToggleImg {
@@ -69,8 +139,4 @@
   width: 4vh;
   transition: transform 0.3s ease-in-out;
   transform: rotateZ(45deg);
-}
-
-.picToggleImg:hover {
-  transform: scale(1.25) rotateZ(45deg);
 }
