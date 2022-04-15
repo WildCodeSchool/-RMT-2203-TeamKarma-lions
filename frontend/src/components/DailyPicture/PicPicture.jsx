@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import PicToggle from "./PicToggle";
 
 export default function PicPicture({ url, handleTogglePic, showPic }) {
-  const setBackgroundImage = (urlraw) => {
+  const [imgState, setImgState] = useState("noImg");
+
+  const setBackgroundImage = (urlraw, imgLoaded = false) => {
     const styleObj = {};
 
     if (document.getElementsByClassName("picPicture")[0]) {
@@ -42,14 +44,36 @@ export default function PicPicture({ url, handleTogglePic, showPic }) {
       // console.log(styleObj.clipPath)
       if (showPic) styleObj.zIndex = 100;
     }
+    if (urlraw !== "" && imgState === "noImg") {
+      const img = new Image();
+      img.src = urlraw;
+      img.addEventListener("load", () => {
+        setImgState("loaded");
+      });
+    }
 
-    if (urlraw !== "") styleObj.backgroundImage = `url(${urlraw})`;
+    if (imgLoaded) styleObj.backgroundImage = `url(${urlraw})`;
+
+    // if (urlraw !== "") styleObj.backgroundImage = `url(${urlraw})`;
 
     return styleObj;
   };
 
+  useEffect(() => {
+    console.log(imgState);
+    if (imgState === "loaded") setBackgroundImage(url, true);
+  }, [imgState]);
+
+  useEffect(() => {
+    console.log("render");
+  });
+
   return (
-    <div className="picPicture" style={setBackgroundImage(url)}>
+    <div
+      className="picPicture"
+      style={setBackgroundImage(url, imgState === "loaded")}
+    >
+      <img src={url} alt="img loading hack" style={{ display: "none" }} />
       <PicToggle handleTogglePic={handleTogglePic} showPic={showPic} />
     </div>
   );
