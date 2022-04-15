@@ -1,21 +1,4 @@
-$primary-color: #403061;
-$nav-primary-color: orange;
-
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap");
-
-/* Fonts */
-@font-face {
-  font-family: "Space Age";
-  src: url("../assets/space-age.ttf") format("ttf");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-$font-text: "Space Grotesk", sans-serif;
-$font-title: "Space Age", sans-serif;
-
-$title-size: clamp(2.2rem, 5.5vw, 5.5rem);
+@import "./variables.scss";
 
 body {
   margin: auto;
@@ -24,4 +7,8 @@ body {
 p {
   font-family: $font-text;
   color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
 }
