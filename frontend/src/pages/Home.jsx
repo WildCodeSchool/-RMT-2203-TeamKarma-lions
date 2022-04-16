@@ -8,13 +8,19 @@ import WidgetList from "../components/WidgetList";
 export default function Home() {
   return (
     <>
-      <Titre titre="NASA X LIONS" />
+      <div className="intro-align">
+        <div className="intro-bloc">
+          <Titre titre="NASA X LIONS" />
+          <p className="intro-site">
+            The Universe is infinitely large. If you want to know more about our
+            exoplanets, about the meteorites that fall on Earth, or if you want
+            to visit Mars without leaving your home, you have come to the right
+            place. Good visit!
+          </p>
+        </div>
+        <FunFactList />
+      </div>
       <DailyPicture />
-      <FunFactList />
-      <p className="intro-site">
-        The Universe is infinitely large. Discover many anecdotes about all the
-        materials that surround our planet.
-      </p>
       <WidgetList />
     </>
   );
