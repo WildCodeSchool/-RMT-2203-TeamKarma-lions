@@ -4,9 +4,11 @@ import PicToggle from "./PicToggle";
 
 export default function PicPicture({ url, handleTogglePic, showPic }) {
   const [imgState, setImgState] = useState("noImg");
+  const [backgroundImage, setBackgroundImage] = useState({});
 
-  const setBackgroundImage = (urlraw, imgLoaded = false) => {
+  const calcBackgroundImage = (urlraw, imgLoaded = false) => {
     const styleObj = {};
+    // console.log("calcBackgroundImage");
 
     if (document.getElementsByClassName("picPicture")[0]) {
       const baseHeight =
@@ -41,15 +43,8 @@ export default function PicPicture({ url, handleTogglePic, showPic }) {
          }px ${leftDot}px)`;
 
       // console.log("showPic", showPic);
-      // console.log(styleObj.clipPath)
+      // console.log(styleObj.clipPath);
       if (showPic) styleObj.zIndex = 100;
-    }
-    if (urlraw !== "" && imgState === "noImg") {
-      const img = new Image();
-      img.src = urlraw;
-      img.addEventListener("load", () => {
-        setImgState("loaded");
-      });
     }
 
     if (imgLoaded) styleObj.backgroundImage = `url(${urlraw})`;
@@ -60,20 +55,39 @@ export default function PicPicture({ url, handleTogglePic, showPic }) {
   };
 
   useEffect(() => {
-    console.log(imgState);
-    if (imgState === "loaded") setBackgroundImage(url, true);
-  }, [imgState]);
+    // console.log("useEffect / imgState update", imgState, update);
+    if (imgState === "loaded")
+      setBackgroundImage(calcBackgroundImage(url, true));
 
-  useEffect(() => {
-    console.log("render");
-  });
+    if (url !== "" && imgState === "noImg") {
+      // console.log("addEventListener(load)");
+      const img = new Image();
+      img.src = url;
+      img.addEventListener("load", () => {
+        setImgState("loaded");
+      });
+
+      window.addEventListener("resize", () => {
+        // console.log("eventListener resize", update);
+        // setBackgroundImage(url, true);
+        setBackgroundImage(calcBackgroundImage(url, true));
+      });
+    }
+  }, [url, imgState, showPic]);
+
+  // useEffect(() => {
+  //   console.log(
+  //     "*** render url, showPic, update, imgState",
+  //     url,
+  //     showPic,
+  //     update,
+  //     imgState
+  //   );
+  // });
 
   return (
-    <div
-      className="picPicture"
-      style={setBackgroundImage(url, imgState === "loaded")}
-    >
-      <img src={url} alt="img loading hack" style={{ display: "none" }} />
+    <div className="picPicture" style={backgroundImage}>
+      {/* <img src={url} alt="img loading hack" style={{ display: "none" }} /> */}
       <PicToggle handleTogglePic={handleTogglePic} showPic={showPic} />
     </div>
   );

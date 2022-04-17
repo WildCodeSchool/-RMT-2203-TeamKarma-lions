@@ -11,8 +11,6 @@ export default function PicToggle({ handleTogglePic, showPic }) {
   const [showPicDone, setShowPicDone] = useState(false);
 
   useEffect(() => {
-    console.log(showPic, showPicDone, verticalClass);
-
     if (showPic > 0 && verticalClass === "bar vertical")
       setVerticalClass("bar vertical verticalToHorizontal");
 
@@ -20,7 +18,7 @@ export default function PicToggle({ handleTogglePic, showPic }) {
 
     if (showPic < 1 && showPicDone) setVerticalClass("bar vertical");
 
-    if (showPic === 0 && !showPicDone) setShowPicDone(false);
+    if (showPic === 0 && showPicDone) setShowPicDone(false);
   }, [showPic]);
 
   return (
