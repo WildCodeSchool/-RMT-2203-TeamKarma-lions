@@ -1,10 +1,12 @@
 import React from "react";
-import "../styles/Footer.scss";
 
 export default function Footer() {
   return (
     <div className="lionsfooter">
-      <p className="pfooter">2022 Team Lion x Wild Code School</p>
+      <p>
+        2022 © Wild Code School x Team Lion : Julien Vigneron, Clémence Pham,
+        Lora Perrichon, Frédérique Demas, Paul Sanchez.
+      </p>
     </div>
   );
 }
