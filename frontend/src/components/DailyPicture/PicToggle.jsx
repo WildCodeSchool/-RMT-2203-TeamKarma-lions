@@ -44,7 +44,3 @@ PicToggle.propTypes = {
   handleTogglePic: PropTypes.func.isRequired,
   showPic: PropTypes.number.isRequired,
 };
-
-// PicToggle.defaultProps = {
-//   baseHeight: false,
-// };

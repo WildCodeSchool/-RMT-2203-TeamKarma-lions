@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import PicToggle from "./PicToggle";
+import PicDescrition from "./PicDescrition";
 
-export default function PicPicture({ url, handleTogglePic, showPic }) {
+export default function PicPicture({
+  url,
+  handleTogglePic,
+  showPic,
+  dailyPic,
+  cropPic,
+}) {
   const [imgState, setImgState] = useState("noImg");
   const [backgroundImage, setBackgroundImage] = useState({});
 
@@ -89,6 +96,13 @@ export default function PicPicture({ url, handleTogglePic, showPic }) {
     <div className="picPicture" style={backgroundImage}>
       {/* <img src={url} alt="img loading hack" style={{ display: "none" }} /> */}
       <PicToggle handleTogglePic={handleTogglePic} showPic={showPic} />
+      <PicDescrition
+        title={dailyPic.title}
+        explanation={dailyPic.explanation}
+        date={dailyPic.date}
+        copyright={dailyPic.copyright}
+        showDes={!cropPic}
+      />
     </div>
   );
 }

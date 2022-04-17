@@ -17,9 +17,10 @@
 }
 
 .picDescription {
-  background-color: #000;
+  background-color: $primary-color;
   position: absolute;
   top: 0;
+  right: 0;
   width: 50%;
   color: white;
   filter: opacity(0);
@@ -28,6 +29,10 @@
   user-select: none;
 
   h3 {
+    display: block;
+    width: calc(100% - 75px);
+    margin-top: .2rem;
+    font-size: 1.6rem;
     font-weight: normal;
     font-style: normal;
     font-family: $font-title;
@@ -41,12 +46,17 @@
 
 .picDescriptionAnimation {
   z-index: 101;
-  filter: opacity(0.2);
+  filter: opacity(0.1);
+  // filter: linear-gradient(to left, rgba(255,0,0,0), rgba(255,0,0,1));
   transition: filter 0.4s ease-in-out;
 }
 
 .picDescriptionAnimation:hover {
   filter: opacity(0.9);
+}
+
+.picDescriptionDate{
+  text-align: right;
 }
 
 .dNone {
@@ -56,6 +66,7 @@
 $picToggleSize : 80px;
 
 .picToggle {
+  z-index: 103;
   position: absolute;
   // bottom: 50%;
   top: 0px;
@@ -67,6 +78,7 @@ $picToggleSize : 80px;
   overflow: hidden;
 
   .picToggleCircleContainer {
+    position: relative;
     width: $picToggleSize;
     height: $picToggleSize;
     transition: transform 0.4s ease-in-out;

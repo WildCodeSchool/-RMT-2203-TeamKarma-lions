@@ -28,7 +28,7 @@ export default function PicDescrition({
     <div className={classList}>
       <h3>{title}</h3>
       <p>{explanation}</p>
-      <p>
+      <p className="picDescriptionDate">
         {date} {copyright}
       </p>
     </div>
