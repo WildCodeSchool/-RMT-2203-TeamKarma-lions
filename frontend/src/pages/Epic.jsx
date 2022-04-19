@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Home.scss";
 import Titre from "../components/Titre";
-import Calendar from "../components/Epic/Calendar";
+import CalendarOps from "../components/Epic/CalendarOps";
 import EpicEvent from "../components/Epic/EpicEvent";
 import EpicPictures from "../components/Epic/EpicPictures";
 
@@ -17,7 +17,7 @@ export default function Home() {
         ad tempus, et tria milia saltatricum ne interpellata quidem cum choris
         totidemque remanerent magistris.
       </p>
-      <Calendar />
+      <CalendarOps />
       <EpicEvent />
       <EpicPictures />
     </>
