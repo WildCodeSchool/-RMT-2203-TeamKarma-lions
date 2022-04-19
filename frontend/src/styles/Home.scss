@@ -7,6 +7,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  min-height: cal(100vh- 3.5rem);
   //   background: #432f64;
   // background: linear-gradient(90deg, #432f64 0%, #1c0444 100%);
 }
@@ -41,7 +42,7 @@ h1 {
   }
   .mainpage {
     margin-left: 4rem;
-    height: 100vh;
+    min-height: 100vh;
   }
   p.intro-site {
     font-size: 130%;
