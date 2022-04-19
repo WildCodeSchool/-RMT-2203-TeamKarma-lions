@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "../../styles/DailyPicture.scss";
 import PicPicture from "./PicPicture";
-import PicDescrition from "./PicDescrition";
 
 const API_KEY = "bMqccA5lJ3eoRSDx90IuwirLCn5kikVqOxDymCp0";
 
@@ -64,13 +63,8 @@ export default function DailyPicture() {
         url={dailyPic.url}
         handleTogglePic={handleTogglePic}
         showPic={showPic}
-      />
-      <PicDescrition
-        title={dailyPic.title}
-        explanation={dailyPic.explanation}
-        date={dailyPic.date}
-        copyright={dailyPic.copyright}
-        showDes={!cropPic}
+        dailyPic={dailyPic}
+        cropPic={cropPic}
       />
     </div>
   );
