@@ -21,7 +21,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 50%;
+  width: 70ch;
   color: white;
   filter: opacity(0);
   transition: filter 2s ease-in-out;
@@ -46,7 +46,7 @@
 
 .picDescriptionAnimation {
   z-index: 101;
-  filter: opacity(0.1);
+  filter: opacity(0.05);
   // filter: linear-gradient(to left, rgba(255,0,0,0), rgba(255,0,0,1));
   transition: filter 0.4s ease-in-out;
 }

@@ -23,19 +23,20 @@ export default function PicPicture({
       const baseWidth =
         document.getElementsByClassName("picPicture")[0].clientWidth;
 
-      const totalDistance = baseHeight / 2 + baseWidth;
-      const currentDistance = totalDistance * showPic;
+      if (baseWidth > baseHeight) {
+        const totalDistance = baseHeight / 2 + baseWidth;
+        const currentDistance = totalDistance * showPic;
 
-      const topDot =
-        baseWidth -
-        baseHeight / 2 -
-        Math.min(currentDistance, baseWidth - baseHeight / 2);
-      const leftDot =
-        baseHeight / 2 + Math.min(currentDistance, baseHeight / 2);
+        const topDot =
+          baseWidth -
+          baseHeight / 2 -
+          Math.min(currentDistance, baseWidth - baseHeight / 2);
+        const leftDot =
+          baseHeight / 2 + Math.min(currentDistance, baseHeight / 2);
 
-      styleObj.clipPath = `polygon(${topDot}px ${
-        topDot === 0 ? currentDistance - (baseWidth - baseHeight / 2) : 0
-      }px,
+        styleObj.clipPath = `polygon(${topDot}px ${
+          topDot === 0 ? currentDistance - (baseWidth - baseHeight / 2) : 0
+        }px,
       ${
         baseWidth -
         baseHeight / 2 -
@@ -48,9 +49,29 @@ export default function PicPicture({
              ? baseWidth - (currentDistance - baseHeight / 2)
              : baseWidth
          }px ${leftDot}px)`;
+      } else {
+        const totalDistance = baseWidth / 2 + baseHeight;
+        const currentDistance = totalDistance * showPic;
 
-      // console.log("showPic", showPic);
-      // console.log(styleObj.clipPath);
+        const topDot = baseWidth / 2 - Math.min(currentDistance, baseWidth / 2);
+        const leftDot =
+          baseWidth / 2 + Math.min(currentDistance, baseHeight - baseWidth / 2);
+
+        styleObj.clipPath = `polygon(${topDot}px ${
+          topDot === 0 ? currentDistance - baseWidth / 2 : 0
+        }px,
+         ${topDot}px 0,
+         100% 0, 
+         100% ${leftDot}px,
+         ${
+           leftDot === baseHeight
+             ? baseWidth - (currentDistance - (baseHeight - baseWidth / 2))
+             : baseWidth
+         }px ${leftDot}px)`;
+        // console.log("topDot", topDot, "leftDot", leftDot);
+      }
+
+      console.log(styleObj.clipPath);
       if (showPic) styleObj.zIndex = 100;
     }
 
