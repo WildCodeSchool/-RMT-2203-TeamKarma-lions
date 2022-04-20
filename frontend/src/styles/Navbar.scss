@@ -1,11 +1,12 @@
 @import "./App.scss";
 
 .navbarContainer {
-  background-color: #432f64;
+  background-color: $nav-primary-color;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 3.5rem;
+  z-index: 150;
 }
 
 .navbar {
@@ -30,8 +31,8 @@
   margin-right: 0.5rem;
 }
 
-.isNotActiveOnglet{
-  display:none;
+.isNotActiveOnglet {
+  display: none;
 }
 
 @media screen and (min-width: 767.98px) {
@@ -61,32 +62,50 @@
   //     background-color: red;
   // }
 
-  .texteOnglet{
-    padding-left:2rem;
+  @keyframes animationIn {
+    0% {
+      transform: translateX(-300px);
+      filter: opacity(0);
+    }
+    50% {
+      filter: opacity(0);
+    }
+    100% {
+      transform: translateX(0);
+      filter: opacity(1);
+    }
   }
-
-  
 
   .onglet {
     display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      width: 13rem;
-      background-color: red;
-      position:absolute;
-      top:-0.5rem;
-      left: 3.5rem;
-      transform: translateX(-300px);
-      transition: transform 0.4s ease-in-out;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 13rem;
+    background-color: $nav-primary-color;
+    position: absolute;
+    top: -0.5rem;
+    left: 3.5rem;
+    font-family: $font-text;
+    color: white;
+    transform: translateX(-300px);
+    filter: opacity(0);
+
+    h3 {
+      display: block;
+      position: relative;
+      left: 20px;
+    }
   }
 
   .mouseEnter {
-    transform: translateX(0);
-    transition: transform 0.4s ease-in-out;
+    animation: animationIn 0.4s ease-in-out;
+    animation-fill-mode: both;
+    animation-direction: alternate;
   }
 
-  .iconeContainer{
-    position:relative;
+  .iconeContainer {
+    position: relative;
+    cursor: pointer;
   }
   // .isActive {
   //   background-color: #e80606;

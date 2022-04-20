@@ -4,17 +4,17 @@ import "../styles/Navbar.scss";
 export default function ItemNavbar({ image, alt }) {
   // const [active, setActive] = useState({ isActive });
   const [mouseEnter, setMouseEnter] = useState(false);
-  const [mouseLeave, setMouseLeave] = useState(true);
+  // const [mouseLeave, setMouseLeave] = useState(true);
   const [click, setClick] = useState(false);
 
   // const handleActive = () => {
   //   setActive(!active);
   // };
   const handleMouseEnter = () => {
-    setMouseEnter(!mouseEnter);
+    setMouseEnter(true);
   };
   const handleMouseLeave = () => {
-    setMouseLeave(!mouseLeave);
+    setMouseEnter(false);
   };
   const handleClick = () => {
     setClick(!click);
@@ -33,7 +33,7 @@ export default function ItemNavbar({ image, alt }) {
       <div
         className={mouseEnter ? "onglet mouseEnter" : "onglet notMouseEnter"}
       >
-        <h3>{alt}</h3>
+        <h3 className="texteOnglet">{alt}</h3>
       </div>
     </div>
   );

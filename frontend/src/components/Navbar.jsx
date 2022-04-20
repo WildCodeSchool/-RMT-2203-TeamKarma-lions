@@ -27,8 +27,14 @@ export default function Navbar() {
     },
     {
       className: "planete-icone",
+      image: "src/assets/perseverance.png",
+      alt: "Perseverance",
+      isActive: false,
+    },
+    {
+      className: "planete-icone",
       image: "src/assets/satellite.png",
-      alt: "Perseverance/Curiosity",
+      alt: "Curiosity",
       isActive: false,
     },
     {
