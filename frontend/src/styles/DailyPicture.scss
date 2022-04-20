@@ -4,7 +4,13 @@
   position: absolute;
   top: 0;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 3.5rem);
+}
+
+@media screen and (min-width: 768px) {
+  .dailyPicContainer {
+    height: 100vh;
+  }
 }
 
 .picPicture {
@@ -31,7 +37,7 @@
   h3 {
     display: block;
     width: calc(100% - 75px);
-    margin-top: .2rem;
+    margin-top: 0.2rem;
     font-size: 1.6rem;
     font-weight: normal;
     font-style: normal;
@@ -55,7 +61,7 @@
   filter: opacity(0.9);
 }
 
-.picDescriptionDate{
+.picDescriptionDate {
   text-align: right;
 }
 
@@ -63,7 +69,7 @@
   display: none;
 }
 
-$picToggleSize : 80px;
+$picToggleSize: 80px;
 
 .picToggle {
   z-index: 103;

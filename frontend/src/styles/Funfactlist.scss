@@ -4,7 +4,7 @@
   z-index: 20;
   // margin: 4rem;
   margin: 0em 4em;
-  // width: 60%;
+  width: 60%;
   .funfact {
     height: 5rem;
     background-color: rgba(254, 254, 255, 0.6);
@@ -28,6 +28,6 @@
 @media screen and (min-width: 768px) {
   .funfactlist {
     align-self: end;
-    // width:auto;
+    width:initial;
   }
 }
