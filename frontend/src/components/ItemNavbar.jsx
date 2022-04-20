@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "../styles/Navbar.scss";
 
-export default function ItemNavbar({ image, alt, isActive }) {
-  const [active, setActive] = useState({ isActive });
+export default function ItemNavbar({ image, alt }) {
+  // const [active, setActive] = useState({ isActive });
   const [mouseEnter, setMouseEnter] = useState(false);
   const [mouseLeave, setMouseLeave] = useState(true);
   const [click, setClick] = useState(false);
