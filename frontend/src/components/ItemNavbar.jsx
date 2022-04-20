@@ -3,22 +3,37 @@ import "../styles/Navbar.scss";
 
 export default function ItemNavbar({ image, alt, isActive }) {
   const [active, setActive] = useState({ isActive });
-  const handleActive = () => {
-    setActive(!active);
-    // ajout d'une classe active quand on passe la souris sur l'élément
+  const [mouseEnter, setMouseEnter] = useState(false);
+  const [mouseLeave, setMouseLeave] = useState(true);
+  const [click, setClick] = useState(false);
+
+  // const handleActive = () => {
+  //   setActive(!active);
+  // };
+  const handleMouseEnter = () => {
+    setMouseEnter(!mouseEnter);
+  };
+  const handleMouseLeave = () => {
+    setMouseLeave(!mouseLeave);
+  };
+  const handleClick = () => {
+    setClick(!click);
   };
   return (
-    <div className={active ? "isActive" : "notActive"}>
-      <img
-        onMouseOver={() => handleActive()}
-        onFocus={() => handleActive()}
-        onMouseOut={() => handleActive()}
-        onBlur={() => handleActive()}
-        src={image}
-        alt={alt}
-      />
-      <div>
-        <h3 className="texteOnglet">{alt}</h3>
+    <div
+      onMouseEnter={() => handleMouseEnter()}
+      onMouseLeave={() => handleMouseLeave()}
+      onClick={() => handleClick()}
+      onKeyPress={() => handleClick()}
+      role="button"
+      tabIndex={0}
+      className="iconeContainer"
+    >
+      <img src={image} alt={alt} />
+      <div
+        className={mouseEnter ? "onglet mouseEnter" : "onglet notMouseEnter"}
+      >
+        <h3>{alt}</h3>
       </div>
     </div>
   );

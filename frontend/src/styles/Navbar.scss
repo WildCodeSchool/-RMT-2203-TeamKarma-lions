@@ -52,19 +52,42 @@
     margin-top: 8rem;
   }
 
-    .isActive {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      margin-left: 10.2rem;
-      width: 13rem;
-      background-color: red;
-  }
+  //   .isActive {
+  //     display: flex;
+  //     flex-direction: row;
+  //     justify-content: flex-start;
+  //     margin-left: 10.2rem;
+  //     width: 13rem;
+  //     background-color: red;
+  // }
 
   .texteOnglet{
     padding-left:2rem;
   }
 
+  
+
+  .onglet {
+    display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 13rem;
+      background-color: red;
+      position:absolute;
+      top:-0.5rem;
+      left: 3.5rem;
+      transform: translateX(-300px);
+      transition: transform 0.4s ease-in-out;
+  }
+
+  .mouseEnter {
+    transform: translateX(0);
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .iconeContainer{
+    position:relative;
+  }
   // .isActive {
   //   background-color: #e80606;
   //   width: 3rem;
