@@ -71,7 +71,7 @@ export default function PicPicture({
         // console.log("topDot", topDot, "leftDot", leftDot);
       }
 
-      console.log(styleObj.clipPath);
+      // console.log(styleObj.clipPath);
       if (showPic) styleObj.zIndex = 100;
     }
 

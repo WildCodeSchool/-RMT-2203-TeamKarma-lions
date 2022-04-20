@@ -23,7 +23,6 @@
   font-family: $font-text;
   text-align: center;
   align-items: center;
-
 }
 
 img {
@@ -35,7 +34,7 @@ img {
 
 .widgetsContainer {
   margin-top: 20px;
-  width: 60%;
+  width: 80%;
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fill, 300px);
@@ -49,14 +48,18 @@ article {
   border-radius: 10px;
   background-color: #1c0444;
   cursor: pointer;
-  transition: 0.3s;
+  transition: transform 0.4s ease-in-out;
+  box-shadow: $box-shadow;
+  z-index: 10;
+  border: 2px solid #fb461d00;
 }
 
 article:hover {
   transform: scale(1.05);
-  transition: 3s;
-  border: 2px solid #fb441d;
+  transition: transform .4s ease-in-out;
+  border: 2px solid $nav-primary-color;
 }
+
 .widget {
   display: flex;
   flex-direction: column;
