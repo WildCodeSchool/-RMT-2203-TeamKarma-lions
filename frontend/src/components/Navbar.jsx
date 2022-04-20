@@ -5,7 +5,11 @@ import LogoLoginNav from "./LogoLoginNav";
 
 export default function Navbar() {
   const logoIcone = [
-    { className: "logo", image: "src/assets/lion-logo.png", alt: "logo" },
+    {
+      className: "logo",
+      image: "src/assets/lion-logo.png",
+      alt: "logo",
+    },
   ];
   const loginIcone = [
     {
@@ -19,21 +23,25 @@ export default function Navbar() {
       className: "planete-icone",
       image: "src/assets/planete-icone.png",
       alt: "Mars' weather",
+      isActive: false,
     },
     {
       className: "planete-icone",
       image: "src/assets/satellite.png",
       alt: "Perseverance/Curiosity",
+      isActive: false,
     },
     {
       className: "planete-icone",
       image: "src/assets/comete.png",
       alt: "Meteorites",
+      isActive: false,
     },
     {
       className: "planete-icone",
       image: "src/assets/tornade.png",
       alt: "Natural events",
+      isActive: false,
     },
   ];
 
@@ -50,12 +58,12 @@ export default function Navbar() {
       ))}
       {/* </div> */}
       <div className="navbar">
-        {icones.map((props) => (
+        {icones.map((icone) => (
           <ItemNavbar
-            key={props.alt}
-            className={props.className}
-            image={props.image}
-            alt={props.alt}
+            key={icone.alt}
+            image={icone.image}
+            alt={icone.alt}
+            isActive={icone.isActive}
           />
         ))}
       </div>

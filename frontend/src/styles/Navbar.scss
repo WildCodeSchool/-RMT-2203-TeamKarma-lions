@@ -28,7 +28,10 @@
 .login {
   width: 2.5rem;
   margin-right: 0.5rem;
-  // padding: 0.5rem;
+}
+
+.isNotActiveOnglet{
+  display:none;
 }
 
 @media screen and (min-width: 767.98px) {
@@ -49,9 +52,22 @@
     margin-top: 8rem;
   }
 
-  // .ongletContainer {
-  //   background-color: #432f64;
-  //   width: 12rem;
+    .isActive {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      margin-left: 10.2rem;
+      width: 13rem;
+      background-color: red;
+  }
+
+  .texteOnglet{
+    padding-left:2rem;
+  }
+
+  // .isActive {
+  //   background-color: #e80606;
+  //   width: 3rem;
   //   height: 3rem;
   //   border-radius: 5px;
   //   //border: solid 1.5px black;
@@ -62,35 +78,48 @@
   //   font-size: 0.7rem;
   //   color: rgba(254, 190, 60, 1);
   //   position: absolute;
-  //   z-index: -1;
+  //   margin-left: 150rem;
+  //   margin: 0.5rem 0;
+  // }
+
+  // .notActive {
+  //   background-color: #a43114;
+  //   width: 12rem;
+  //   height: 3rem;
+  //   border-radius: 5px;
+  //   //border: solid 1.5px black;
+  //   // border-image: linear-gradient(360deg, rgba(251,68,29,1) 0%, rgba(254,190,60,1) 100%);
+  //   // border-image-slice: 1;
+  //   padding: 1px;
+  //   text-align: center;
+  //   font-size: 0.7rem;
+  //   color: rgba(254, 190, 60, 1);
+  //   position: relative;
   //   margin-left: 3rem;
-  //   $border: 4px;
-  //   color: #fff;
-  //   background: #000;
-  //   background-clip: padding-box; /* !importanté */
-  //   border: solid $border transparent; /* !importanté */
-  //   border-radius: 25px;
-  
-  //   &:before {
-  //     content: "";
-  //     position: absolute;
-  //     top: 0;
-  //     right: 0;
-  //     bottom: 0;
-  //     left: 0;
-  //     z-index: -1;
-  //     margin: -$border; /* !importanté */
-  //     border-radius: inherit; /* !importanté */
-  //     background: linear-gradient(
-  //       45deg,
-  //       rgba(164, 62, 104, 1) 0%,
-  //       rgba(251, 68, 29, 1) 51%,
-  //       rgba(254, 190, 60, 1) 100%
-  //     );
-  //}
+  //   width: 2.5rem;
+  //   margin: 0.5rem 0;
+  // }
 
-  // .planete-icone:hover{
+  // .isActiveOnglet{
+  //   background-color: #e80606;
+  //   width: 12rem;
+  //   height: 3rem;
+  //   border-radius: 5px;
+  //   //border: solid 1.5px black;
+  //   // border-image: linear-gradient(360deg, rgba(251,68,29,1) 0%, rgba(254,190,60,1) 100%);
+  //   // border-image-slice: 1;
+  //   padding: 1px;
+  //   text-align: center;
+  //   font-size: 0.7rem;
+  //   color: rgba(254, 190, 60, 1);
+  //   position: relative;
+  //   margin-left: 3rem;
+  //   margin: 0.5rem 0;
+  //   z-index: 150;
+  // }
 
+  // .isNotActiveOnglet{
+  //   display:none;
   // }
 
   .logo {
