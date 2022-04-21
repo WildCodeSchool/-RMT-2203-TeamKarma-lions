@@ -15,7 +15,6 @@ export default function PicPicture({
 
   const calcBackgroundImage = (urlraw, imgLoaded = false) => {
     const styleObj = {};
-    // console.log("calcBackgroundImage");
 
     if (document.getElementsByClassName("picPicture")[0]) {
       const baseHeight =
@@ -68,27 +67,21 @@ export default function PicPicture({
              ? baseWidth - (currentDistance - (baseHeight - baseWidth / 2))
              : baseWidth
          }px ${leftDot}px)`;
-        // console.log("topDot", topDot, "leftDot", leftDot);
       }
 
-      // console.log(styleObj.clipPath);
       if (showPic) styleObj.zIndex = 100;
     }
 
     if (imgLoaded) styleObj.backgroundImage = `url(${urlraw})`;
 
-    // if (urlraw !== "") styleObj.backgroundImage = `url(${urlraw})`;
-
     return styleObj;
   };
 
   useEffect(() => {
-    // console.log("useEffect / imgState update", imgState, update);
     if (imgState === "loaded")
       setBackgroundImage(calcBackgroundImage(url, true));
 
     if (url !== "" && imgState === "noImg") {
-      // console.log("addEventListener(load)");
       const img = new Image();
       img.src = url;
       img.addEventListener("load", () => {
@@ -96,26 +89,13 @@ export default function PicPicture({
       });
 
       window.addEventListener("resize", () => {
-        // console.log("eventListener resize", update);
-        // setBackgroundImage(url, true);
         setBackgroundImage(calcBackgroundImage(url, true));
       });
     }
   }, [url, imgState, showPic]);
 
-  // useEffect(() => {
-  //   console.log(
-  //     "*** render url, showPic, update, imgState",
-  //     url,
-  //     showPic,
-  //     update,
-  //     imgState
-  //   );
-  // });
-
   return (
     <div className="picPicture" style={backgroundImage}>
-      {/* <img src={url} alt="img loading hack" style={{ display: "none" }} /> */}
       <PicToggle handleTogglePic={handleTogglePic} showPic={showPic} />
       <PicDescrition
         title={dailyPic.title}

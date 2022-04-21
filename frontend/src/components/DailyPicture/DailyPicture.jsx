@@ -28,7 +28,6 @@ export default function DailyPicture() {
     if (!reverse) {
       if (now - startTime < AnimationDuration) {
         const showPicVal = easeOutExpo((now - startTime) / AnimationDuration);
-        // console.log(showPicVal);
         setShowPic(showPicVal);
         requestAnimationFrame(() => animation(startTime, AnimationDuration));
       } else setShowPic(1);
@@ -36,7 +35,6 @@ export default function DailyPicture() {
     if (reverse) {
       if (now - startTime < AnimationDuration) {
         const showPicVal = 1 - (now - startTime) / AnimationDuration;
-        // console.log(showPicVal);
         setShowPic(showPicVal);
         requestAnimationFrame(() =>
           animation(startTime, AnimationDuration, true)
