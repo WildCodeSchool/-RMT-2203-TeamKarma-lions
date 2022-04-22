@@ -4,7 +4,7 @@ import axios from "axios";
 import FunFact from "./FunFact";
 
 export default function FunFactList() {
-  const [marsTemp, setMarsTemp] = useState(0);
+  const [marsTemp, setMarsTemp] = useState("LOAD");
 
   useEffect(() => {
     axios
@@ -13,11 +13,11 @@ export default function FunFactList() {
       )
       .then((response) => response.data)
       .then((data) => {
-        setMarsTemp(data.soles[0].max_temp);
+        setMarsTemp(`${data.soles[0].max_temp} °C`);
       });
   }, []);
 
-  const [nbExo, setNbExo] = useState(0);
+  const [nbExo, setNbExo] = useState("LOAD");
 
   useEffect(() => {
     axios
@@ -30,34 +30,34 @@ export default function FunFactList() {
       });
   }, []);
 
-  const [fireBallImpact, setFireBallImpact] = useState(0);
+  const [fireBallImpact, setFireBallImpact] = useState("LOAD");
 
   useEffect(() => {
     axios
       .get(`https://ssd-api.jpl.nasa.gov/fireball.api?limit=1`)
       .then((response) => response.data)
       .then((data) => {
-        setFireBallImpact(data.data["0"][2]);
+        setFireBallImpact(`${data.data["0"][2]} kt`);
       });
   }, []);
 
   const funFacts = [
     {
-      text1: "Max Temp for Curiosity :",
+      text1: "Max Temp for Curiosity :",
       factData: marsTemp,
-      text2: " C°",
+      text2: "",
     },
 
     {
-      text1: "Exoplanets discovered:",
+      text1: "Exoplanets discovered :",
       factData: nbExo,
       text2: "",
     },
 
     {
-      text1: "Impact of the last Fireball:",
+      text1: "Impact of the last Fireball :",
       factData: fireBallImpact,
-      text2: " kt",
+      text2: "",
     },
   ];
 
