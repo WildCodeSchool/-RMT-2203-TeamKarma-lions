@@ -49,49 +49,49 @@
     margin-top: 8rem;
   }
 
-  // .ongletContainer {
-  //   background-color: #432f64;
-  //   width: 12rem;
-  //   height: 3rem;
-  //   border-radius: 5px;
-  //   //border: solid 1.5px black;
-  //   // border-image: linear-gradient(360deg, rgba(251,68,29,1) 0%, rgba(254,190,60,1) 100%);
-  //   // border-image-slice: 1;
-  //   padding: 1px;
-  //   text-align: center;
-  //   font-size: 0.7rem;
-  //   color: rgba(254, 190, 60, 1);
-  //   position: absolute;
-  //   z-index: -1;
-  //   margin-left: 3rem;
-  //   $border: 4px;
-  //   color: #fff;
-  //   background: #000;
-  //   background-clip: padding-box; /* !importanté */
-  //   border: solid $border transparent; /* !importanté */
-  //   border-radius: 25px;
+  .ongletContainer {
+    background-color: #432f64;
+    width: 12rem;
+    height: 3rem;
+    border-radius: 5px;
+    //border: solid 1.5px black;
+    // border-image: linear-gradient(360deg, rgba(251,68,29,1) 0%, rgba(254,190,60,1) 100%);
+    // border-image-slice: 1;
+    padding: 1px;
+    text-align: center;
+    font-size: 0.7rem;
+    color: rgba(254, 190, 60, 1);
+    position: absolute;
+    z-index: -1;
+    margin-left: 3rem;
+    // $border: 4px;
+    // color: #fff;
+    // background: #000;
+    // background-clip: padding-box; /* !importanté */
+    // border: solid $border transparent; /* !importanté */
+    // border-radius: 25px;
   
-  //   &:before {
-  //     content: "";
-  //     position: absolute;
-  //     top: 0;
-  //     right: 0;
-  //     bottom: 0;
-  //     left: 0;
-  //     z-index: -1;
-  //     margin: -$border; /* !importanté */
-  //     border-radius: inherit; /* !importanté */
-  //     background: linear-gradient(
-  //       45deg,
-  //       rgba(164, 62, 104, 1) 0%,
-  //       rgba(251, 68, 29, 1) 51%,
-  //       rgba(254, 190, 60, 1) 100%
-  //     );
-  //}
+    // &:before {
+    //   content: "";
+    //   position: absolute;
+    //   top: 0;
+    //   right: 0;
+    //   bottom: 0;
+    //   left: 0;
+    //   z-index: -1;
+    //   margin: -$border; /* !importanté */
+    //   border-radius: inherit; /* !importanté */
+    //   background: linear-gradient(
+    //     45deg,
+    //     rgba(164, 62, 104, 1) 0%,
+    //     rgba(251, 68, 29, 1) 51%,
+    //     rgba(254, 190, 60, 1) 100%
+      // );
+  }
 
-  // .planete-icone:hover{
+  .planete-icone:hover{
 
-  // }
+  }
 
   .logo {
     margin-left: 0;
