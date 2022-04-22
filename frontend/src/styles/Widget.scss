@@ -30,14 +30,20 @@ img {
   padding-right: 0.5em;
 }
 
-article {
-  z-index: 10;
-}
-
 @media screen and (min-width: 767.98px) {
   .widgetsContainer {
     margin-top: 20px;
-    width: 80%;
+    width: 60%;
+    background-color: #432f64;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 300px);
+    grid-gap: 10px;
+  }
+
+  .widgetsContainer {
+    margin-top: 20px;
+    width: 60%;
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fill, 300px);
@@ -51,18 +57,14 @@ article {
     border-radius: 10px;
     background-color: #1c0444;
     cursor: pointer;
-    transition: transform 0.4s ease-in-out;
-    box-shadow: $box-shadow;
-    z-index: 10;
-    border: 2px solid #fb461d00;
+    transition: 0.3s;
   }
 
   article:hover {
     transform: scale(1.05);
-    transition: transform 0.4s ease-in-out;
-    border: 2px solid $nav-primary-color;
+    transition: 3s;
+    border: 2px solid #fb441d;
   }
-
   .widget {
     display: flex;
     flex-direction: column;
