@@ -1,3 +1,8 @@
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+}
+
 .containerPic {
   width: calc(100vw - 4rem);
   display: flex;
@@ -16,7 +21,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: red;
   height: 250px;
 }
 
