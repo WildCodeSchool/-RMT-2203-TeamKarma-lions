@@ -15,7 +15,6 @@ export default function PicPicture({
 
   const calcBackgroundImage = (urlraw, imgLoaded = false) => {
     const styleObj = {};
-    // console.log("calcBackgroundImage");
 
     if (document.getElementsByClassName("picPicture")[0]) {
       const baseHeight =
@@ -23,19 +22,20 @@ export default function PicPicture({
       const baseWidth =
         document.getElementsByClassName("picPicture")[0].clientWidth;
 
-      const totalDistance = baseHeight / 2 + baseWidth;
-      const currentDistance = totalDistance * showPic;
+      if (baseWidth > baseHeight) {
+        const totalDistance = baseHeight / 2 + baseWidth;
+        const currentDistance = totalDistance * showPic;
 
-      const topDot =
-        baseWidth -
-        baseHeight / 2 -
-        Math.min(currentDistance, baseWidth - baseHeight / 2);
-      const leftDot =
-        baseHeight / 2 + Math.min(currentDistance, baseHeight / 2);
+        const topDot =
+          baseWidth -
+          baseHeight / 2 -
+          Math.min(currentDistance, baseWidth - baseHeight / 2);
+        const leftDot =
+          baseHeight / 2 + Math.min(currentDistance, baseHeight / 2);
 
-      styleObj.clipPath = `polygon(${topDot}px ${
-        topDot === 0 ? currentDistance - (baseWidth - baseHeight / 2) : 0
-      }px,
+        styleObj.clipPath = `polygon(${topDot}px ${
+          topDot === 0 ? currentDistance - (baseWidth - baseHeight / 2) : 0
+        }px,
       ${
         baseWidth -
         baseHeight / 2 -
@@ -48,26 +48,40 @@ export default function PicPicture({
              ? baseWidth - (currentDistance - baseHeight / 2)
              : baseWidth
          }px ${leftDot}px)`;
+      } else {
+        const totalDistance = baseWidth / 2 + baseHeight;
+        const currentDistance = totalDistance * showPic;
 
-      // console.log("showPic", showPic);
-      // console.log(styleObj.clipPath);
+        const topDot = baseWidth / 2 - Math.min(currentDistance, baseWidth / 2);
+        const leftDot =
+          baseWidth / 2 + Math.min(currentDistance, baseHeight - baseWidth / 2);
+
+        styleObj.clipPath = `polygon(${topDot}px ${
+          topDot === 0 ? currentDistance - baseWidth / 2 : 0
+        }px,
+         ${topDot}px 0,
+         100% 0, 
+         100% ${leftDot}px,
+         ${
+           leftDot === baseHeight
+             ? baseWidth - (currentDistance - (baseHeight - baseWidth / 2))
+             : baseWidth
+         }px ${leftDot}px)`;
+      }
+
       if (showPic) styleObj.zIndex = 100;
     }
 
     if (imgLoaded) styleObj.backgroundImage = `url(${urlraw})`;
 
-    // if (urlraw !== "") styleObj.backgroundImage = `url(${urlraw})`;
-
     return styleObj;
   };
 
   useEffect(() => {
-    // console.log("useEffect / imgState update", imgState, update);
     if (imgState === "loaded")
       setBackgroundImage(calcBackgroundImage(url, true));
 
     if (url !== "" && imgState === "noImg") {
-      // console.log("addEventListener(load)");
       const img = new Image();
       img.src = url;
       img.addEventListener("load", () => {
@@ -75,26 +89,13 @@ export default function PicPicture({
       });
 
       window.addEventListener("resize", () => {
-        // console.log("eventListener resize", update);
-        // setBackgroundImage(url, true);
         setBackgroundImage(calcBackgroundImage(url, true));
       });
     }
   }, [url, imgState, showPic]);
 
-  // useEffect(() => {
-  //   console.log(
-  //     "*** render url, showPic, update, imgState",
-  //     url,
-  //     showPic,
-  //     update,
-  //     imgState
-  //   );
-  // });
-
   return (
     <div className="picPicture" style={backgroundImage}>
-      {/* <img src={url} alt="img loading hack" style={{ display: "none" }} /> */}
       <PicToggle handleTogglePic={handleTogglePic} showPic={showPic} />
       <PicDescrition
         title={dailyPic.title}

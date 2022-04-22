@@ -43,19 +43,19 @@ export default function FunFactList() {
 
   const funFacts = [
     {
-      text1: "Max Temp for Curiosity :",
+      text1: "Max Temp for Curiosity :",
       factData: marsTemp,
       text2: "",
     },
 
     {
-      text1: "Exoplanets discovered:",
+      text1: "Exoplanets discovered :",
       factData: nbExo,
       text2: "",
     },
 
     {
-      text1: "Impact of the last Fireball:",
+      text1: "Impact of the last Fireball :",
       factData: fireBallImpact,
       text2: "",
     },

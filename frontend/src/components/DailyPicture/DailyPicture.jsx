@@ -19,6 +19,8 @@ export default function DailyPicture() {
       .get(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
       .then((res) => res.data)
       .then((res) => setDailyPic(res)); // le chargement de l'image doit être une promesse !!
+
+    // rajouter ici récupération liste des élements auquel ajouter les classes fadeIn / fadeOut lors du clic sur toggleDailyPicture
   }, []);
 
   const animation = (startTime, AnimationDuration, reverse = false) => {
@@ -26,7 +28,6 @@ export default function DailyPicture() {
     if (!reverse) {
       if (now - startTime < AnimationDuration) {
         const showPicVal = easeOutExpo((now - startTime) / AnimationDuration);
-        // console.log(showPicVal);
         setShowPic(showPicVal);
         requestAnimationFrame(() => animation(startTime, AnimationDuration));
       } else setShowPic(1);
@@ -34,7 +35,6 @@ export default function DailyPicture() {
     if (reverse) {
       if (now - startTime < AnimationDuration) {
         const showPicVal = 1 - (now - startTime) / AnimationDuration;
-        // console.log(showPicVal);
         setShowPic(showPicVal);
         requestAnimationFrame(() =>
           animation(startTime, AnimationDuration, true)
@@ -47,7 +47,7 @@ export default function DailyPicture() {
     const startTime = new Date().getTime();
 
     if (!cropPic) {
-      const AnimationDuration = 2000;
+      const AnimationDuration = 1000;
       animation(startTime, AnimationDuration);
     } else if (showPic > 0.5) {
       const AnimationDuration = 1000;
