@@ -38,7 +38,6 @@ export default function CuriosityPics() {
       )
       .then((response) => response.data)
       .then((data) => {
-        // console.log(data.photos);
         setPicList(data.photos);
       });
   };
