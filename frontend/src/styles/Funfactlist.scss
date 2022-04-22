@@ -2,23 +2,31 @@
 
 .funfactlist {
   z-index: 20;
-  // margin: 4rem;
   margin: 0em 4em;
-  align-self: end;
+  width: 60%;
   .funfact {
+    height: 5rem;
     background-color: rgba(254, 254, 255, 0.6);
-    
     border-radius: 7px;
     text-align: center;
     font-family: $font-text;
     padding: 0 1rem 0 1rem;
     font-size: medium;
     font-weight: 600;
+    margin-top: 1rem;
     p {
       color: rgb(237, 30, 72);
       font-size: x-large;
       font-weight: bold;
       margin-top: 0;
+      margin-bottom: 0;
     }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .funfactlist {
+    align-self: end;
+    width:initial;
   }
 }

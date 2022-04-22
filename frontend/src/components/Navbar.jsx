@@ -53,7 +53,6 @@ export default function Navbar() {
 
   return (
     <div className="navbarContainer">
-      {/* <div className="logoContainer"> */}
       {logoIcone.map((props) => (
         <LogoLoginNav
           key={props.alt}
@@ -62,7 +61,6 @@ export default function Navbar() {
           alt={props.alt}
         />
       ))}
-      {/* </div> */}
       <div className="navbar">
         {icones.map((icone) => (
           <ItemNavbar
@@ -73,7 +71,6 @@ export default function Navbar() {
           />
         ))}
       </div>
-      {/* <div className="loginContainer"> */}
       {loginIcone.map((props) => (
         <LogoLoginNav
           key={props.alt}
@@ -82,7 +79,6 @@ export default function Navbar() {
           alt={props.alt}
         />
       ))}
-      {/* </div> */}
     </div>
   );
 }
