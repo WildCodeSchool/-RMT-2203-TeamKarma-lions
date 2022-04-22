@@ -1,0 +1,25 @@
+.containerPic {
+  width: calc(100vw - 4rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.gridpics {
+  width: calc(100vw - 4rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  grid-template-rows: repeat(3, auto);
+  justify-content: center;
+}
+
+.alonecard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  height: 250px;
+}
+
+.alonecard img {
+  width: 200px;
+}
