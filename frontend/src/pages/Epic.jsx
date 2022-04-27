@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Home.scss";
 import Titre from "../components/Titre";
 import CalendarOps from "../components/Epic/CalendarOps";
@@ -6,6 +6,8 @@ import EpicEvent from "../components/Epic/EpicEvent";
 import EpicPictures from "../components/Epic/EpicPictures";
 
 export default function Home() {
+  const [epicDate, setEpicDate] = useState();
+
   return (
     <>
       <Titre titre="DSCOVR : EPIC" />
@@ -17,9 +19,9 @@ export default function Home() {
         ad tempus, et tria milia saltatricum ne interpellata quidem cum choris
         totidemque remanerent magistris.
       </p>
-      <CalendarOps />
+      <CalendarOps setEpicPicture={setEpicDate} />
       <EpicEvent />
-      <EpicPictures />
+      <EpicPictures epicPicture={epicDate} />
     </>
   );
 }
