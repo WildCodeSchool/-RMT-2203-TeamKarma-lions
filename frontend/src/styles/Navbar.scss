@@ -32,7 +32,6 @@
 }
 
 @media screen and (min-width: 767.98px) {
-
   .navbar {
     flex-direction: column;
     justify-content: flex-start;
@@ -43,16 +42,26 @@
 
   .logo {
     margin-top: 1rem;
-    margin-left:0;
+    margin-left: 0;
+    -webkit-transition: all 1s ease;
+  }
+
+  .logo:hover {
+    -webkit-transform: scale(1.25);
   }
 
   .login {
     margin-bottom: 1rem;
     margin-right: 0;
+    -webkit-transition: all 1s ease;
+  }
+
+  .login:hover {
+    -webkit-transition: all 1s ease;
   }
 
   .navbarContainer {
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -60,10 +69,24 @@
     width: 4rem;
     height: 100vh;
     position: fixed;
-      img{
-        padding: 0;
-      }
+    img {
+      padding: 0;
+    }
   }
+
+  .iconeContainer {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .imgIcone{
+    -webkit-transition: all 1s ease;
+  }
+
+  .imgIcone:hover{
+    -webkit-transform: scale(1.25);
+  }
+  
 
   @keyframes animationIn {
     0% {
@@ -106,28 +129,14 @@
     }
   }
 
-  
-
-  .iconeContainer {
-    position: relative;
-    cursor: pointer;
-  }
-
-
-
   .iconeList {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 18rem;
-      img {
-        padding:0;
-        width: 2.5rem;
-      }
+    img {
+      padding: 0;
+      width: 2.5rem;
+    }
   }
-
-  
-
-
-
 }

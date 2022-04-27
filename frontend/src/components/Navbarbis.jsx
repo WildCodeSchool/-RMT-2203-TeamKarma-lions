@@ -32,7 +32,11 @@ export default function Navbar() {
           tabIndex={0}
         >
           <NavLink to="/Epic">
-            <img src="src/assets/perseverance.png" alt="Epic" />
+            <img
+              src="src/assets/perseverance.png"
+              alt="Epic"
+              className="imgIcone"
+            />
           </NavLink>
 
           <div
@@ -54,7 +58,11 @@ export default function Navbar() {
           tabIndex={0}
         >
           <NavLink to="/NaturalEvents">
-            <img src="src/assets/planete-icone.png" alt="Natural events" />
+            <img
+              src="src/assets/planete-icone.png"
+              alt="Natural events"
+              className="imgIcone"
+            />
           </NavLink>
           <div
             className={
@@ -74,7 +82,11 @@ export default function Navbar() {
           tabIndex={0}
         >
           <NavLink to="/Curiosity">
-            <img src="src/assets/satellite.png" alt="Curiosity" />
+            <img
+              src="src/assets/satellite.png"
+              alt="Curiosity"
+              className="imgIcone"
+            />
           </NavLink>
           <div
             className={
@@ -93,7 +105,11 @@ export default function Navbar() {
           onKeyPress={() => handleClick()}
           tabIndex={0}
         >
-          <img src="src/assets/comete.png" alt="Meteorites" />
+          <img
+            src="src/assets/comete.png"
+            alt="Meteorites"
+            className="imgIcone"
+          />
           <div
             className={
               mouseEnter ? "onglet mouseEnter" : "onglet notMouseEnter"
