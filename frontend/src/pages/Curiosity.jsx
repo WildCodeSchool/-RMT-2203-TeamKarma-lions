@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/Home.scss";
 import Titre from "../components/Titre";
 import Timeline from "../components/Curiosity/Timeline";
+import CalendarCuriosity from "../components/Curiosity/CalendarCuriosity";
 import CuriosityPics from "../components/Curiosity/CuriosityPics";
 
 export default function Home() {
@@ -15,7 +16,7 @@ export default function Home() {
         mission. This rover landed on Mars on August 6, 2012 and is still on the
         red planet.
       </p>
-
+      <CalendarCuriosity />
       <CuriosityPics />
     </>
   );

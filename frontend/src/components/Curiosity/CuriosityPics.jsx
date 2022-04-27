@@ -34,7 +34,7 @@ export default function CuriosityPics() {
   const getPic = () => {
     axios
       .get(
-        "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2022-4-10&api_key=ld3yHUvzO7DyXL6lzXi5jSTRd4bGpdfKgBGpjNUg"
+        "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2012-8-6&api_key=ld3yHUvzO7DyXL6lzXi5jSTRd4bGpdfKgBGpjNUg"
       )
       .then((response) => response.data)
       .then((data) => {
