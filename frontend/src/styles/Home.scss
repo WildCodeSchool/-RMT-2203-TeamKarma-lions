@@ -26,12 +26,23 @@ h1 {
   padding-left: 0.5em;
 }
 
+.intro-curio{
+  padding-left: .5em;
+  padding-right: .5em;
+  margin-bottom: 0;
+  text-align: center;
+}
+
 @media screen and (min-width: 768px) {
   .intro-align {
     display: flex;
   }
   .intro-bloc {
     width: 70%;
+  }
+  .intro-curio{
+    margin: 1.5em 1.5em .5em 30px;
+    font-size: 130%;
   }
   .intro-site {
     padding-top: 1em;

@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+
 import "../../styles/CuriosityPics.scss";
+// import CalendarCuriosity from "./CalendarCuriosity";
 import PicCard from "./PicCard";
 
-export default function CuriosityPics() {
-  const [positionIndex, setPositionIndex] = React.useState(0);
-  const [picList, setPicList] = React.useState([]);
+export default function CuriosityPics({ picList }) {
+  const [positionIndex, setPositionIndex] = useState(0);
 
   const nbPerPage = 20;
 
@@ -31,21 +31,6 @@ export default function CuriosityPics() {
     }
   };
 
-  const getPic = () => {
-    axios
-      .get(
-        "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2012-8-6&api_key=ld3yHUvzO7DyXL6lzXi5jSTRd4bGpdfKgBGpjNUg"
-      )
-      .then((response) => response.data)
-      .then((data) => {
-        setPicList(data.photos);
-      });
-  };
-
-  useEffect(() => {
-    getPic();
-  }, []);
-
   return (
     <div className="containerPic">
       <div className="buttonContainer">
@@ -54,28 +39,28 @@ export default function CuriosityPics() {
           className="picButton"
           onClick={() => handleButtonClick(0)}
         >
-          ⏮
+          <img src="../src/assets/firstfirst.png" alt="first arrow" />
         </button>
         <button
           type="button"
           className="picButton"
           onClick={() => handleButtonClick("Previous")}
         >
-          ⏪
+          <img src="../src/assets/dbl-arrow-left.png" alt="left arrow" />
         </button>
         <button
           type="button"
           className="picButton"
           onClick={() => handleButtonClick("Next")}
         >
-          ⏩
+          <img src="../src/assets/dbl-arrow-right.png" alt="right arrow" />
         </button>
         <button
           type="button"
           className="picButton"
           onClick={() => handleButtonClick("Last")}
         >
-          ⏭
+          <img src="../src/assets/lastlast.png" alt="last arrow" />
         </button>
       </div>
       <div className="gridpics">

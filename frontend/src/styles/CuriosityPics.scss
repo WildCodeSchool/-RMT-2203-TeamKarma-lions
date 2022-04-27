@@ -1,6 +1,6 @@
-.buttonContainer{
-    display: flex;
-    justify-content: center;
+.buttonContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .containerPic {
@@ -26,4 +26,19 @@
 
 .alonecard img {
   width: 200px;
+}
+
+.picButton {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0 0.5em;
+  background: #1c0444;
+  border: none;
+  padding: .5em 1em;
+  border-radius: 4em;
+}
+
+.picButton img{
+  padding: 0;
 }
