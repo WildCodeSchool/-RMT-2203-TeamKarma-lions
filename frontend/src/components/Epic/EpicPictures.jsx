@@ -1,10 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import moment from "moment";
+import Calendar from "react-calendar";
+import EpicCard from "./EpicCard";
+import "../../styles/CalendarOps.scss";
 
-export default function EpicPictures({ epicPicture }) {
-  if ({ epicPicture }.epicPicture) {
-    let picturesDate = moment({ epicPicture }.epicPicture).format("YYYY-MM-DD");
+export default function EpicPictures() {
+  const [calendarDate, setCalendarDate] = useState(new Date());
+  const [tableEpic, setTableEpic] = useState([]);
+
+  if ({ calendarDate }.calendarDate) {
+    let picturesDate = moment({ calendarDate }.calendarDate).format(
+      "YYYY-MM-DD"
+    );
 
     if (picturesDate > moment().format("YYYY-MM-DD")) {
       picturesDate = moment().format("YYYY-MM-DD");
@@ -24,43 +32,95 @@ export default function EpicPictures({ epicPicture }) {
             fetchEpicPictures(subDay.format("YYYY-MM-DD"));
           } else {
             const data2 = data.map((element) => element.image);
-            data2.unshift(moment(date, "YYYY-MM-DD").format("YYYY/MM/DD"));
+            const data3 = data2.map(
+              (elem) =>
+                `https://epic.gsfc.nasa.gov/archive/natural/${moment(
+                  date,
+                  "YYYY-MM-DD"
+                ).format("YYYY/MM/DD")}/png/${elem}.png`
+            );
+            setTableEpic(data3);
           }
         });
     };
 
     useEffect(() => {
       fetchEpicPictures(picturesDate);
-    }, [epicPicture]);
+    }, [calendarDate]);
   }
 
-  const picsdate = "2022/04/13";
+  const [positionIndex, setPositionIndex] = useState(0);
 
-  const data2 = [
-    "epic_1b_20220413001751",
-    "epic_1b_20220413020553",
-    "epic_1b_20220413035355",
-    "epic_1b_20220413054158",
-    "epic_1b_20220413073000",
-    "epic_1b_20220413091802",
-    "epic_1b_20220413110605",
-    "epic_1b_20220413125408",
-    "epic_1b_20220413144210",
-    "epic_1b_20220413163013",
-    "epic_1b_20220413181814",
-    "epic_1b_20220413200617",
-    "epic_1b_20220413215419",
-  ];
+  const nbPerPage = 1;
+
+  const handleButtonClick = (action) => {
+    if (typeof action === "string") {
+      if (action === "Previous") {
+        if (positionIndex !== 0) {
+          setPositionIndex(positionIndex - nbPerPage);
+        }
+      }
+      if (action === "Next") {
+        if (positionIndex + nbPerPage < tableEpic.length) {
+          setPositionIndex(positionIndex + nbPerPage);
+        }
+      }
+      if (action === "Last") {
+        if (tableEpic.length > nbPerPage) {
+          setPositionIndex((Math.ceil(tableEpic.length / nbPerPage) - 1) * 20);
+        }
+      }
+    } else {
+      setPositionIndex(action * nbPerPage);
+    }
+  };
 
   return (
     <div>
-      {data2.map((each) => (
-        <img
-          className="lazy"
-          src={`https://epic.gsfc.nasa.gov/archive/natural/${picsdate}/png/${each}.png`}
-          alt="sample"
-        />
-      ))}
+      <div>
+        <Calendar onChange={setCalendarDate} value={calendarDate} />
+      </div>
+      <div>
+        <div className="containerPic">
+          <div className="buttonContainer">
+            <button
+              type="button"
+              className="picButton"
+              onClick={() => handleButtonClick(0)}
+            >
+              ⏮
+            </button>
+            <button
+              type="button"
+              className="picButton"
+              onClick={() => handleButtonClick("Previous")}
+            >
+              ⏪
+            </button>
+            <button
+              type="button"
+              className="picButton"
+              onClick={() => handleButtonClick("Next")}
+            >
+              ⏩
+            </button>
+            <button
+              type="button"
+              className="picButton"
+              onClick={() => handleButtonClick("Last")}
+            >
+              ⏭
+            </button>
+          </div>
+          <div className="gridpics">
+            {tableEpic.map((pic, index) =>
+              index >= positionIndex && index < nbPerPage + positionIndex ? (
+                <EpicCard pic={pic} key={pic.id} />
+              ) : null
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
