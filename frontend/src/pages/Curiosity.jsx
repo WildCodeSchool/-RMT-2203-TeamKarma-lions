@@ -2,7 +2,6 @@ import React from "react";
 import "../styles/Home.scss";
 import Titre from "../components/Titre";
 import Timeline from "../components/Curiosity/Timeline";
-import CountCuriosity from "../components/Curiosity/CountCuriosity";
 import CuriosityPics from "../components/Curiosity/CuriosityPics";
 
 export default function Home() {
@@ -17,7 +16,6 @@ export default function Home() {
         red planet.
       </p>
 
-      <CountCuriosity />
       <CuriosityPics />
     </>
   );
