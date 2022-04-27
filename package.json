@@ -19,6 +19,7 @@
     "husky": "^7.0.0"
   },
   "dependencies": {
+    "moment": "^2.29.3",
     "react-lazy-load-image-component": "^1.5.4"
   }
 }
