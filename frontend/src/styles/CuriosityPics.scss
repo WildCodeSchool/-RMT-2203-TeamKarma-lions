@@ -1,3 +1,14 @@
+// selection photos
+
+.filterCam{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+// conteneur photos
+
 .buttonContainer {
   display: flex;
   justify-content: center;
