@@ -18,7 +18,9 @@ export default function Navbar() {
 
   return (
     <div className="navbarContainer">
-      <img src="src/assets/lion-logo.png" alt="Logo" />
+      <NavLink to="/">
+        <img src="src/assets/lion-logo.png" alt="Logo" className="logo" />
+      </NavLink>
       <div className="iconeList">
         <div
           className="iconeContainer"
@@ -29,14 +31,16 @@ export default function Navbar() {
           onKeyPress={() => handleClick()}
           tabIndex={0}
         >
-          <img src="src/assets/perseverance.png" alt="Perseverance" />
+          <NavLink to="/Epic">
+            <img src="src/assets/perseverance.png" alt="Epic" />
+          </NavLink>
 
           <div
             className={
               mouseEnter ? "onglet mouseEnter" : "onglet notMouseEnter"
             }
           >
-            <NavLink to="/Perseverance">Perseverance</NavLink>
+            <h3 className="texteOnglet">Epic</h3>
           </div>
         </div>
 
@@ -49,14 +53,15 @@ export default function Navbar() {
           onKeyPress={() => handleClick()}
           tabIndex={0}
         >
-          <img src="src/assets/planete-icone.png" alt="Planete" />
-
+          <NavLink to="/NaturalEvents">
+            <img src="src/assets/planete-icone.png" alt="Natural events" />
+          </NavLink>
           <div
             className={
               mouseEnter ? "onglet mouseEnter" : "onglet notMouseEnter"
             }
           >
-            <h3 className="texteOnglet">Planète</h3>
+            <h3 className="texteOnglet">Natural Events</h3>
           </div>
         </div>
         <div
@@ -68,7 +73,9 @@ export default function Navbar() {
           onKeyPress={() => handleClick()}
           tabIndex={0}
         >
-          <img src="src/assets/satellite.png" alt="Curiosity" />
+          <NavLink to="/Curiosity">
+            <img src="src/assets/satellite.png" alt="Curiosity" />
+          </NavLink>
           <div
             className={
               mouseEnter ? "onglet mouseEnter" : "onglet notMouseEnter"
@@ -96,7 +103,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-      <img src="src/assets/login.png" alt="Login" />
+      <img src="src/assets/login.png" alt="Login" className="login" />
     </div>
   );
 }
