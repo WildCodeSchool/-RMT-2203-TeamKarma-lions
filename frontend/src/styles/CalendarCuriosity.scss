@@ -4,6 +4,19 @@
   align-items: center;
 }
 
+.react-calendar__tile{
+  border-radius: 6px;
+  border-style: double;
+  padding: 0.2em;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  border: 0;
+  background: #432f64;
+  color: #ffffff;
+  border-radius: 6px;
+}
 .pCal {
   text-align: center;
 }
