@@ -1,11 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Navbar.scss";
 
-export default function ItemNavbar({ className, image, alt }) {
+export default function ItemNavbar({ image, alt }) {
+  const [mouseEnter, setMouseEnter] = useState(false);
+  const [click, setClick] = useState(false);
+
+  const handleMouseEnter = () => {
+    setMouseEnter(true);
+  };
+  const handleMouseLeave = () => {
+    setMouseEnter(false);
+  };
+  const handleClick = () => {
+    setClick(!click);
+  };
   return (
-    <div>
-      <div className="ongletContainer">{/* <h3>{alt}</h3> */}</div>
-      <img className={className} src={image} alt={alt} />
+    <div
+      onMouseEnter={() => handleMouseEnter()}
+      onMouseLeave={() => handleMouseLeave()}
+      onClick={() => handleClick()}
+      onKeyPress={() => handleClick()}
+      role="button"
+      tabIndex={0}
+      className="iconeContainer"
+    >
+      <img src={image} alt={alt} />
+      <div
+        className={mouseEnter ? "onglet mouseEnter" : "onglet notMouseEnter"}
+      >
+        <h3 className="texteOnglet">{alt}</h3>
+      </div>
     </div>
   );
 }
