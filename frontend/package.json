@@ -10,6 +10,7 @@
     "fix": "prettier --write . && eslint --fix --ext .jsx ."
   },
   "dependencies": {
+    "globe.gl": "^2.26.1",
     "axios": "^0.26.1",
     "moment": "^2.29.3",
     "prop-types": "^15.8.1",
