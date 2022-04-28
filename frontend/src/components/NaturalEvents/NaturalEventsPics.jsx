@@ -43,7 +43,6 @@ export default function NaturalEventsPics() {
   };
 
   const getPicEvent = () => {
-    console.log("API REQUEST");
 
     axios
       .get("https://eonet.gsfc.nasa.gov/api/v3/events")
@@ -53,9 +52,7 @@ export default function NaturalEventsPics() {
 
         data.events.forEach((ev) => categories.push(ev.categories[0].id));
 
-        // console.log(categories);
         const uniqueCategories = [...new Set(categories)];
-        // console.log(uniqueCategories);
         uniqueCategories.map((cat) => {
           let catCount = 0;
           // eslint-disable-next-line no-plusplus
@@ -104,7 +101,6 @@ export default function NaturalEventsPics() {
 
   useEffect(() => {
     if (eventList.length > 0) {
-      console.log("new globe");
 
       const myGlobe = Globe();
       myGlobe(document.getElementById("globeViz"))
@@ -126,10 +122,6 @@ export default function NaturalEventsPics() {
   useEffect(() => {
     getPicEvent();
   }, []);
-
-  useEffect(() => {
-    console.log("render");
-  });
 
   // afficher uniqueCategories dans une div en haut à droite de la div globeViz
 
