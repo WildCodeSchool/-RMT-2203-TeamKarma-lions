@@ -13,7 +13,8 @@ export default function CalendarCuriosity({ getPic }) {
   return (
     <div className="calendar">
       <p className="pCal">
-        Select a date and discover like Mars as if you were there :
+        Select a date and <span className="police">discover Mars</span> as if
+        you were there :
       </p>
       <div className="calendar-container">
         <Calendar onChange={handleChange} value={date} />

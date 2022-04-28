@@ -13,6 +13,9 @@ h1 {
   margin-left: 0;
   text-shadow: 0 0 0.1em #ceb8f3, 0 0 0.2em #432f64;
 }
+.police{
+  color: #ff8800;
+}
 .intro-site {
   z-index: 10;
   margin: 1em;
@@ -27,10 +30,10 @@ h1 {
 }
 
 .intro-curio{
-  padding-left: .5em;
-  padding-right: .5em;
+  padding: .5em;
   margin-bottom: 0;
   text-align: center;
+  background-color: rgba(67, 47, 100, 0.5);
 }
 
 @media screen and (min-width: 768px) {
@@ -41,9 +44,9 @@ h1 {
     width: 70%;
   }
   .intro-curio{
-    padding: 0 4em;
+    margin: 0 4em;
     font-size: 130%;
-    width: 50%;
+    width: 40%;
   }
   .intro-site {
     padding-top: 1em;

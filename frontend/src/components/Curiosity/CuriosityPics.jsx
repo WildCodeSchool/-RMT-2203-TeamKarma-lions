@@ -38,7 +38,9 @@ export default function CuriosityPics({ picList }) {
   return (
     <div>
       <div className="filterCam">
-        <p>Choose a camera :</p>
+        <p>
+          <span className="police">Choose a camera :</span>
+        </p>
         <select name="Camera" value={choosenValue} onChange={handleChange}>
           <option value="">All</option>
           <option value="FHAZ">Front Hazard Avoidance Camera - FHAZ</option>
