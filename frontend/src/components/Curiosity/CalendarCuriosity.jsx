@@ -18,9 +18,6 @@ export default function CalendarCuriosity({ getPic }) {
       <div className="calendar-container">
         <Calendar onChange={handleChange} value={date} />
       </div>
-      <p className="pCal">
-        <span className="bold">Selected Date:</span> {date.toDateString()}
-      </p>
     </div>
   );
 }

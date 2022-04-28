@@ -35,13 +35,15 @@ export default function Home() {
     <>
       <Titre titre="Rover : CURIOSITY" />
       <Timeline />
-      <p className="intro-curio">
-        Curiosity is a rover created by JPL, one of NASAs research centers. Its
-        purpose is to explore Mars, as part of the Mars Science Laboratory
-        mission. This rover landed on Mars on August 5, 2012 and is still on the
-        red planet.
-      </p>
-      <CalendarCuriosity getPic={getPic} />
+      <div className="introAndCalendar">
+        <p className="intro-curio">
+          Curiosity is a rover created by JPL, one of NASAs research centers.
+          Its purpose is to explore Mars, as part of the Mars Science Laboratory
+          mission. This rover landed on Mars on August 5, 2012 and is still on
+          the red planet.
+        </p>
+        <CalendarCuriosity getPic={getPic} />
+      </div>
       <CuriosityPics picList={picList} />
     </>
   );

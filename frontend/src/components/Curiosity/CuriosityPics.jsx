@@ -49,7 +49,7 @@ export default function CuriosityPics({ picList }) {
           </option>
           <option value="MAHLI">Mars Hand Lens Imager - MAHLI</option>
           <option value="MARDI">Mars Descent Imager - MARDI</option>
-          <option value="NAVCAM">Navigation Camer - NAVCAM</option>
+          <option value="NAVCAM">Navigation Camera - NAVCAM</option>
         </select>
       </div>
       <div className="containerPic">
