@@ -5,7 +5,7 @@ import Timeline from "../components/Curiosity/Timeline";
 import CountCuriosity from "../components/Curiosity/CountCuriosity";
 import CuriosityPics from "../components/Curiosity/CuriosityPics";
 
-export default function Home() {
+export default function Curiosity() {
   return (
     <>
       <Titre titre="Rover : CURIOSITY" />
