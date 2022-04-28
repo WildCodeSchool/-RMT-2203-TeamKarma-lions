@@ -5,6 +5,11 @@ import PicCard from "./PicCard";
 
 export default function CuriosityPics({ picList }) {
   const [positionIndex, setPositionIndex] = useState(0);
+  const [choosenValue, setChoosenValue] = useState("");
+
+  const handleChange = (e) => {
+    setChoosenValue(e.target.value);
+  };
 
   const nbPerPage = 20;
 
@@ -34,8 +39,8 @@ export default function CuriosityPics({ picList }) {
     <div>
       <div className="filterCam">
         <p>Choose a camera :</p>
-        <select name="Camera">
-          <option value="All">All</option>
+        <select name="Camera" value={choosenValue} onChange={handleChange}>
+          <option value="">All</option>
           <option value="FHAZ">Front Hazard Avoidance Camera - FHAZ</option>
           <option value="RHAZ">Rear Hazard Avoidance Camera - RHAZ</option>
           <option value="MAST">Mast Camera - MAST</option>
@@ -79,11 +84,13 @@ export default function CuriosityPics({ picList }) {
           </button>
         </div>
         <div className="gridpics">
-          {picList.map((pic, index) =>
-            index >= positionIndex && index < nbPerPage + positionIndex ? (
-              <PicCard pic={pic} key={pic.id} />
-            ) : null
-          )}
+          {picList
+            .filter((pic) => pic.camera.name.includes(choosenValue))
+            .map((pic, index) =>
+              index >= positionIndex && index < nbPerPage + positionIndex ? (
+                <PicCard pic={pic} key={pic.id} />
+              ) : null
+            )}
         </div>
       </div>
     </div>
