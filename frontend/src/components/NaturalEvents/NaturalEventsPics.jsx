@@ -49,14 +49,23 @@ export default function NaturalEventsPics() {
       .get("https://eonet.gsfc.nasa.gov/api/v3/events")
       .then((response) => response.data)
       .then((data) => {
-        // const categories = [];
+        const categories = [];
 
-        // data.events.forEach((ev) => categories.push(ev.categories[0].id));
+        data.events.forEach((ev) => categories.push(ev.categories[0].id));
 
         // console.log(categories);
-        // const uniqueCategories = [...new Set(categories)];
+        const uniqueCategories = [...new Set(categories)];
         // console.log(uniqueCategories);
+        uniqueCategories.map((cat) => {
+          let catCount = 0;
+          // eslint-disable-next-line no-plusplus
+          categories.forEach((c) => (c === cat ? catCount++ : null));
 
+          return {
+            catName: cat,
+            catCount: catCount,
+          };
+        });
         setEventList(
           data.events.map((ev) => {
             // console.log(ev)
@@ -108,19 +117,9 @@ export default function NaturalEventsPics() {
         .pointRadius(0.12)
         .pointColor((ev) => catColor(ev.type))
 
-        // .labelLat("lat")
-        // .labelLng("lon")
-        // .labelAltitude(0.26)
-        // .labelDotRadius(0.12)
-        // .labelDotOrientation(() => "bottom")
-        // .labelColor((ev) => catColor(ev.type))
-        // .labelText("name")
-        // .labelSize(0.15)
-        // .labelResolution(1)
         .pointLabel(getTooltip)
 
-        .pointsData(eventList)
-        .labelsData(eventList);
+        .pointsData(eventList);
     }
   }, [eventList]);
 
@@ -131,6 +130,8 @@ export default function NaturalEventsPics() {
   useEffect(() => {
     console.log("render");
   });
+
+  // afficher uniqueCategories dans une div en haut à droite de la div globeViz
 
   return (
     <div>
