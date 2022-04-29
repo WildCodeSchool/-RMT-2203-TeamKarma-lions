@@ -135,9 +135,6 @@ export default function EpicPictures() {
           <option value="2020-10-02">
             Lunar Occultation 2020 - October 02, 2020
           </option>
-          <option value="2021-02-11">
-            Lunar Transit 2021 - February 11, 2021
-          </option>
           <option value="2021-12-04">
             Total Solar Eclipse 2021 - December 04, 2021
           </option>
@@ -159,7 +156,6 @@ export default function EpicPictures() {
           <option value="2017-02-26">
             Annular Solar Eclipse 2017 - February 26, 2017
           </option>
-          <option value="2016-07-25">Lunar Transit 2016 - July 05, 2016</option>
           <option value="2016-03-09">
             Solar Eclipse 2016 - March 09, 2016
           </option>
