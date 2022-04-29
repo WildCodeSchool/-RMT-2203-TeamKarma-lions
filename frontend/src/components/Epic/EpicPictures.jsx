@@ -3,6 +3,7 @@ import axios from "axios";
 import moment from "moment";
 import Calendar from "react-calendar";
 import EpicCard from "./EpicCard";
+import "../../styles/EpicPictures.scss";
 import "../../styles/CalendarOps.scss";
 
 export default function EpicPictures() {
@@ -126,17 +127,15 @@ export default function EpicPictures() {
 
   return (
     <div>
-      <div>
+      <div className="epicCalendar">
         <Calendar onChange={setCalendarDate} value={calendarDate} />
       </div>
-      <div className="epicevent">
+
+      <div className="epicEventSelector">
         <select value={eventDate} onChange={handleEpicChange}>
           <option value="">none </option>
-          <option value="2020-10-02">
-            Lunar Occultation 2020 - October 02, 2020
-          </option>
-          <option value="2021-12-04">
-            Total Solar Eclipse 2021 - December 04, 2021
+          <option value="2021-02-11">
+            Lunar Transit 2021 - February 11, 2021
           </option>
           <option value="2020-09-12">
             West Coast Wildfires - September 12, 2020
@@ -150,7 +149,8 @@ export default function EpicPictures() {
           <option value="2017-08-21">
             Total Solar Eclipse - August 21, 2017
           </option>
-          <option value="2017-05-15">
+          <option value="2017-08-21">Lunar Transit 2016 - July 05, 2016</option>
+          <option value="2016-07-05">
             Sunglints from Ice Crystals seen from Deep Space - May 15, 2017
           </option>
           <option value="2017-02-26">
@@ -161,7 +161,16 @@ export default function EpicPictures() {
           </option>
         </select>
       </div>
-      <div>
+
+      <div className="epicDiaporama">
+        <div className="epicpics">
+          {tableEpic.map((pic, index) =>
+            index >= positionIndex && index < nbPerPage + positionIndex ? (
+              <EpicCard pic={pic} key={pic} />
+            ) : null
+          )}
+        </div>
+
         <div className="containerPic">
           <div className="buttonContainer">
             <button
@@ -169,43 +178,36 @@ export default function EpicPictures() {
               className="picButton"
               onClick={() => handleButtonClick(0)}
             >
-              ⏮
+              <img src="../src/assets/firstfirst.png" alt="first arrow" />
             </button>
             <button
               type="button"
               className="picButton"
               onClick={() => handleButtonClick("Previous")}
             >
-              ⏪
+              <img src="../src/assets/dbl-arrow-left.png" alt="left arrow" />
             </button>
             <button
               type="button"
               className="picButton"
               onClick={() => handleButtonClick("Diapo")}
             >
-              ⏯️
+              <img src="../src/assets/playpause.png" alt="play and stop" />
             </button>
             <button
               type="button"
               className="picButton"
               onClick={() => handleButtonClick("Next")}
             >
-              ⏩
+              <img src="../src/assets/dbl-arrow-right.png" alt="right arrow" />
             </button>
             <button
               type="button"
               className="picButton"
               onClick={() => handleButtonClick("Last")}
             >
-              ⏭
+              <img src="../src/assets/lastlast.png" alt="last arrow" />
             </button>
-          </div>
-          <div>
-            {tableEpic.map((pic, index) =>
-              index >= positionIndex && index < nbPerPage + positionIndex ? (
-                <EpicCard pic={pic} key={pic} />
-              ) : null
-            )}
           </div>
         </div>
       </div>
