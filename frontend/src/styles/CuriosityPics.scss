@@ -1,6 +1,18 @@
-.buttonContainer{
-    display: flex;
-    justify-content: center;
+// selection photos
+
+.filterCam{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+
+// conteneur photos
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
 }
 
 .containerPic {
@@ -10,15 +22,17 @@
 }
 
 .gridpics {
-  width: calc(100vw - 4rem);
+  padding-top: 1em;
   display: grid;
   grid-template-columns: repeat(auto-fill, 250px);
   grid-template-rows: repeat(3, auto);
   justify-content: center;
+  background-color: rgba(255, 136, 0, 0.8);
 }
 
 .alonecard {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 250px;
@@ -26,4 +40,33 @@
 
 .alonecard img {
   width: 200px;
+}
+
+.picButton {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0 0.5em;
+  background: #1c0444;
+  border: none;
+  padding: .5em 1em;
+  border-radius: 4em;
+}
+
+.picButton img{
+  padding: 0;
+}
+.picButton img:first-child {
+  padding-right: .5em;
+}
+
+.picButton img:last-child{
+  padding-left: .5em;
+}
+
+@media screen and (min-width: 768px) {
+  .gridpics{
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+  }
 }
