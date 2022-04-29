@@ -14,6 +14,10 @@
     font-size: medium;
     font-weight: 600;
     margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
     p {
       color: rgb(237, 30, 72);
       font-size: x-large;

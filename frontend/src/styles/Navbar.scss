@@ -67,7 +67,7 @@
     width: 4rem;
     height: 100vh;
     position: fixed;
-    z-index:300;
+    z-index: 300;
     img {
       padding: 0;
     }
@@ -100,8 +100,6 @@
     }
   }
 
-  
-
   .onglet {
     display: flex;
     flex-direction: row;
@@ -124,9 +122,9 @@
     }
   }
 
-  .iconeContainer:hover .onglet{
+  .iconeContainer:hover .onglet {
     animation-name: slideIn;
-    animation-duration: .4s;
+    animation-duration: 0.4s;
     left: 40px;
   }
   .iconeList {
