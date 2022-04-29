@@ -8,46 +8,45 @@ export default function Footer() {
           <p className="introFooter">2022 © Wild Code School x Team Lion :</p>
         </li>
         <li>
-          <a href="https://github.com/gnos28">
-            {" "}
+          <a href="https://github.com/gnos28" target="_blank" rel="noreferrer">
             <img src="./src/assets/GitHubPic.png" alt="logo Github" />
           </a>
 
           <p>Julien Vigneron,</p>
         </li>
         <li>
-          <a href="https://github.com/ClemDSC">
-            {" "}
+          <a href="https://github.com/ClemDSC" target="_blank" rel="noreferrer">
             <img src="./src/assets/GitHubPic.png" alt="logo Github" />
           </a>
           <p>Clémence Pham,</p>
         </li>
         <li>
-          <a href="https://github.com/Lora048">
-            {" "}
+          <a href="https://github.com/Lora048" target="_blank" rel="noreferrer">
             <img src="./src/assets/GitHubPic.png" alt="logo Github" />
           </a>
           <p>Lora Perrichon,</p>
         </li>
         <li>
-          <a href="https://github.com/FrederiqueDemas">
-            {" "}
+          <a
+            href="https://github.com/FrederiqueDemas"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img src="./src/assets/GitHubPic.png" alt="logo Github" />
           </a>
           <p>Frédérique Demas,</p>
         </li>
         <li>
-          <a href="https://github.com/PaulKip44">
-            {" "}
+          <a
+            href="https://github.com/PaulKip44"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img src="./src/assets/GitHubPic.png" alt="logo Github" />
           </a>
           <p>Paul Sanchez.</p>
         </li>
       </ul>
-      {/* <p>
-        2022 © Wild Code School x Team Lion : Julien Vigneron, Clémence Pham,
-        Lora Perrichon, Frédérique Demas, Paul Sanchez.
-      </p> */}
     </div>
   );
 }
