@@ -1,9 +1,14 @@
 import React from "react";
+import "../../styles/Timeline.scss";
 
 export default function Timeline() {
   return (
-    <div>
-      <img src="../src/assets/Timeline.png" alt="planet mars" />
+    <div className="timelineCuriosity">
+      <img
+        className="timelineImg"
+        src="../src/assets/Timeline.png"
+        alt="planet mars"
+      />
     </div>
   );
 }

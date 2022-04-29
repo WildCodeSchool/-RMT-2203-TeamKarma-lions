@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Globe from "globe.gl";
-// import * as d3 from "d3";
-// import polished from "polished"
-// ['severeStorms', 'volcanoes', 'seaLakeIce', 'wildfires']
 
 const correspondance = [
   { id: "severeStorms", color: "#1dfb8f" },
@@ -16,8 +13,6 @@ export default function NaturalEventsPics() {
   const [eventList, setEventList] = useState([]);
 
   const catColor = (evenement) => {
-    // console.log(evenement);
-
     let color = "";
 
     correspondance.forEach((corr) => {
@@ -31,35 +26,54 @@ export default function NaturalEventsPics() {
     return color;
   };
 
-  const getTooltip = (d) => `
-  <div style="text-align: center">
-    <div><b>${d.name}</b></div>
-    <div>${d.description}</div>
-    <div>Elevation: <em>${d.date}</em>m</div>
-  </div>
-`;
+  const getTooltip = (d) => {
+    let htmlReturn = `<div style="text-align: center"><div><b>${d.name}</b></div>`;
+
+    if (d.description) htmlReturn += `<div>${d.description}</div>`;
+    htmlReturn += `<div>Date : <em>${`${d.date.getFullYear()}/${
+      d.date.getMonth() + 1
+    }/${d.date.getDay()}`}</em></div></div>`;
+
+    return htmlReturn;
+  };
 
   const getPicEvent = () => {
     axios
       .get("https://eonet.gsfc.nasa.gov/api/v3/events")
       .then((response) => response.data)
       .then((data) => {
-        // const categories = [];
+        const categories = [];
 
-        // data.events.forEach((ev) => categories.push(ev.categories[0].id));
+        data.events.forEach((ev) => categories.push(ev.categories[0].id));
 
-        // console.log(categories);
-        // const uniqueCategories = [...new Set(categories)];
-        // console.log(uniqueCategories);
+        const uniqueCategories = [...new Set(categories)];
+        uniqueCategories.map((cat) => {
+          let catCount = 0;
+          // eslint-disable-next-line no-plusplus
+          categories.forEach((c) => (c === cat ? catCount++ : null));
 
+          return {
+            catName: cat,
+            catCount,
+          };
+        });
         setEventList(
           data.events.map((ev) => {
-            // console.log(ev)
             const { geometry } = ev;
             const geometryLength = ev.geometry.length;
             const lastGeo = geometry[geometryLength - 1];
 
-            const date2 = lastGeo.date;
+            const firstDate = new Date(geometry[0].date);
+            const lastDate = new Date(lastGeo.date);
+            const today = new Date();
+
+            let nbDayOld =
+              (today.getTime() - firstDate.getTime()) / (1000 * 60 * 60 * 24);
+
+            if (nbDayOld > 1000) nbDayOld = 1000;
+
+            const sizeBar = (1000 - nbDayOld) / 3000 + 0.03;
+
             const long = lastGeo.coordinates[0];
             const lati = lastGeo.coordinates[1];
 
@@ -68,53 +82,59 @@ export default function NaturalEventsPics() {
               name: ev.title,
               description: ev.description,
               type: ev.categories[0].id,
-              date: date2,
+              date: lastDate,
               lon: long,
               lat: lati,
+              size: sizeBar,
             };
           })
         );
       });
   };
 
-  useEffect(() => {
+  const drawGlobe = () => {
     if (eventList.length > 0) {
+      let baseHeight = window.innerHeight - 300;
+      let baseWidth = window.innerWidth;
+
+      if (baseWidth > 768) baseWidth -= 164;
+      else baseHeight -= 64;
+
       const myGlobe = Globe();
       myGlobe(document.getElementById("globeViz"))
         .globeImageUrl(
-          "https://unpkg.com/three-globe@2.24.4/example/img/earth-night.jpg"
+          "https://unpkg.com/three-globe@2.24.4/example/img/earth-blue-marble.jpg"
         )
         .pointLat("lat")
         .pointLng("lon")
-        .pointAltitude(0.25)
+        .pointAltitude("size")
         .pointRadius(0.12)
         .pointColor((ev) => catColor(ev.type))
+        .pointLabel(getTooltip)
+        .height(baseHeight)
+        .width(baseWidth)
 
-        .labelLat("lat")
-        .labelLng("lon")
-        .labelAltitude(0.26)
-        .labelDotRadius(0.12)
-        .labelDotOrientation(() => "bottom")
-        .labelColor((ev) => catColor(ev.type))
-        .labelText("name")
-        .labelSize(0.15)
-        .labelResolution(1)
-        .labelLabel(getTooltip)
-
-        .pointsData(eventList)
-        .labelsData(eventList);
+        .pointsData(eventList);
     }
+  };
+
+  useEffect(() => {
+    drawGlobe();
   }, [eventList]);
 
   useEffect(() => {
     getPicEvent();
+
+    window.addEventListener("resize", () => {
+      drawGlobe();
+    });
   }, []);
 
+  // afficher uniqueCategories dans une div en haut à droite de la div globeViz
+
   return (
-    <div>
-      <button type="button" onClick={getPicEvent}>
-        <div id="globeViz" />
-      </button>
+    <div id="globeContainer">
+      <div id="globeViz" />
     </div>
   );
 }
