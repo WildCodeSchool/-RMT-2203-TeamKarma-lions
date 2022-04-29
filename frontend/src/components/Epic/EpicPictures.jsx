@@ -200,7 +200,7 @@ export default function EpicPictures() {
               ⏭
             </button>
           </div>
-          <div className="gridpics">
+          <div>
             {tableEpic.map((pic, index) =>
               index >= positionIndex && index < nbPerPage + positionIndex ? (
                 <EpicCard pic={pic} key={pic} />
