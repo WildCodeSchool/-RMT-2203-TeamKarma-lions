@@ -1,87 +1,96 @@
-// import React from "react";
-// import { NavLink } from "react-router-dom";
-// import "../styles/Navbar.scss";
-// import ItemNavbar from "./ItemNavbar";
-// import LogoLoginNav from "./LogoLoginNav";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import "../styles/Navbar.scss";
 
-// export default function Navbar() {
-//   const logoIcone = [
-//     {
-//       className: "logo",
-//       image: "src/assets/lion-logo.png",
-//       alt: "logo",
-//     },
-//   ];
-//   const loginIcone = [
-//     {
-//       className: "login",
-//       image: "src/assets/login.png",
-//       alt: "login",
-//     },
-//   ];
-//   const icones = [
-//     {
-//       className: "planete-icone",
-//       image: "src/assets/planete-icone.png",
-//       alt: "Mars' weather",
-//       isActive: false,
-//     },
-//     {
-//       className: "planete-icone",
-//       image: "src/assets/perseverance.png",
-//       alt: "Perseverance",
-//       navlink: <NavLink to="/perseverance">Perseverance</NavLink>,
-//       isActive: false,
-//     },
-//     {
-//       className: "planete-icone",
-//       image: "src/assets/satellite.png",
-//       alt: "Curiosity",
-//       isActive: false,
-//     },
-//     {
-//       className: "planete-icone",
-//       image: "src/assets/comete.png",
-//       alt: "Meteorites",
-//       isActive: false,
-//     },
-//     {
-//       className: "planete-icone",
-//       image: "src/assets/tornade.png",
-//       alt: "Natural events",
-//       isActive: false,
-//     },
-//   ];
+export default function Navbar() {
+  const [click, setClick] = useState([false, false, false, false]);
 
-//   return (
-//     <div className="navbarContainer">
-//       {logoIcone.map((props) => (
-//         <LogoLoginNav
-//           key={props.alt}
-//           className={props.className}
-//           image={props.image}
-//           alt={props.alt}
-//         />
-//       ))}
-//       <div className="navbar">
-//         {icones.map((icone) => (
-//           <ItemNavbar
-//             key={icone.alt}
-//             image={icone.image}
-//             alt={icone.alt}
-//             navlink={icone.navlink}
-//             isActive={icone.isActive}
-//           />
-//         ))}
-//       </div>
-//       {loginIcone.map((props) => (
-//         <LogoLoginNav
-//           key={props.alt}
-//           className={props.className}
-//           image={props.image}
-//           alt={props.alt}
-//         />
-//       ))}
-//     </div>
-//   );
-// }
+  const handleClick = () => {
+    setClick(!click);
+  };
+
+  return (
+    <div className="navbarContainer">
+      <NavLink to="/">
+        <img src="src/assets/lion-logo.png" alt="Logo" className="logo" />
+      </NavLink>
+      <div className="iconeList">
+        <div
+          className="iconeContainer"
+          role="button"
+          onClick={() => handleClick(0)}
+          onKeyPress={() => handleClick(0)}
+          tabIndex={0}
+        >
+          <NavLink to="/Epic">
+            <img
+              src="src/assets/perseverance.png"
+              alt="Epic"
+              className="imgIcone"
+            />
+          </NavLink>
+
+          <div className="onglet">
+            <h3 className="texteOnglet">Epic</h3>
+          </div>
+        </div>
+
+        <div
+          className="iconeContainer"
+          role="button"
+          onClick={() => handleClick(1)}
+          onKeyPress={() => handleClick(1)}
+          tabIndex={0}
+        >
+          <NavLink to="/NaturalEvents">
+            <img
+              src="src/assets/tornade.png"
+              alt="Natural events"
+              className="imgIcone"
+            />
+          </NavLink>
+          <div className="ongletContainer">
+            <div className="onglet">
+              <h3 className="texteOnglet">Natural Events</h3>
+            </div>
+          </div>
+        </div>
+        <div
+          className="iconeContainer"
+          role="button"
+          onClick={() => handleClick(2)}
+          onKeyPress={() => handleClick(2)}
+          tabIndex={0}
+        >
+          <NavLink to="/Curiosity">
+            <img
+              src="src/assets/satellite.png"
+              alt="Curiosity"
+              className="imgIcone"
+            />
+          </NavLink>
+          <div className="onglet">
+            <h3 className="texteOnglet">Curiosity</h3>
+          </div>
+        </div>
+        <div
+          className="iconeContainer"
+          role="button"
+          onClick={() => handleClick(3)}
+          onKeyPress={() => handleClick(3)}
+          tabIndex={0}
+        >
+          <img
+            src="src/assets/comete.png"
+            alt="Meteorites"
+            className="imgIcone"
+          />
+          <div className="onglet">
+            <h3 className="texteOnglet">Meteorites</h3>
+          </div>
+        </div>
+      </div>
+      <img src="src/assets/login.png" alt="Login" className="login" />
+    </div>
+  );
+}

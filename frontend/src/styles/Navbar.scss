@@ -6,7 +6,6 @@
   align-items: center;
   justify-content: space-between;
   height: 3.5rem;
-  z-index: 150;
 }
 
 .navbar {
@@ -38,26 +37,27 @@
     align-items: center;
     margin-bottom: auto;
     margin-top: 8rem;
+    // z-index:200;
   }
 
   .logo {
     margin-top: 1rem;
     margin-left: 0;
-    -webkit-transition: all 1s ease;
+    -webkit-transition: all 0.4s ease;
   }
 
   .logo:hover {
-    -webkit-transform: scale(1.25);
+    -webkit-transform: scale(1.15);
   }
 
   .login {
     margin-bottom: 1rem;
     margin-right: 0;
-    -webkit-transition: all 1s ease;
+    -webkit-transition: all 0.4s ease;
   }
 
   .login:hover {
-    -webkit-transition: all 1s ease;
+    -webkit-transform: scale(1.15);
   }
 
   .navbarContainer {
@@ -69,6 +69,7 @@
     width: 4rem;
     height: 100vh;
     position: fixed;
+    z-index:300;
     img {
       padding: 0;
     }
@@ -77,16 +78,16 @@
   .iconeContainer {
     position: relative;
     cursor: pointer;
+    // z-index:200;
   }
 
-  .imgIcone{
-    -webkit-transition: all 1s ease;
+  .iconeContainer {
+    -webkit-transition: all 0.4s ease;
   }
 
-  .imgIcone:hover{
-    -webkit-transform: scale(1.25);
+  .iconeContainer:hover {
+    -webkit-transform: scale(1.15);
   }
-  
 
   @keyframes animationIn {
     0% {
@@ -102,33 +103,39 @@
     }
   }
 
-  .mouseEnter {
-    animation: animationIn 0.6s ease-in-out;
-    animation-fill-mode: both;
-    animation-direction: alternate;
-  }
+  
 
   .onglet {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    width: 13rem;
+    width: 12rem;
+    height: 3rem;
     background-color: $nav-primary-color;
     position: absolute;
-    top: -0.5rem;
-    left: 3rem;
+    top: -0.3rem;
+    left: -300px;
     font-family: $font-text;
+    font-size: 0.8rem;
+    text-shadow: 0 0 0.1em #ceb8f3, 0 0 0.2em #432f64;
     color: white;
-    transform: translateX(-300px);
-    filter: opacity(0);
-
+    border-radius: 5px;
+    // z-index:-100;
+    // transform: translateX(-300px);
+    // filter: opacity(0);
     h3 {
       display: block;
       position: relative;
       left: 20px;
+      // z-index:-100;
     }
   }
 
+  .iconeContainer:hover .onglet{
+    animation-name: slideIn;
+    animation-duration: 2s;
+    left: 40px;
+  }
   .iconeList {
     display: flex;
     flex-direction: column;
@@ -138,5 +145,19 @@
       padding: 0;
       width: 2.5rem;
     }
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-80px);
+    filter: opacity(0);
+  }
+  40% {
+    filter: opacity(0);
+  }
+  100% {
+    transform: translateX(0);
+    filter: opacity(1);
   }
 }
