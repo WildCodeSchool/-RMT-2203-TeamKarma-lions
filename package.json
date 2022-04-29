@@ -17,11 +17,5 @@
   "devDependencies": {
     "concurrently": "^7.0.0",
     "husky": "^7.0.0"
-  },
-  "dependencies": {
-    "globe.gl": "^2.26.1",
-    "moment": "^2.29.3",
-    "react-lazy-load-image-component": "^1.5.4",
-    "save": "^2.5.0"
   }
 }
