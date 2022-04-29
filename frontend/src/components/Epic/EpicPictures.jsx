@@ -3,8 +3,9 @@ import axios from "axios";
 import moment from "moment";
 import Calendar from "react-calendar";
 import EpicCard from "./EpicCard";
-import "../../styles/EpicPictures.scss";
 import "../../styles/CalendarOps.scss";
+import "../../styles/CalendarCuriosity.scss";
+import "../../styles/EpicPictures.scss";
 
 export default function EpicPictures() {
   const [calendarDate, setCalendarDate] = useState(new Date());
@@ -126,9 +127,27 @@ export default function EpicPictures() {
   };
 
   return (
-    <div>
-      <div className="epicCalendar">
-        <Calendar onChange={setCalendarDate} value={calendarDate} />
+    <div className="EpicPictures">
+      <div className="introCalendar">
+        <p className="intropage">
+          <span className="police">EPIC</span> (Earth Polychromatic Imaging
+          Camera) is a 10-channel spectroradiometer onboard NOAA’s DSCOVR (Deep
+          Space Climate Observatory) spacecraft. EPIC provides 10 narrow band
+          spectral images of{" "}
+          <span className="police">the entire sunlit face of Earth</span> using
+          a 2048x2048 pixel CCD (Charge Coupled Device) detector coupled to a
+          30-cm aperture Cassegrain telescope.{" "}
+          <span className="police">The DSCOVR spacecraft</span> is located at
+          the Earth-Sun Lagrange-1 (L-1) point giving EPIC a unique angular
+          perspective that will be used in science applications to measure
+          ozone, aerosols, cloud reflectivity, cloud height, vegetation
+          properties, and UV radiation estimates at the surface of the Earth.
+        </p>
+        <Calendar
+          className="Calendar"
+          onChange={setCalendarDate}
+          value={calendarDate}
+        />
       </div>
 
       <div className="epicEventSelector">
