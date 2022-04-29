@@ -17,7 +17,6 @@
 .logo {
   width: 2.5rem;
   margin-left: 0.5rem;
-  // padding: 0.5rem;
 }
 
 .planete-icone {
@@ -37,7 +36,6 @@
     align-items: center;
     margin-bottom: auto;
     margin-top: 8rem;
-    // z-index:200;
   }
 
   .logo {
@@ -78,7 +76,6 @@
   .iconeContainer {
     position: relative;
     cursor: pointer;
-    // z-index:200;
   }
 
   .iconeContainer {
@@ -120,20 +117,16 @@
     text-shadow: 0 0 0.1em #ceb8f3, 0 0 0.2em #432f64;
     color: white;
     border-radius: 5px;
-    // z-index:-100;
-    // transform: translateX(-300px);
-    // filter: opacity(0);
     h3 {
       display: block;
       position: relative;
       left: 20px;
-      // z-index:-100;
     }
   }
 
   .iconeContainer:hover .onglet{
     animation-name: slideIn;
-    animation-duration: 2s;
+    animation-duration: .4s;
     left: 40px;
   }
   .iconeList {

@@ -6,7 +6,7 @@ export default function Navbar() {
   const [click, setClick] = useState([false, false, false, false]);
 
   const handleClick = () => {
-    setClick(!click);
+    setClick(!click); // sera à modifier pour que ça marche vraiment car on ne peut pas inverser un tableau
   };
 
   return (
