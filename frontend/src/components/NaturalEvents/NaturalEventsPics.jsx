@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Globe from "globe.gl";
-// import * as d3 from "d3";
-// import polished from "polished"
-// ['severeStorms', 'volcanoes', 'seaLakeIce', 'wildfires']
 
 const correspondance = [
   { id: "severeStorms", color: "#1dfb8f" },
@@ -16,8 +13,6 @@ export default function NaturalEventsPics() {
   const [eventList, setEventList] = useState([]);
 
   const catColor = (evenement) => {
-    // console.log(evenement);
-
     let color = "";
 
     correspondance.forEach((corr) => {
@@ -43,7 +38,6 @@ export default function NaturalEventsPics() {
   };
 
   const getPicEvent = () => {
-
     axios
       .get("https://eonet.gsfc.nasa.gov/api/v3/events")
       .then((response) => response.data)
@@ -60,12 +54,11 @@ export default function NaturalEventsPics() {
 
           return {
             catName: cat,
-            catCount: catCount,
+            catCount,
           };
         });
         setEventList(
           data.events.map((ev) => {
-            // console.log(ev)
             const { geometry } = ev;
             const geometryLength = ev.geometry.length;
             const lastGeo = geometry[geometryLength - 1];
@@ -99,8 +92,13 @@ export default function NaturalEventsPics() {
       });
   };
 
-  useEffect(() => {
+  const drawGlobe = () => {
     if (eventList.length > 0) {
+      let baseHeight = window.innerHeight - 300;
+      let baseWidth = window.innerWidth;
+
+      if (baseWidth > 768) baseWidth -= 164;
+      else baseHeight -= 64;
 
       const myGlobe = Globe();
       myGlobe(document.getElementById("globeViz"))
@@ -112,21 +110,30 @@ export default function NaturalEventsPics() {
         .pointAltitude("size")
         .pointRadius(0.12)
         .pointColor((ev) => catColor(ev.type))
-
         .pointLabel(getTooltip)
+        .height(baseHeight)
+        .width(baseWidth)
 
         .pointsData(eventList);
     }
+  };
+
+  useEffect(() => {
+    drawGlobe();
   }, [eventList]);
 
   useEffect(() => {
     getPicEvent();
+
+    window.addEventListener("resize", () => {
+      drawGlobe();
+    });
   }, []);
 
   // afficher uniqueCategories dans une div en haut à droite de la div globeViz
 
   return (
-    <div>
+    <div id="globeContainer">
       <div id="globeViz" />
     </div>
   );
