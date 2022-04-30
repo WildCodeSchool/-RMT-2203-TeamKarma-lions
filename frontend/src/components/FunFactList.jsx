@@ -15,8 +15,6 @@ export default function FunFactList() {
       )
       .then((response) => response.data)
       .then((data) => {
-        console.log("setMarsTemp", data, data.soles[0].max_temp);
-
         setMarsTemp([
           parseInt(data.soles[0].min_temp, 10),
           parseInt(data.soles[0].max_temp, 10),
@@ -31,8 +29,6 @@ export default function FunFactList() {
       )
       .then((response) => response.data)
       .then((data) => {
-        console.log("setNbExo", data);
-
         setNbExo(data[0]["count(releasedate)"]);
       });
   }, []);
@@ -42,7 +38,6 @@ export default function FunFactList() {
       .get(`https://ssd-api.jpl.nasa.gov/fireball.api?limit=1`)
       .then((response) => response.data)
       .then((data) => {
-        console.log("setFireBallImpact", data);
         setFireBallImpact(data.data["0"][2]);
       });
   }, []);

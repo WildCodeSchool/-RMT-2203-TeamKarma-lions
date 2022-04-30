@@ -27,14 +27,10 @@ export default function FunFact({
   };
 
   useEffect(() => {
-    console.log("factData", factData, "factData2", factData2);
-
     if (factData !== 0 && factData !== null && !timeoutLaunched[0]) {
-      console.log("increaseNumber factData", factData, 0);
       increaseNumber(factData, 0, setDisplayNumber1);
     }
     if (factData2 !== 0 && factData2 !== null && !timeoutLaunched[1]) {
-      console.log("increaseNumber factData2", factData2, 1);
       increaseNumber(factData2, 0, setDisplayNumber2);
     }
   }, [factData, factData2]);
@@ -45,8 +41,8 @@ export default function FunFact({
       <div>
         {textFront}
         <p>
-          {factData !== null && displayNumber1}
-          {factData !== null && textBack}
+          {displayNumber1}
+          {textBack}
           {factData2 !== null && displayNumber2}
           {textBack2 !== null && textBack2}
         </p>
