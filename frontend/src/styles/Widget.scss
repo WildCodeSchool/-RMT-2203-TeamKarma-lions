@@ -35,6 +35,14 @@ article {
   z-index: 10;
 }
 
+h3 {
+  color: white;
+}
+
+h3:hover {
+  color: $secondary-color;
+}
+
 @media screen and (min-width: 767.98px) {
   .widgetsContainer {
     margin-top: 20px;
@@ -61,7 +69,9 @@ article {
   article:hover {
     transform: scale(1.05);
     transition: transform 0.4s ease-in-out;
-    border: 2px solid $nav-primary-color;
+    // border: 2px solid $secondary-color;
+    box-shadow: 0 0 7px #1c0444, 0 0 10px #1c0444, 0 0 42px $primary-color,
+      0 0 77px $primary-color, 0 0 80px white;
   }
 
   .widget {
