@@ -219,10 +219,19 @@ const categories = [
 
 const latArray = [-45, 45];
 const lonArray = [-90, 0, 90, 180];
+const axios = require("axios").default;
+
+function fetchN2yo(catIndex, latIndex, lonIndex, apiKey) {
+  return axios
+    .get(
+      `https://api.n2yo.com/rest/v1/satellite/above/${latArray[latIndex]}/${lonArray[lonIndex]}/0/90/${categories[catIndex].id}/&apiKey=${apiKey}`
+    )
+    .then((res) => res);
+}
 
 const mysql = require("mysql2/promise");
 
-const { DB_HOST, DB_USER, DB_PASSWORD, DB_NAME } = process.env;
+const { DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, N2YO_API_KEY } = process.env;
 mysql
   .createConnection({
     host: DB_HOST,
@@ -231,30 +240,78 @@ mysql
     database: DB_NAME,
   })
   .then((connection) => {
-    categoriesIndex = 0;
-    latArrayIndex = 0;
-    lonArrayIndex = 0;
+    let categoriesIndex = 0;
+    let latArrayIndex = 0;
+    let lonArrayIndex = 0;
 
     connection
       .query(
         `select category_name, obslat, obslng from n2yo order by request_date desc limit 1`
       )
-      .then((res) => console.log(res));
+      .then((res) => {
+        console.log(res);
+        if (res.length > 0) {
+          categories.forEach((cat, catIndex) => {
+            if (cat.name === res[0].category_name) categoriesIndex = catIndex;
+          });
+
+          latArray.forEach((lat, latIndex) => {
+            if (lat === res[0].obslat) latArrayIndex = latIndex;
+          });
+
+          lonArray.forEach((lon, lonIndex) => {
+            if (lon.name === res[0].obslng) lonArrayIndex = lonIndex;
+          });
+        }
+
+        // retraiter res pour savoir ou démarrer
+        setInterval(() => {
+          if (categoriesIndex === categories.length - 1) {
+            categoriesIndex = 0;
+            if (latArrayIndex === latArray.length - 1) {
+              latArrayIndex = 0;
+              if (lonArrayIndex === lonArray.length - 1) lonArrayIndex = 0;
+              else lonArrayIndex++;
+            } else latArrayIndex++;
+          } else categoriesIndex++;
+
+          const currentDate = new Date();
+
+          fetchN2yo(
+            categoriesIndex,
+            latArrayIndex,
+            lonArrayIndex,
+            N2YO_API_KEY
+          ).then((resFetch) => {
+            console.log(resFetch.data);
+            if (resFetch.data)
+              resFetch.data.above.forEach((sat) => {
+                console.log("sat.launchdate", sat.launchDate);
+
+                connection.query(
+                  `insert into n2yo (request_date, category_name, obslat, obslng, satid, satname, int_designator, launch_date, satlat, satlng, satalt) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                  [
+                    currentDate,
+                    categories[categoriesIndex].name,
+                    latArray[latArrayIndex],
+                    lonArray[lonArrayIndex],
+                    sat.satid,
+                    sat.satname,
+                    sat.intDesignator,
+                    new Date(
+                      parseInt(sat.launchDate.split("-")[0], 10),
+                      parseInt(sat.launchDate.split("-")[1], 10) - 1,
+                      parseInt(sat.launchDate.split("-")[2], 10)
+                    ),
+                    sat.satlat,
+                    sat.satlng,
+                    sat.satalt,
+                  ]
+                );
+              });
+          });
+        }, 5000);
+      });
   });
 
-// const N2yoManager = require("../models/N2yoManager");
-
-// console.log("N2yoManager", N2yoManager);
-
-// faire un tableau des coordonnées à sonder
-// rajouter dans table infos sur coordonnées sondées
-
-function populateDatabase() {
-  console.log(N2yoManager.findLatest());
-
-  // récupérer dernier enregistrement dans la table
-
-  console.log("interval");
-}
-
-module.exports = populateDatabase;
+// module.exports = populateDatabase;
