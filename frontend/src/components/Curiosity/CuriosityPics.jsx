@@ -7,8 +7,13 @@ export default function CuriosityPics({ picList }) {
   const [positionIndex, setPositionIndex] = useState(0);
   const [choosenValue, setChoosenValue] = useState("");
 
+  const picListFiltered = () => {
+    return picList.filter((pic) => pic.camera.name.includes(choosenValue));
+  };
+
   const handleChange = (e) => {
     setChoosenValue(e.target.value);
+    setPositionIndex(0);
   };
 
   const nbPerPage = 20;
@@ -21,13 +26,15 @@ export default function CuriosityPics({ picList }) {
         }
       }
       if (action === "Next") {
-        if (positionIndex + nbPerPage < picList.length) {
+        if (positionIndex + nbPerPage < picListFiltered().length) {
           setPositionIndex(positionIndex + nbPerPage);
         }
       }
       if (action === "Last") {
-        if (picList.length > nbPerPage) {
-          setPositionIndex((Math.ceil(picList.length / nbPerPage) - 1) * 20);
+        if (picListFiltered().length > nbPerPage) {
+          setPositionIndex(
+            (Math.ceil(picListFiltered().length / nbPerPage) - 1) * 20
+          );
         }
       }
     } else {
@@ -112,6 +119,10 @@ export default function CuriosityPics({ picList }) {
             >
               <img src="../src/assets/dbl-arrow-left.png" alt="left arrow" />
             </button>
+            <p>
+              {positionIndex / nbPerPage + 1} /
+              {Math.ceil(picListFiltered().length / nbPerPage)}
+            </p>
             <button
               type="button"
               className="picButton"
@@ -129,13 +140,11 @@ export default function CuriosityPics({ picList }) {
           </div>
 
           <div className="gridpics">
-            {picList
-              .filter((pic) => pic.camera.name.includes(choosenValue))
-              .map((pic, index) =>
-                index >= positionIndex && index < nbPerPage + positionIndex ? (
-                  <PicCard pic={pic} key={pic.id} />
-                ) : null
-              )}
+            {picListFiltered().map((pic, index) =>
+              index >= positionIndex && index < nbPerPage + positionIndex ? (
+                <PicCard pic={pic} key={pic.id} />
+              ) : null
+            )}
           </div>
         </div>
       )}
