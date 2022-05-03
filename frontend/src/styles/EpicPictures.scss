@@ -16,6 +16,7 @@
 }
 
 .buttonContainer {
+  margin: 0.3rem 1rem 0.3rem 1rem;
   display: flex;
   justify-content: center;
   padding: 0.5rem;
@@ -23,7 +24,6 @@
 
 .intropage {
   padding: 0.5rem;
-  margin: 1rem;
   background-color: $primary-color;
 }
 
@@ -34,11 +34,16 @@
   align-items: center;
 }
 
+.epicEventSelector {
+  display: flex;
+  flex-direction: column;
+  margin: 0.3rem 10rem 0.3rem 10rem;
+}
+
 .Calendar {
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
-  margin: 1rem;
   background-color: $primary-color;
   p {
     align-self: center;
@@ -47,12 +52,39 @@
   }
 }
 
+.epicEventDiaporama {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.epicpics {
+  margin: 0.3rem 1rem 0.3rem 1rem;
+  background-color: black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 30rem;
+}
+
+.epicimg {
+  height: 30rem;
+  padding: 0;
+  width: auto;
+}
+
 @media screen and (min-width: 768px) {
+  .intropage {
+    margin-right: 2rem;
+  }
+
   .introCalendar {
     flex-direction: row;
+    margin: 0 3rem 0 3rem;
   }
-  .gridpics {
-    margin-left: 2.5em;
-    margin-right: 2.5em;
+
+  .epicpics {
+    margin: 0.3rem 15rem 0.3rem 15rem;
   }
 }

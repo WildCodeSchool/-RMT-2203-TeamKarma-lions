@@ -152,47 +152,44 @@ export default function EpicPictures() {
         </div>
       </div>
 
-      <div className="epicEventSelector">
-        <select value={eventDate} onChange={handleEpicChange}>
-          <option value="">none </option>
-          <option value="2021-02-11">
-            Lunar Transit 2021 - February 11, 2021
-          </option>
-          <option value="2020-09-12">
-            West Coast Wildfires - September 12, 2020
-          </option>
-          <option value="2020-06-21">
-            Annular Solar Eclipse 2020 - June 21, 2020
-          </option>
-          <option value="2018-04-21">
-            Examples of Sun Glints - April 21, 2018
-          </option>
-          <option value="2017-08-21">
-            Total Solar Eclipse - August 21, 2017
-          </option>
-          <option value="2017-08-21">Lunar Transit 2016 - July 05, 2016</option>
-          <option value="2016-07-05">
-            Sunglints from Ice Crystals seen from Deep Space - May 15, 2017
-          </option>
-          <option value="2017-02-26">
-            Annular Solar Eclipse 2017 - February 26, 2017
-          </option>
-          <option value="2016-03-09">
-            Solar Eclipse 2016 - March 09, 2016
-          </option>
-        </select>
-      </div>
-
-      <div className="epicDiaporama">
-        <div className="epicpics">
-          {tableEpic.map((pic, index) =>
-            index >= positionIndex && index < nbPerPage + positionIndex ? (
-              <EpicCard pic={pic} key={pic} />
-            ) : null
-          )}
+      <div className="epicEventDiaporama">
+        <div className="epicEventSelector">
+          <p>
+            Or select an <span className="police">Epic event</span> !
+          </p>
+          <select value={eventDate} onChange={handleEpicChange}>
+            <option value="">none </option>
+            <option value="2021-02-11">
+              Lunar Transit 2021 - February 11, 2021
+            </option>
+            <option value="2020-09-12">
+              West Coast Wildfires - September 12, 2020
+            </option>
+            <option value="2020-06-21">
+              Annular Solar Eclipse 2020 - June 21, 2020
+            </option>
+            <option value="2018-04-21">
+              Examples of Sun Glints - April 21, 2018
+            </option>
+            <option value="2017-08-21">
+              Total Solar Eclipse - August 21, 2017
+            </option>
+            <option value="2017-08-21">
+              Lunar Transit 2016 - July 05, 2016
+            </option>
+            <option value="2016-07-05">
+              Sunglints from Ice Crystals seen from Deep Space - May 15, 2017
+            </option>
+            <option value="2017-02-26">
+              Annular Solar Eclipse 2017 - February 26, 2017
+            </option>
+            <option value="2016-03-09">
+              Solar Eclipse 2016 - March 09, 2016
+            </option>
+          </select>
         </div>
 
-        <div className="containerPic">
+        <div className="epicDiaporama">
           <div className="buttonContainer">
             <button
               type="button"
@@ -229,6 +226,14 @@ export default function EpicPictures() {
             >
               <img src="../src/assets/lastlast.png" alt="last arrow" />
             </button>
+          </div>
+
+          <div className="epicpics">
+            {tableEpic.map((pic, index) =>
+              index >= positionIndex && index < nbPerPage + positionIndex ? (
+                <EpicCard pic={pic} key={pic} />
+              ) : null
+            )}
           </div>
         </div>
       </div>
