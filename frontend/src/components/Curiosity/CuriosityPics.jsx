@@ -83,6 +83,14 @@ export default function CuriosityPics({ picList }) {
           </option>
         </select>
       </div>
+      <div className="picListEmpty">
+        {picList.length === 0 ? (
+          <p>
+            <span className="police">Sorry</span>, Curiosity was exploring that
+            day. <span className="police">Please, select another date</span>.
+          </p>
+        ) : null}
+      </div>
       <div className="containerPic">
         <div className="buttonContainer">
           <button
