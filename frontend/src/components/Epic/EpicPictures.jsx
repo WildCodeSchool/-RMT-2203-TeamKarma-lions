@@ -133,20 +133,23 @@ export default function EpicPictures() {
           Camera) is a 10-channel spectroradiometer onboard NOAA’s DSCOVR (Deep
           Space Climate Observatory) spacecraft. EPIC provides 10 narrow band
           spectral images of{" "}
-          <span className="police">the entire sunlit face of Earth</span> using
+          <span className="police"> the entire sunlit face of Earth</span> using
           a 2048x2048 pixel CCD (Charge Coupled Device) detector coupled to a
           30-cm aperture Cassegrain telescope.{" "}
           <span className="police">The DSCOVR spacecraft</span> is located at
           the Earth-Sun Lagrange-1 (L-1) point giving EPIC a unique angular
           perspective that will be used in science applications to measure
           ozone, aerosols, cloud reflectivity, cloud height, vegetation
-          properties, and UV radiation estimates at the surface of the Earth.
+          properties, and UV radiation estimates at{" "}
+          <span className="police">the Earth&apos;s surface</span>.
         </p>
-        <Calendar
-          className="Calendar"
-          onChange={setCalendarDate}
-          value={calendarDate}
-        />
+        <div className="Calendar">
+          <p>
+            Select a date to see an{" "}
+            <span className="police">&quot;epic&quot;</span> slideshow !
+          </p>
+          <Calendar onChange={setCalendarDate} value={calendarDate} />
+        </div>
       </div>
 
       <div className="epicEventSelector">

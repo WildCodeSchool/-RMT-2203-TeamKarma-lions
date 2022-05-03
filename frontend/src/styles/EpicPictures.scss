@@ -1,5 +1,9 @@
 @import "./variables.scss";
 
+.mainTitle {
+  align-self: center;
+}
+
 .picButton {
   display: flex;
   justify-content: center;
@@ -17,47 +21,38 @@
   padding: 0.5rem;
 }
 
-.epicDiaporama {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.epicpics {
-  width: 500px;
-  .epicCard {
-    display: flex;
-    justify-content: center;
-    background: #000000;
-    width: 40vw;
-    .epicimg {
-      padding: 0;
-      width: 40vw;
-    }
-  }
-}
-
-.introCalendar {
-  display: flex;
-  justify-content: center;
-}
-
-.epicCalendar {
-  margin: 3rem;
-  background-color: #1c0444;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
 .intropage {
   padding: 0.5rem;
-  margin: 2rem;
+  margin: 1rem;
   background-color: $primary-color;
 }
 
 .introCalendar {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Calendar {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  margin: 1rem;
+  background-color: $primary-color;
+  p {
+    align-self: center;
+    margin: 0;
+    padding: 0rem 0rem 0.4rem 0rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .introCalendar {
+    flex-direction: row;
+  }
+  .gridpics {
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+  }
 }

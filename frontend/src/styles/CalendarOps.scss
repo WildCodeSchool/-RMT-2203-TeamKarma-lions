@@ -1,5 +1,13 @@
 @import "./variables.scss";
 
+.epicpage {
+  display: flex;
+  flex-direction: column;
+}
+
+.epicTitle {
+  align-self: center;
+}
 .calendar {
   display: flex;
   flex-direction: column;
