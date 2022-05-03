@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "../../styles/CalendarOps.scss";
-import "../../styles/CalendarCuriosity.scss";
 
 export default function CalendarCuriosity({ getPic }) {
   const [date, setDate] = useState(new Date());

@@ -4,7 +4,6 @@ import moment from "moment";
 import Calendar from "react-calendar";
 import EpicCard from "./EpicCard";
 import "../../styles/CalendarOps.scss";
-import "../../styles/CalendarCuriosity.scss";
 import "../../styles/EpicPictures.scss";
 
 export default function EpicPictures() {
