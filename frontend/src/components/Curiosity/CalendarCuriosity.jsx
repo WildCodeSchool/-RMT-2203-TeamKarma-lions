@@ -17,7 +17,7 @@ export default function CalendarCuriosity({ getPic }) {
         you were there :
       </p>
       <div className="calendar-container">
-        <Calendar onChange={handleChange} value={date} />
+        <Calendar onChange={handleChange} value={date} maxDate={new Date()} />
       </div>
     </div>
   );
