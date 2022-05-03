@@ -85,53 +85,60 @@ export default function CuriosityPics({ picList }) {
       </div>
       <div className="picListEmpty">
         {picList.length === 0 ? (
-          <p>
-            <span className="police">Sorry</span>, Curiosity was exploring that
-            day. <span className="police">Please, select another date</span>.
-          </p>
+          <div>
+            <p className="police">⚠</p>
+            <p>
+              <span className="police">Sorry</span>, Curiosity was exploring
+              that day.{" "}
+              <span className="police">Please, select another date</span>.
+            </p>
+          </div>
         ) : null}
       </div>
-      <div className="containerPic">
-        <div className="buttonContainer">
-          <button
-            type="button"
-            className="picButton"
-            onClick={() => handleButtonClick(0)}
-          >
-            <img src="../src/assets/firstfirst.png" alt="first arrow" />
-          </button>
-          <button
-            type="button"
-            className="picButton"
-            onClick={() => handleButtonClick("Previous")}
-          >
-            <img src="../src/assets/dbl-arrow-left.png" alt="left arrow" />
-          </button>
-          <button
-            type="button"
-            className="picButton"
-            onClick={() => handleButtonClick("Next")}
-          >
-            <img src="../src/assets/dbl-arrow-right.png" alt="right arrow" />
-          </button>
-          <button
-            type="button"
-            className="picButton"
-            onClick={() => handleButtonClick("Last")}
-          >
-            <img src="../src/assets/lastlast.png" alt="last arrow" />
-          </button>
+      {picList.length === 0 ? null : (
+        <div className="containerPic">
+          <div className="buttonContainer">
+            <button
+              type="button"
+              className="picButton"
+              onClick={() => handleButtonClick(0)}
+            >
+              <img src="../src/assets/firstfirst.png" alt="first arrow" />
+            </button>
+            <button
+              type="button"
+              className="picButton"
+              onClick={() => handleButtonClick("Previous")}
+            >
+              <img src="../src/assets/dbl-arrow-left.png" alt="left arrow" />
+            </button>
+            <button
+              type="button"
+              className="picButton"
+              onClick={() => handleButtonClick("Next")}
+            >
+              <img src="../src/assets/dbl-arrow-right.png" alt="right arrow" />
+            </button>
+            <button
+              type="button"
+              className="picButton"
+              onClick={() => handleButtonClick("Last")}
+            >
+              <img src="../src/assets/lastlast.png" alt="last arrow" />
+            </button>
+          </div>
+
+          <div className="gridpics">
+            {picList
+              .filter((pic) => pic.camera.name.includes(choosenValue))
+              .map((pic, index) =>
+                index >= positionIndex && index < nbPerPage + positionIndex ? (
+                  <PicCard pic={pic} key={pic.id} />
+                ) : null
+              )}
+          </div>
         </div>
-        <div className="gridpics">
-          {picList
-            .filter((pic) => pic.camera.name.includes(choosenValue))
-            .map((pic, index) =>
-              index >= positionIndex && index < nbPerPage + positionIndex ? (
-                <PicCard pic={pic} key={pic.id} />
-              ) : null
-            )}
-        </div>
-      </div>
+      )}
     </div>
   );
 }
