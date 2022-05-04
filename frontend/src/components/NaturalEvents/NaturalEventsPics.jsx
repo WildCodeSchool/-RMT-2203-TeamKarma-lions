@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Globe from "globe.gl";
+import "../../styles/NaturalEvents.scss";
 
 const correspondance = [
   { id: "severeStorms", color: "#1dfb8f" },
@@ -94,10 +95,10 @@ export default function NaturalEventsPics() {
 
   const drawGlobe = () => {
     if (eventList.length > 0) {
-      let baseHeight = window.innerHeight - 300;
+      let baseHeight = window.innerHeight - 80;
       let baseWidth = window.innerWidth;
 
-      if (baseWidth > 768) baseWidth -= 164;
+      if (baseWidth > 768) baseWidth -= 80;
       else baseHeight -= 64;
 
       const myGlobe = Globe();
@@ -134,6 +135,14 @@ export default function NaturalEventsPics() {
 
   return (
     <div id="globeContainer">
+      <div id="counter">
+        <ul id="listEvents">
+          <li>Volcanoes : 156</li>
+          <li>Storms : 1</li>
+          <li>Icebergs : 126</li>
+          <li>Fires : 58</li>
+        </ul>
+      </div>
       <div id="globeViz" />
     </div>
   );

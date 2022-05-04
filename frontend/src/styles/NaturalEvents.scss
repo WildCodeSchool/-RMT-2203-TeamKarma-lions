@@ -1,0 +1,36 @@
+@import "./App.scss";
+
+#globeContainer {
+  position: relative;
+}
+#counter {
+  color: #ffffff;
+  font-size: 0.7rem;
+  border-radius: 10px;
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#listEvents {
+  list-style: none;
+}
+
+.maintTitle natTitle {
+  font-size: clamp(0.2rem, 5.5vw, 2rem);
+  color: green;
+}
+
+@media screen and (min-width: 768px) {
+  #globeContainer {
+    width: 88vw;
+    height: 100vh;
+  }
+  #counter {
+    width: 150px;
+    height: 100px;
+    top: 0;
+    font-size: 1rem;
+  }
+}
