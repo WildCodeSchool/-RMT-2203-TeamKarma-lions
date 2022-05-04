@@ -2,7 +2,7 @@ import { React } from "react";
 
 export default function PicSelect({ picList, cameraList }) {
   return (
-    <option value={cameraList}>
+    <option value={cameraList.camera.name}>
       {cameraList.camera.full_name} - {cameraList.camera.name} -{" "}
       {
         picList.filter((pic) =>
