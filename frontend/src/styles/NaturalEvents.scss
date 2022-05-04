@@ -17,11 +17,6 @@
   list-style: none;
 }
 
-.maintTitle natTitle {
-  font-size: clamp(0.2rem, 5.5vw, 2rem);
-  color: green;
-}
-
 @media screen and (min-width: 768px) {
   #globeContainer {
     width: 88vw;
