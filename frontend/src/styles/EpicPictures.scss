@@ -37,7 +37,7 @@
 .epicEventSelector {
   display: flex;
   flex-direction: column;
-  margin: 0.3rem 10rem 0.3rem 10rem;
+  width: 80vw;
 }
 
 .Calendar {
@@ -70,8 +70,8 @@
 
 .epicimg {
   height: 30rem;
-  padding: 0;
   width: auto;
+  padding: 0;
 }
 
 @media screen and (min-width: 768px) {
