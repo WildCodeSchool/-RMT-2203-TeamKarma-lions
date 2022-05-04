@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 
 import "../../styles/CuriosityPics.scss";
+
+import PicSelect from "./PicSelect";
+
 import PicCard from "./PicCard";
 
 export default function CuriosityPics({ picList }) {
@@ -41,7 +44,6 @@ export default function CuriosityPics({ picList }) {
       setPositionIndex(action * nbPerPage);
     }
   };
-
   return (
     <div>
       <div className="filterCam">
@@ -50,44 +52,16 @@ export default function CuriosityPics({ picList }) {
         </p>
         <select name="Camera" value={choosenValue} onChange={handleChange}>
           <option value="">All - {picList.length} photos</option>
-          <option value="FHAZ">
-            Front Hazard Avoidance Camera - FHAZ -{" "}
-            {picList.filter((pic) => pic.camera.name.includes("FHAZ")).length}{" "}
-            photos
-          </option>
-          <option value="RHAZ">
-            Rear Hazard Avoidance Camera - RHAZ -{" "}
-            {picList.filter((pic) => pic.camera.name.includes("RHAZ")).length}{" "}
-            photos
-          </option>
-          <option value="MAST">
-            Mast Camera - MAST -{" "}
-            {picList.filter((pic) => pic.camera.name.includes("MAST")).length}{" "}
-            photos
-          </option>
-          <option value="CHEMCAM">
-            Chemistry and Camera Complex - CHEMCAM -{" "}
-            {
-              picList.filter((pic) => pic.camera.name.includes("CHEMCAM"))
-                .length
-            }{" "}
-            photos
-          </option>
-          <option value="MAHLI">
-            Mars Hand Lens Imager - MAHLI -{" "}
-            {picList.filter((pic) => pic.camera.name.includes("MAHLI")).length}{" "}
-            photos
-          </option>
-          <option value="MARDI">
-            Mars Descent Imager - MARDI -{" "}
-            {picList.filter((pic) => pic.camera.name.includes("MARDI")).length}{" "}
-            photos
-          </option>
-          <option value="NAVCAM">
-            Navigation Camera - NAVCAM -{" "}
-            {picList.filter((pic) => pic.camera.name.includes("NAVCAM")).length}{" "}
-            photos
-          </option>
+          {picList
+            .filter(
+              (elem, index) =>
+                picList.findIndex(
+                  (obj) => obj.camera.name === elem.camera.name
+                ) === index
+            )
+            .map((el) => (
+              <PicSelect picList={picList} cameraList={el} />
+            ))}
         </select>
       </div>
       <div className="picListEmpty">
