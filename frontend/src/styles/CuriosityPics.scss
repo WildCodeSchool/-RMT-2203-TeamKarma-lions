@@ -1,10 +1,15 @@
 // selection photos
 
-.filterCam{
+.filterCam {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 1.5em;
+}
+
+.picListEmpty {
+  text-align: center;
+  font-size: 150%;
 }
 
 // conteneur photos
@@ -12,11 +17,16 @@
 .buttonContainer {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 1em;
 }
 
+.buttonContainer p {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
 .containerPic {
-  width: calc(100vw - 4rem);
   display: flex;
   flex-direction: column;
 }
@@ -49,25 +59,29 @@
   margin: 0 0.5em;
   background: #1c0444;
   border: none;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   border-radius: 4em;
 }
 
-.picButton img{
+.picButton img {
   padding: 0;
 }
 .picButton img:first-child {
-  padding-right: .5em;
+  padding-right: 0.5em;
 }
 
-.picButton img:last-child{
-  padding-left: .5em;
+.picButton img:last-child {
+  padding-left: 0.5em;
 }
 
 @media screen and (min-width: 768px) {
-  .gridpics{
+  .gridpics {
     margin-left: 2.5em;
     margin-right: 2.5em;
     border-radius: 1em;
+  }
+
+  .containerPic {
+    width: calc(100vw - 4rem);
   }
 }
