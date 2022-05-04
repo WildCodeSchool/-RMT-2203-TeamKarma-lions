@@ -23,8 +23,16 @@ class N2yoManager extends AbstractManager {
   }
 
   findLatest() {
+    console.log("findLatest");
     return this.connection.query(
-      `select * from ${N2yoManager.table} order by request_date desc limit 1`
+      `select p.satid, p.category_name, p.satname, p.int_designator, p.launch_date, p.satlat, p.satlng, p.satalt, p.request_date from ${N2yoManager.table} p inner join (select id, satid, satalt, max(request_date) as max_date from ${N2yoManager.table} group by satid) m on p.satid = m.satid and p.request_date = m.max_date;`
+    );
+  }
+  
+  findCategoryBySatId() {
+    console.log("findLatest");
+    return this.connection.query(
+      `select distinct(satid), category_name from ${N2yoManager.table} order by satid;`
     );
   }
 

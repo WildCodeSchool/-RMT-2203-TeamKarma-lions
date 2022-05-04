@@ -217,8 +217,8 @@ const categories = [
   },
 ];
 
-const latArray = [-45, 45];
-const lonArray = [-90, 0, 90, 180];
+const latArray = [-90, -45, 0, 45, 90];
+const lonArray = [-120, -60, 0, 60, 120, 180];
 const axios = require("axios").default;
 
 function fetchN2yo(catIndex, latIndex, lonIndex, apiKey) {
@@ -249,7 +249,7 @@ mysql
         `select category_name, obslat, obslng from n2yo order by request_date desc limit 1`
       )
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.length > 0) {
           categories.forEach((cat, catIndex) => {
             if (cat.name === res[0].category_name) categoriesIndex = catIndex;
@@ -283,10 +283,10 @@ mysql
             lonArrayIndex,
             N2YO_API_KEY
           ).then((resFetch) => {
-            console.log(resFetch.data);
+            // console.log(resFetch.data);
             if (resFetch.data)
               resFetch.data.above.forEach((sat) => {
-                console.log("sat.launchdate", sat.launchDate);
+                // console.log("sat.launchdate", sat.launchDate);
 
                 connection.query(
                   `insert into n2yo (request_date, category_name, obslat, obslng, satid, satname, int_designator, launch_date, satlat, satlng, satalt) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,

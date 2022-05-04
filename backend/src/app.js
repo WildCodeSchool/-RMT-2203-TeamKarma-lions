@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const cors = require("cors");
 
 // let's create express app
 
@@ -8,6 +9,7 @@ const app = express();
 // use some application-level middlewares
 
 app.use(express.json());
+app.use(cors());
 // app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.static(path.join(__dirname, "../../frontend")));
 

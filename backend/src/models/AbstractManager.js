@@ -2,6 +2,7 @@ class AbstractManager {
   constructor(connection, table) {
     this.connection = connection;
     this.table = table;
+    console.log("AbstractManager loaded for ", table);
   }
 
   find(id) {
