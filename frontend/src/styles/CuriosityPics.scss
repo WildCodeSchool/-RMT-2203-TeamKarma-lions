@@ -7,16 +7,26 @@
   margin-bottom: 1.5em;
 }
 
+.picListEmpty {
+  text-align: center;
+  font-size: 150%;
+}
+
 // conteneur photos
 
 .buttonContainer {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 1em;
 }
 
+.buttonContainer p {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
 .containerPic {
-  width: calc(100vw - 4rem);
   display: flex;
   flex-direction: column;
 }
@@ -69,5 +79,9 @@
     margin-left: 2.5em;
     margin-right: 2.5em;
     border-radius: 1em;
+  }
+
+  .containerPic {
+    width: calc(100vw - 4rem);
   }
 }
