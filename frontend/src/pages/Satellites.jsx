@@ -264,7 +264,7 @@ export default function Satellites() {
 
   const getColorFromCategory = (cat) => {
     let catId = "";
-    for (let i = 0; i < categories.length && catId === ""; i++)
+    for (let i = 0; i < categories.length && catId === ""; i += 1)
       if (categories[i].name === cat) catId = categories[i].id;
 
     return `rgb(${catId * 4},${255 - catId * 4},${Math.min(255, catId * 8)})`;
@@ -279,8 +279,6 @@ export default function Satellites() {
   };
 
   const updateGlobe = () => {
-    console.log("updateGlobe");
-
     setFilteredSatList(
       satList.filter((sat) => {
         let isInList = false;

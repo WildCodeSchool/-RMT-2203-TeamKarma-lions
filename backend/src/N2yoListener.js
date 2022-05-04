@@ -271,9 +271,9 @@ mysql
             if (latArrayIndex === latArray.length - 1) {
               latArrayIndex = 0;
               if (lonArrayIndex === lonArray.length - 1) lonArrayIndex = 0;
-              else lonArrayIndex++;
-            } else latArrayIndex++;
-          } else categoriesIndex++;
+              else lonArrayIndex += 1;
+            } else latArrayIndex += 1;
+          } else categoriesIndex += 1;
 
           const currentDate = new Date();
 
