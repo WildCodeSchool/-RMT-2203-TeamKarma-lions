@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const EARTH_RADIUS_KM = 6371; // km
 
 export default function HoverInfo({ data }) {
-  useEffect(() => {
-    console.log("render HoverInfo Component");
-  });
-
   return (
     <div className="hoverContent">
       {data.satname && (

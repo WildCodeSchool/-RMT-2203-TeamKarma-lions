@@ -7,19 +7,21 @@ import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import Titre from "../components/Titre";
 import HoverInfo from "../components/Satellites/HoverInfo";
+import Loader from "../components/Loader";
 import "../styles/Satellites.scss";
 import categories from "../components/Datas/categories";
 
 export default function Satellites() {
+  const [showLoader, setShowLoader] = useState(true);
   const [satList, setSatList] = useState([]);
   const [globeRadius, setGlobeRadius] = useState();
-  const [hoverInfo, setHoverInfo] = useState({
+  let hoverInfo = {
     satname: "",
     satalt: "",
     satcat: [],
     satLaunchDate: "",
     satObsDate: "",
-  });
+  };
 
   const keywords = useRef([]);
   const myGlobe = useRef();
@@ -33,6 +35,7 @@ export default function Satellites() {
   const SAT_SIZE = 100; // km
 
   const getTooltip = (d) => {
+    // pas vraiment utilisé, en attente de débug
     if (d) {
       const tooltipDatas = {
         satname: d.satname,
@@ -41,8 +44,11 @@ export default function Satellites() {
         satLaunchDate: d.satLaunchDate,
         satObsDate: d.satObsDate,
       };
-      setHoverInfo(tooltipDatas);
+      hoverInfo = { ...tooltipDatas };
+      console.warn(hoverInfo); // juste pour la démo !!
+      return <div>{d.satname}</div>;
     }
+    return null;
   };
 
   const getColorFromCategory = (cat) => {
@@ -55,9 +61,11 @@ export default function Satellites() {
 
   const drawGlobe = () => {
     if (satList.length > 0) {
-      if (baseWidth.current > 768) baseWidth.current -= 164;
-      else baseHeight.current -= 64;
+      if (baseWidth.current > 768) baseWidth.current = window.innerWidth - 164;
+      else baseHeight.current = window.innerHeight - 464;
       setGlobeRadius(myGlobe.current.getGlobeRadius());
+
+      setShowLoader(false);
     }
   };
 
@@ -156,6 +164,7 @@ export default function Satellites() {
           satList
             .map((sat) => [
               sat.satname
+                // eslint-disable-next-line no-useless-escape
                 .split(/[()-\s\./]+/)
                 .filter(
                   (str) => str.length > 2 && Number.isNaN(parseInt(str, 10))
@@ -171,12 +180,8 @@ export default function Satellites() {
     drawGlobe();
   }, [satList]);
 
-  useEffect(() => {
-    console.log("render Satellites Component");
-  });
-
   const customThreeObject = (d) => {
-    // console.log("customThreeObject"); // bottleneck !!!!
+    // bottleneck !!!!
     if (!satList.length) return null;
 
     return new THREE.Mesh(
@@ -193,7 +198,6 @@ export default function Satellites() {
   };
 
   const customThreeObjectUpdate = (obj, d) => {
-    // console.log("customThreeObjectUpdate");
     if (!satList.length) return null;
 
     return Object.assign(
@@ -205,33 +209,38 @@ export default function Satellites() {
   const refTypeAhead = useRef();
 
   return (
-    <div className="globalContainer">
+    <div className="globalContainerSat">
       <Titre titre="Satellites 3D view" />
+      {showLoader && (
+        <div className="loaderContainer">
+          <Loader />
+        </div>
+      )}
       <div className="globeHeader">
-        {keywords.current.length && (
-          <Typeahead
-            id="filterAdd"
-            labelKey="name"
-            multiple
-            options={keywords.current}
-            placeholder="Add a keyword..."
-            ref={refTypeAhead}
-            onChange={handleAddFilter}
-          />
-        )}
-        {keywords.current.length && (
-          <Typeahead
-            id="filterExclude"
-            labelKey="name"
-            multiple
-            options={keywords.current}
-            placeholder="Exclude a keyword..."
-            ref={refTypeAhead}
-            onChange={handleExcludeFilter}
-          />
-        )}
+        {keywords.current.length ? (
+          <>
+            <Typeahead
+              id="filterAdd"
+              labelKey="name"
+              multiple
+              options={keywords.current}
+              placeholder="Add a keyword..."
+              ref={refTypeAhead}
+              onChange={handleAddFilter}
+            />
+            <Typeahead
+              id="filterExclude"
+              labelKey="name"
+              multiple
+              options={keywords.current}
+              placeholder="Exclude a keyword..."
+              ref={refTypeAhead}
+              onChange={handleExcludeFilter}
+            />
+          </>
+        ) : null}
       </div>
-      <div id="globeContainer">
+      <div id="globeContainerSat">
         <Globe
           ref={myGlobe}
           globeImageUrl="../src/assets/earth-blue-marble.jpg"
@@ -246,7 +255,7 @@ export default function Satellites() {
           enablePointerInteraction
         />
       </div>
-      <HoverInfo data={hoverInfo} />
+      <HoverInfo key={hoverInfo} data={hoverInfo} />
       <div className="nbRenderedItem">
         {filteredSatList.length} satellites rendered
       </div>
