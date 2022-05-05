@@ -108,10 +108,10 @@ export default function NaturalEventsPics() {
 
   const drawGlobe = () => {
     if (eventList.length > 0) {
-      let baseHeight = window.innerHeight - 300;
+      let baseHeight = window.innerHeight - 20;
       let baseWidth = window.innerWidth;
 
-      if (baseWidth > 768) baseWidth -= 164;
+      if (baseWidth > 768) baseWidth -= 80;
       else baseHeight -= 64;
 
       const myGlobe = Globe();
@@ -148,6 +148,7 @@ export default function NaturalEventsPics() {
 
   return (
     <div id="globeContainer1">
+
       {eventList.length === 0 ? (
         <Loader />
       ) : (
@@ -164,6 +165,7 @@ export default function NaturalEventsPics() {
                   key={cat.catName}
                 >
                   {cat.catName}: {cat.catCount}
+
                 </li>
               ))}
             </ul>
