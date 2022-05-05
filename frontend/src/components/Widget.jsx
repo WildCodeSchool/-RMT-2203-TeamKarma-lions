@@ -5,7 +5,11 @@ import "../styles/App.scss";
 export default function Widget() {
   return (
     <div className="widget">
-      <img src="../src/assets/satellite.png" alt="satellite" />
+      <img
+        className="imglogo"
+        src="../src/assets/satellite.png"
+        alt="satellite"
+      />
       <h3>Curiosity Persévérance</h3>
     </div>
   );

@@ -148,7 +148,6 @@ export default function NaturalEventsPics() {
 
   return (
     <div id="globeContainer1">
-
       {eventList.length === 0 ? (
         <Loader />
       ) : (
@@ -165,7 +164,6 @@ export default function NaturalEventsPics() {
                   key={cat.catName}
                 >
                   {cat.catName}: {cat.catCount}
-
                 </li>
               ))}
             </ul>
