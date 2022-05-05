@@ -58,18 +58,12 @@ export default function WidgetList() {
     fetchEpicPictures(moment().format("YYYY-MM-DD"));
   }, []);
 
-  const contenuWidget = [
+  const contenuWidgetDynamique = [
     {
       name: "Curiosity",
       logo: "../src/assets/perseverance.png",
       link: "/Curiosity",
       image: curiosityPic,
-    },
-    {
-      name: "Natural Events",
-      logo: "../src/assets/tornade.png",
-      link: "/NaturalEvents",
-      image: "../src/assets/image-widget-events.png",
     },
     {
       name: "Epic",
@@ -79,19 +73,43 @@ export default function WidgetList() {
     },
   ];
 
+  const contenuWidgetStatique = [
+    {
+      name: "Natural Events",
+      logo: "../src/assets/tornade.png",
+      link: "/NaturalEvents",
+      image: "../src/assets/image-widget-events.png",
+    },
+  ];
+
   return (
     <div className="widgetsContainer">
-      {contenuWidget.map((widget) => (
-        <article>
-          <Widget
-            key={widget.name}
-            name={widget.name}
-            logo={widget.logo}
-            link={widget.link}
-            image={widget.image}
-          />
-        </article>
-      ))}
+      <div className="widgetDynamique">
+        {contenuWidgetDynamique.map((widget) => (
+          <article>
+            <Widget
+              key={widget.name}
+              name={widget.name}
+              logo={widget.logo}
+              link={widget.link}
+              image={widget.image}
+            />
+          </article>
+        ))}
+      </div>
+      <div className="widgetStatique">
+        {contenuWidgetStatique.map((widget) => (
+          <article>
+            <Widget
+              key={widget.name}
+              name={widget.name}
+              logo={widget.logo}
+              link={widget.link}
+              image={widget.image}
+            />
+          </article>
+        ))}
+      </div>
     </div>
   );
 }
