@@ -26,7 +26,7 @@
   user-select: none;
 }
 
-img {
+.imglogo {
   width: 50px;
   padding-right: 0.5em;
 }
@@ -85,8 +85,8 @@ h3:hover {
   }
 
   .image-widget{
-    height:100%;
-    width: 100%;
+    height:7rem;
+    width: 10rem;
     padding:0;
     border-radius: 5px;
   }

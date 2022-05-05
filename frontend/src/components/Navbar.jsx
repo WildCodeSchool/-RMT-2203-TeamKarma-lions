@@ -12,7 +12,11 @@ export default function Navbar() {
   return (
     <div className="navbarContainer">
       <NavLink to="/">
-        <img src="src/assets/lion-logo.png" alt="Logo" className="logo" />
+        <img
+          src="src/assets/lion-logo.png"
+          alt="Logo"
+          className="logo imglogo"
+        />
       </NavLink>
       <div className="iconeList">
         <div
@@ -26,7 +30,7 @@ export default function Navbar() {
             <img
               src="src/assets/perseverance.png"
               alt="Epic"
-              className="imgIcone"
+              className="imgIcone imglogo"
             />
           </NavLink>
 
@@ -46,7 +50,7 @@ export default function Navbar() {
             <img
               src="src/assets/tornade.png"
               alt="Natural events"
-              className="imgIcone"
+              className="imgIcone imglogo"
             />
           </NavLink>
           <div className="ongletContainer">
@@ -66,7 +70,7 @@ export default function Navbar() {
             <img
               src="src/assets/satellite.png"
               alt="Curiosity"
-              className="imgIcone"
+              className="imgIcone imglogo"
             />
           </NavLink>
           <div className="onglet">
@@ -83,14 +87,14 @@ export default function Navbar() {
           <img
             src="src/assets/comete.png"
             alt="Meteorites"
-            className="imgIcone"
+            className="imgIcone imglogo"
           />
           <div className="onglet">
             <h3 className="texteOnglet">Meteorites</h3>
           </div>
         </div>
       </div>
-      <img src="src/assets/login.png" alt="Login" className="login" />
+      <img src="src/assets/login.png" alt="Login" className="login imglogo" />
     </div>
   );
 }

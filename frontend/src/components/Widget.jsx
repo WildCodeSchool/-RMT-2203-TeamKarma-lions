@@ -9,12 +9,12 @@ export default function Widget({ logo, name, image, link }) {
       <NavLink to={link}>
         <div className="textWidget">
           <div className="logoWidget">
-            <img src={logo} alt={name} />
+            <img src={logo} alt={name} className="imglogo" />
           </div>
           <h3>{name}</h3>
         </div>
         <div className="imageWidget">
-          <img src={image} alt={name} className="image-widget" />
+          <img src={image} alt={name} className="image-widget imglogo" />
         </div>
       </NavLink>
     </div>

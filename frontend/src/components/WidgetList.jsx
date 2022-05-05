@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import moment from "moment";
 import axios from "axios";
 import Widget from "./Widget";
 
@@ -6,6 +7,8 @@ import "../styles/Widget.scss";
 
 export default function WidgetList() {
   const [curiosityPic, setCuriosityPic] = useState([]);
+  const [epicPic, setEpicPic] = useState([]);
+  // const [dateEpic, setDateEpic] = new Date();
 
   const getCuriosityPic = (date) => {
     let newDate = date;
@@ -29,6 +32,64 @@ export default function WidgetList() {
     getCuriosityPic();
   }, []);
 
+  // const getEpicPic = (date) => {
+  //   let newDate = date;
+  //   const dateString = `${newDate.getFullYear()}-0${newDate.getMonth() + 1}-0${
+  //     newDate.getDay() + 1
+  //   }`;
+  //   axios
+  //     .get(`https://epic.gsfc.nasa.gov/api/natural/date/${dateString}`)
+  //     .then((response) => response.data)
+  //     .then((data) => {
+  //       if (data.length === 0) {
+  //         newDate = `${newDate.getFullYear()}-0${
+  //           newDate.getMonth() + 1
+  //         }-0${newDate.getDay()}`;
+  //         getEpicPic(newDate);
+  //       } else {
+  //         console.log(data);
+  //         const data2 = data.map((element) => element.image);
+  //         const data3 = data2.map(
+  //           (elem) =>
+  //             `https://epic.gsfc.nasa.gov/api/natural/date/${moment(
+  //               dateString,
+  //               "YYYY-MM-DD"
+  //             ).format("YYYY/MM/DD")}/png/${elem}.png`
+  //         );
+  //       }
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   getEpicPic(new Date());
+  // }, []);
+
+  const fetchEpicPictures = (date) => {
+    axios
+      .get(`https://epic.gsfc.nasa.gov/api/natural/date/${date}`)
+      .then((response) => response.data)
+      .then((data) => {
+        if (data.length === 0) {
+          const subDay = moment(date, "YYYY-MM-DD").subtract(1, "days");
+          fetchEpicPictures(subDay.format("YYYY-MM-DD"));
+        } else {
+          const data2 = data.map((element) => element.image);
+          const data3 = data2.map(
+            (elem) =>
+              `https://epic.gsfc.nasa.gov/archive/natural/${moment(
+                date,
+                "YYYY-MM-DD"
+              ).format("YYYY/MM/DD")}/png/${elem}.png`
+          );
+          setEpicPic(data3[0]);
+        }
+      });
+  };
+
+  useEffect(() => {
+    fetchEpicPictures(moment().format("YYYY-MM-DD"));
+  }, []);
+
   const contenuWidget = [
     {
       name: "Curiosity",
@@ -41,6 +102,12 @@ export default function WidgetList() {
       logo: "../src/assets/tornade.png",
       link: "/NaturalEvents",
       image: "../src/assets/image-widget-events.png",
+    },
+    {
+      name: "Epic",
+      logo: "../src/assets/perseverance.png",
+      link: "/Epic",
+      image: epicPic,
     },
   ];
 
