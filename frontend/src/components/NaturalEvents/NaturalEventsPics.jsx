@@ -10,7 +10,12 @@ const correspondance = [
   { id: "seaLakeIce", color: "#1dbefb" },
   { id: "wildfires", color: "#fb441d" },
 ];
-
+const correspondance2 = {
+  severeStorms: "#1dfb8f",
+  volcanoes: "#fbb11d",
+  seaLakeIce: "#1dbefb",
+  wildfires: "#fb441d",
+};
 export default function NaturalEventsPics() {
   const [uniqueCat, setUniqueCat] = useState([]);
 
@@ -103,10 +108,10 @@ export default function NaturalEventsPics() {
 
   const drawGlobe = () => {
     if (eventList.length > 0) {
-      let baseHeight = window.innerHeight - 20;
+      let baseHeight = window.innerHeight - 300;
       let baseWidth = window.innerWidth;
 
-      if (baseWidth > 768) baseWidth -= 80;
+      if (baseWidth > 768) baseWidth -= 164;
       else baseHeight -= 64;
 
       const myGlobe = Globe();
@@ -142,7 +147,7 @@ export default function NaturalEventsPics() {
   // afficher uniqueCategories dans une div en haut à droite de la div globeViz
 
   return (
-    <div id="globeContainer">
+    <div id="globeContainer1">
       {eventList.length === 0 ? (
         <Loader />
       ) : (
@@ -150,8 +155,15 @@ export default function NaturalEventsPics() {
           <div id="counter">
             <ul id="listEvents">
               {uniqueCat.map((cat) => (
-                <li key={cat.catName}>
-                  {cat.catName}:{cat.catCount}
+                <li
+                  style={{
+                    color: correspondance2[`${cat.catName}`]
+                      ? correspondance2[`${cat.catName}`]
+                      : "#e01dfb",
+                  }}
+                  key={cat.catName}
+                >
+                  {cat.catName}: {cat.catCount}
                 </li>
               ))}
             </ul>
