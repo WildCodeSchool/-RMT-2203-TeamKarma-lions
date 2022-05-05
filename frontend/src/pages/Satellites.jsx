@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import Titre from "../components/Titre";
+import HoverInfo from "../components/Satellites/HoverInfo";
 import "../styles/Satellites.scss";
 import categories from "../components/Datas/categories";
 
@@ -64,10 +65,13 @@ export default function Satellites() {
     setFilteredSatList(
       satList.filter((sat) => {
         let isInList = false;
-        sat.category_name.forEach((cat) => {
-          // filtre + sur les catégories
-          if (addFilter.current.includes(cat)) isInList = true;
-        });
+        sat.category_name
+          .map((cat) => cat.toLowerCase())
+          .forEach((cat) => {
+            // filtre + sur les catégories
+            if (addFilter.current.map((add) => add.toLowerCase()).includes(cat))
+              isInList = true;
+          });
         if (!isInList)
           addFilter.current.forEach((str) => {
             // filtre + sur les noms
@@ -78,10 +82,17 @@ export default function Satellites() {
         if (!addFilter.current.length) isInList = true;
 
         if (isInList)
-          sat.category_name.forEach((cat) => {
-            // filtre - sur les catégories
-            if (excludeFilter.current.includes(cat)) isInList = false;
-          });
+          sat.category_name
+            .map((cat) => cat.toLowerCase())
+            .forEach((cat) => {
+              // filtre - sur les catégories
+              if (
+                excludeFilter.current
+                  .map((exc) => exc.toLowerCase())
+                  .includes(cat)
+              )
+                isInList = false;
+            });
         if (isInList)
           excludeFilter.current.forEach((str) => {
             // filtre - sur les noms
@@ -160,7 +171,12 @@ export default function Satellites() {
     drawGlobe();
   }, [satList]);
 
+  useEffect(() => {
+    console.log("render Satellites Component");
+  });
+
   const customThreeObject = (d) => {
+    // console.log("customThreeObject"); // bottleneck !!!!
     if (!satList.length) return null;
 
     return new THREE.Mesh(
@@ -177,6 +193,7 @@ export default function Satellites() {
   };
 
   const customThreeObjectUpdate = (obj, d) => {
+    // console.log("customThreeObjectUpdate");
     if (!satList.length) return null;
 
     return Object.assign(
@@ -217,9 +234,9 @@ export default function Satellites() {
       <div id="globeContainer">
         <Globe
           ref={myGlobe}
-          globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
-          bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-          backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
+          globeImageUrl="../src/assets/earth-blue-marble.jpg"
+          bumpImageUrl="../src/assets/earth-topology.png"
+          backgroundImageUrl="../src/assets/night-sky.png"
           height={baseHeight.current}
           width={baseWidth.current}
           customLayerData={filteredSatList}
@@ -229,29 +246,7 @@ export default function Satellites() {
           enablePointerInteraction
         />
       </div>
-      <div className="hoverContent">
-        {hoverInfo.satname && (
-          <>
-            <div>
-              name : {hoverInfo.satname} launch date : {hoverInfo.satLaunchDate}
-            </div>
-            <div>
-              data date : {hoverInfo.satObsDate} altitude :{" "}
-              {hoverInfo.satalt * EARTH_RADIUS_KM}km
-            </div>
-            <div>
-              Categories :{" "}
-              {hoverInfo.satcat.map((cat, catIndex) =>
-                catIndex ? (
-                  <span key={cat}>, {cat}</span>
-                ) : (
-                  <span key={cat}>{cat}</span>
-                )
-              )}
-            </div>
-          </>
-        )}
-      </div>
+      <HoverInfo data={hoverInfo} />
       <div className="nbRenderedItem">
         {filteredSatList.length} satellites rendered
       </div>
