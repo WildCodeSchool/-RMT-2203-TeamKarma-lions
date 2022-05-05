@@ -32,38 +32,6 @@ export default function WidgetList() {
     getCuriosityPic();
   }, []);
 
-  // const getEpicPic = (date) => {
-  //   let newDate = date;
-  //   const dateString = `${newDate.getFullYear()}-0${newDate.getMonth() + 1}-0${
-  //     newDate.getDay() + 1
-  //   }`;
-  //   axios
-  //     .get(`https://epic.gsfc.nasa.gov/api/natural/date/${dateString}`)
-  //     .then((response) => response.data)
-  //     .then((data) => {
-  //       if (data.length === 0) {
-  //         newDate = `${newDate.getFullYear()}-0${
-  //           newDate.getMonth() + 1
-  //         }-0${newDate.getDay()}`;
-  //         getEpicPic(newDate);
-  //       } else {
-  //         console.log(data);
-  //         const data2 = data.map((element) => element.image);
-  //         const data3 = data2.map(
-  //           (elem) =>
-  //             `https://epic.gsfc.nasa.gov/api/natural/date/${moment(
-  //               dateString,
-  //               "YYYY-MM-DD"
-  //             ).format("YYYY/MM/DD")}/png/${elem}.png`
-  //         );
-  //       }
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   getEpicPic(new Date());
-  // }, []);
-
   const fetchEpicPictures = (date) => {
     axios
       .get(`https://epic.gsfc.nasa.gov/api/natural/date/${date}`)
@@ -124,15 +92,6 @@ export default function WidgetList() {
           />
         </article>
       ))}
-      {/* <article>
-        <Widget />
-      </article>
-      <article>
-        <Widget />
-      </article>
-      <article>
-        <Widget />
-      </article> */}
     </div>
   );
 }

@@ -45,13 +45,12 @@ h3:hover {
 
 @media screen and (min-width: 767.98px) {
   .widgetsContainer {
-    margin-top: 20px;
+    margin-top: 100px;
     width: 80%;
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fill, 300px);
-    grid-template-rows: repeat(auto-fill, 300px);
-    grid-gap: 10px;
+    grid-gap: 2rem;
   }
 
   article {
@@ -80,13 +79,13 @@ h3:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 15rem;
-    padding: 50px;
+    height: 25rem;
+    // padding: 50px;
   }
 
   .image-widget{
-    height:7rem;
-    width: 10rem;
+    height:100%;
+    width: 100%;
     padding:0;
     border-radius: 5px;
   }
