@@ -27,30 +27,30 @@ h1 {
   z-index: 10;
   width: calc(100% - 120px);
 }
-  
-// footer 
 
-.introFooter{
+// footer
+
+.introFooter {
   color: #1c0444;
   background-color: rgba(255, 136, 0, 0.8);
 }
 .lionsfooter p {
   margin: 0.7rem 0;
 }
-.lionsfooter ul{
+.lionsfooter ul {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-left: 0;
 }
-.lionsfooter li{
+.lionsfooter li {
   display: flex;
   flex-direction: row;
   align-items: center;
   list-style: none;
 }
-.intro-curio{
-  padding: .5em;
+.intro-curio {
+  padding: 0.5em;
   margin-bottom: 0;
   text-align: center;
   background-color: rgba(67, 47, 100, 0.5);
@@ -85,27 +85,26 @@ h1 {
     margin: 1em 1em 1em 0;
   }
 
-  .lionsfooter div{
+  .lionsfooter div {
     width: 100vw;
   }
 
-  .lionsfooter ul{
+  .lionsfooter ul {
     display: flex;
     flex-direction: row;
-    justify-content:baseline;
+    justify-content: baseline;
   }
-  .lionsfooter li{
+  .lionsfooter li {
     display: flex;
     justify-content: center;
     align-items: center;
     list-style: none;
-    padding-left: .5em;
+    padding-left: 0.5em;
   }
-  .lionsfooter li:first-child{
+  .lionsfooter li:first-child {
     padding-left: 0;
   }
-  .lionsfooter{
+  .lionsfooter {
     z-index: 20;
   }
-
 }
