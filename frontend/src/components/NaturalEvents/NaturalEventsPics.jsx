@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Globe from "globe.gl";
+import Loader from "../Loader";
 import "../../styles/NaturalEvents.scss";
 
 const correspondance = [
@@ -11,6 +12,8 @@ const correspondance = [
 ];
 
 export default function NaturalEventsPics() {
+  const [uniqueCat, setUniqueCat] = useState([]);
+
   const [eventList, setEventList] = useState([]);
 
   const catColor = (evenement) => {
@@ -48,16 +51,21 @@ export default function NaturalEventsPics() {
         data.events.forEach((ev) => categories.push(ev.categories[0].id));
 
         const uniqueCategories = [...new Set(categories)];
-        uniqueCategories.map((cat) => {
-          let catCount = 0;
-          // eslint-disable-next-line no-plusplus
-          categories.forEach((c) => (c === cat ? catCount++ : null));
+        setUniqueCat(
+          uniqueCategories.map((cat) => {
+            let catCount = 0;
+            categories.forEach((c) => {
+              if (c === cat) {
+                catCount += 1;
+              }
+            });
 
-          return {
-            catName: cat,
-            catCount,
-          };
-        });
+            return {
+              catName: cat,
+              catCount,
+            };
+          })
+        );
         setEventList(
           data.events.map((ev) => {
             const { geometry } = ev;
@@ -95,7 +103,7 @@ export default function NaturalEventsPics() {
 
   const drawGlobe = () => {
     if (eventList.length > 0) {
-      let baseHeight = window.innerHeight - 80;
+      let baseHeight = window.innerHeight - 20;
       let baseWidth = window.innerWidth;
 
       if (baseWidth > 768) baseWidth -= 80;
@@ -135,15 +143,22 @@ export default function NaturalEventsPics() {
 
   return (
     <div id="globeContainer">
-      <div id="counter">
-        <ul id="listEvents">
-          <li>Volcanoes : 156</li>
-          <li>Storms : 1</li>
-          <li>Icebergs : 126</li>
-          <li>Fires : 58</li>
-        </ul>
-      </div>
-      <div id="globeViz" />
+      {eventList.length === 0 ? (
+        <Loader />
+      ) : (
+        <>
+          <div id="counter">
+            <ul id="listEvents">
+              {uniqueCat.map((cat) => (
+                <li key={cat.catName}>
+                  {cat.catName}:{cat.catCount}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div id="globeViz" />
+        </>
+      )}
     </div>
   );
 }

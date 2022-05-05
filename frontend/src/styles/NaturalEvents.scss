@@ -2,6 +2,10 @@
 
 #globeContainer {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
 }
 #counter {
   color: #ffffff;
