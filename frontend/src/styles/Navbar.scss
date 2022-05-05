@@ -107,6 +107,7 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    align-items: center;
     width: 12rem;
     height: 3rem;
     background-color: $nav-primary-color;
@@ -122,6 +123,8 @@
       display: block;
       position: relative;
       left: 20px;
+      font-size:1rem; 
+      margin:0;
     }
   }
 

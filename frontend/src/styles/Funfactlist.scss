@@ -5,6 +5,10 @@
   margin: 0em 4em;
   width: 60%;
   .funfact {
+    & > img {
+      width: 50px;
+      padding-right: 0.5em;
+    }
     height: 5rem;
     background-color: rgb(254, 254, 255);
     filter: opacity(0.7);
