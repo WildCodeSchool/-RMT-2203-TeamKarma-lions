@@ -8,7 +8,6 @@ import "../styles/Widget.scss";
 export default function WidgetList() {
   const [curiosityPic, setCuriosityPic] = useState([]);
   const [epicPic, setEpicPic] = useState([]);
-  // const [dateEpic, setDateEpic] = new Date();
 
   const getCuriosityPic = (date) => {
     let newDate = date;
