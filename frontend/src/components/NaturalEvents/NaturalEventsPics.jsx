@@ -108,10 +108,10 @@ export default function NaturalEventsPics() {
 
   const drawGlobe = () => {
     if (eventList.length > 0) {
-      let baseHeight = window.innerHeight - 20;
+      let baseHeight = window.innerHeight - 300;
       let baseWidth = window.innerWidth;
 
-      if (baseWidth > 768) baseWidth -= 80;
+      if (baseWidth > 768) baseWidth -= 164;
       else baseHeight -= 64;
 
       const myGlobe = Globe();
