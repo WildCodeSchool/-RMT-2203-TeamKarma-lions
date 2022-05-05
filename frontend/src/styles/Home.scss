@@ -13,9 +13,10 @@ h1 {
   margin-left: 0;
   text-shadow: 0 0 0.1em #ceb8f3, 0 0 0.2em #432f64;
 }
-.police{
+.police {
   color: #ff8800;
 }
+
 .intro-site {
   z-index: 10;
   margin: 1em;
@@ -26,13 +27,30 @@ h1 {
   z-index: 10;
   width: calc(100% - 120px);
 }
+
+// footer
+
+.introFooter {
+  color: #1c0444;
+  background-color: rgba(255, 136, 0, 0.8);
+}
 .lionsfooter p {
   margin: 0.7rem 0;
-  padding-left: 0.5em;
 }
-
-.intro-curio{
-  padding: .5em;
+.lionsfooter ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 0;
+}
+.lionsfooter li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style: none;
+}
+.intro-curio {
+  padding: 0.5em;
   margin-bottom: 0;
   text-align: center;
   background-color: rgba(67, 47, 100, 0.5);
@@ -45,10 +63,11 @@ h1 {
   .intro-bloc {
     width: 70%;
   }
-  .intro-curio{
+  .intro-curio {
     margin: 0 4em;
     font-size: 130%;
     width: 40%;
+    border-radius: 1em;
   }
   .intro-site {
     padding-top: 1em;
@@ -60,10 +79,32 @@ h1 {
     min-height: 100vh;
   }
 
-  .introAndCalendar{
+  .introAndCalendar {
     display: flex;
     align-items: center;
     margin: 1em 1em 1em 0;
   }
 
+  .lionsfooter div {
+    width: 100vw;
+  }
+
+  .lionsfooter ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+  }
+  .lionsfooter li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding-left: 0.5em;
+  }
+  .lionsfooter li:first-child {
+    padding-left: 0;
+  }
+  .lionsfooter {
+    z-index: 20;
+  }
 }
