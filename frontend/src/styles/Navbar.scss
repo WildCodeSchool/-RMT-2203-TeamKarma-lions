@@ -8,7 +8,7 @@
   height: 3.5rem;
 }
 
-.navbar {
+.iconeList {
   width: 17rem;
   display: flex;
   justify-content: space-around;
@@ -19,9 +19,13 @@
   margin-left: 0.5rem;
 }
 
-.planete-icone {
-  width: 2.5rem;
-  margin: 0.5rem 0;
+.imgIcone{
+  width:2.5rem;
+  margin-top:2px;
+}
+
+.onglet{
+  display:none;
 }
 
 .login {
@@ -63,7 +67,6 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    flex-direction: column;
     width: 4rem;
     height: 100vh;
     position: fixed;
@@ -129,11 +132,12 @@
     animation-duration: .4s;
     left: 40px;
   }
+
   .iconeList {
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 18rem;
+    align-items: center;
     img {
       padding: 0;
       width: 2.5rem;
