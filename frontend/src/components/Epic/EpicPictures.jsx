@@ -11,18 +11,12 @@ export default function EpicPictures() {
   const [tableEpic, setTableEpic] = useState([]);
   const [eventDate, setEventDate] = useState("");
 
+  const minDate = new Date(2015, 8, 1);
+
   if ({ calendarDate }.calendarDate) {
-    let picturesDate = moment({ calendarDate }.calendarDate).format(
+    const picturesDate = moment({ calendarDate }.calendarDate).format(
       "YYYY-MM-DD"
     );
-
-    if (picturesDate > moment().format("YYYY-MM-DD")) {
-      picturesDate = moment().format("YYYY-MM-DD");
-    }
-
-    if (picturesDate < "2015-09-01") {
-      picturesDate = "2015-09-01";
-    }
 
     const fetchEpicPictures = (date) => {
       axios
@@ -148,7 +142,13 @@ export default function EpicPictures() {
             Select a date to see an{" "}
             <span className="police">&quot;epic&quot;</span> slideshow !
           </p>
-          <Calendar onChange={setCalendarDate} value={calendarDate} />
+          <Calendar
+            className="calendarcompo"
+            minDate={minDate}
+            maxDate={new Date()}
+            onChange={setCalendarDate}
+            value={calendarDate}
+          />
         </div>
       </div>
 
