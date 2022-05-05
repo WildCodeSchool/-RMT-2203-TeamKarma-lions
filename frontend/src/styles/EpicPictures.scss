@@ -8,11 +8,14 @@
   display: flex;
   justify-content: center;
   cursor: pointer;
-  margin: 0 0.5em;
+  margin: 0 0.5rem;
   background: #1c0444;
   border: none;
-  padding: 0.5em 1em;
-  border-radius: 4em;
+  padding: 0.5rem;
+  border-radius: 4rem;
+  img {
+    height: 1em;
+  }
 }
 
 .buttonContainer {
@@ -23,14 +26,15 @@
 }
 
 .intropage {
-  padding: 0.5rem;
+  padding: 0.5em;
+  flex-direction: column;
   background-color: $primary-color;
+  border-radius: 1em;
 }
 
 .introCalendar {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
 }
 
@@ -40,15 +44,15 @@
   width: 80vw;
 }
 
-.Calendar {
+.epiccalendar {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
+  padding: 0.5em;
   background-color: $primary-color;
   p {
     align-self: center;
     margin: 0;
-    padding: 0rem 0rem 0.4rem 0rem;
+    padding: 0em 0em 0.4em 0em;
   }
 }
 
@@ -58,33 +62,41 @@
   align-items: center;
 }
 .epicpics {
-  margin: 0.3rem 1rem 0.3rem 1rem;
+  margin: 0.3em auto 0.3em auto;
   background-color: black;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 30rem;
 }
 
 .epicimg {
-  height: 30rem;
+  height: 25em;
   width: auto;
   padding: 0;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 950px) {
+  .epicpage {
+    left: 4rem;
+    min-height: 100vh;
+  }
+
   .intropage {
-    margin-right: 2rem;
+    margin-right: 2em;
+    max-width: 500px;
   }
 
   .introCalendar {
     flex-direction: row;
-    margin: 0 3rem 0 3rem;
+    justify-content: center;
+    margin: 0 3em 0 3em;
   }
-
+  .epiccalendar {
+    border-radius: 1em;
+  }
   .epicpics {
-    margin: 0.3rem 15rem 0.3rem 15rem;
+    border-radius: 1em;
   }
 }

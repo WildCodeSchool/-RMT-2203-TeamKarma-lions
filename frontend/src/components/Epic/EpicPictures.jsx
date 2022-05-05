@@ -126,7 +126,7 @@ export default function EpicPictures() {
   };
 
   return (
-    <div className="EpicPictures">
+    <div className="epicPictures">
       <div className="introCalendar">
         <p className="intropage">
           <span className="police">EPIC</span> (Earth Polychromatic Imaging
@@ -143,7 +143,7 @@ export default function EpicPictures() {
           properties, and UV radiation estimates at{" "}
           <span className="police">the Earth&apos;s surface</span>.
         </p>
-        <div className="Calendar">
+        <div className="epiccalendar">
           <p>
             Select a date to see an{" "}
             <span className="police">&quot;epic&quot;</span> slideshow !
