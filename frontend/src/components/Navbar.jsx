@@ -80,13 +80,16 @@ export default function Navbar() {
           onKeyPress={() => handleClick(3)}
           tabIndex={0}
         >
-          <img
-            src="src/assets/comete.png"
-            alt="Meteorites"
-            className="imgIcone"
-          />
+          <NavLink to="/Satellites">
+            <img
+              src="src/assets/comete.png"
+              alt="Meteorites"
+              className="imgIcone"
+            />
+          </NavLink>
+
           <div className="onglet">
-            <h3 className="texteOnglet">Meteorites</h3>
+            <h3 className="texteOnglet">Satellites</h3>
           </div>
         </div>
       </div>
