@@ -1,0 +1,40 @@
+.calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(67, 47, 100, 0.5);
+  margin-top: 1em;
+}
+
+.react-calendar__tile {
+  border-radius: 6px;
+  border-style: double;
+  padding: 0.2em;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  border: 0;
+  background: #432f64;
+  color: #ffffff;
+  border-radius: 6px;
+}
+.pCal {
+  text-align: center;
+}
+.calendar-container {
+  margin-bottom: 1.5em;
+  max-width: 100vw;
+}
+
+@media screen and (min-width: 768px) {
+  .pCal {
+    padding: 0 1em;
+    font-size: 130%;
+    margin-top: 0.5em;
+  }
+  .calendar {
+    margin-top: 0;
+    border-radius: 1em;
+  }
+}

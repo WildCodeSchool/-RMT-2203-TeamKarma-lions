@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 // selection photos
 
 .filterCam {
@@ -5,6 +7,11 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 1.5em;
+}
+
+.filterCam select {
+  font-family: $font-text;
+  font-size: 0.8em;
 }
 
 .picListEmpty {
@@ -24,6 +31,7 @@
 .buttonContainer p {
   padding-left: 0.5em;
   padding-right: 0.5em;
+  margin-bottom: 0;
 }
 
 .containerPic {
