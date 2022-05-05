@@ -145,6 +145,7 @@ export default function Satellites() {
           satList
             .map((sat) => [
               sat.satname
+                // eslint-disable-next-line no-useless-escape
                 .split(/[()-\s\./]+/)
                 .filter(
                   (str) => str.length > 2 && Number.isNaN(parseInt(str, 10))
