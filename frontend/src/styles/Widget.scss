@@ -5,11 +5,22 @@
 }
 
 .widgetsContainer {
-  margin-top: 20px;
+  margin-top: 40px;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
+}
+
+.widgetDynamique{
+  display:grid;
+  gap: 10px;
+  width: 30rem;
+}
+
+.widgetStatique{
+  width:30rem;
 }
 
 .widget {
@@ -18,11 +29,37 @@
   border-radius: 10px;
   background-color: #1c0444;
   display: flex;
-  justify-content: center;
-  font-family: $font-text;
-  text-align: center;
   align-items: center;
+  // justify-content: center;
+  font-family: $font-text;
+  // text-align: center;
+  // align-items: center;
   user-select: none;
+  height:10rem;
+}
+
+.texteImgWidget{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.textLogo{
+  width: 3rem;
+  display:flex;
+  align-items: center;
+}
+
+.image-widget{
+  padding:0;
+  border-radius: 5px;
+  margin-left:15rem;
+  width:30%;
+}
+
+.logoWidget{
+  padding-right: 3rem;
+  padding-left:1rem;
 }
 
 .imglogo {
@@ -43,15 +80,6 @@ h3:hover {
 }
 
 @media screen and (min-width: 767.98px) {
-  .widgetsContainer {
-    margin-top: 100px;
-    margin-bottom: 70px;
-    width: 80%;
-    display: grid;
-    justify-content: center;
-    grid-template-rows: 300px 300px;
-    grid-gap: 7rem;
-  }
 
   article {
     color: #ffffff;
@@ -69,37 +97,62 @@ h3:hover {
   article:hover {
     transform: scale(1.05);
     transition: transform 0.4s ease-in-out;
-    // border: 2px solid $secondary-color;
     box-shadow: 0 0 7px #1c0444, 0 0 10px #1c0444, 0 0 42px $primary-color,
       0 0 77px $primary-color, 0 0 80px white;
   }
 
-  .widget {
+
+.widgetDynamique{
+  display:grid;
+  grid-template-columns: 300px 300px;
+  width:auto;
+
+  .widget{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 23rem;
-    // padding: 50px;
+    height:25rem;
+
+  .texteImgWidget{
+    display:flex;
+    flex-direction:column;
+
+    .textLogo{
+      display: flex;
+      flex-direction: column;
+
+      
+    }
   }
+}
+.image-widget{
+  margin:0;
+  width:90%;
+}
 
-  .image-widget{
-    height:60%;
-    width: 60%;
-    padding:0;
-    border-radius: 5px;
+.imageWidget{
+  display:flex;
+  justify-content: center;
+}
+
+.logoWidget{
+  padding:0;
+}
+
+}
+
+.widgetStatique{
+  width:38rem;
+
+  .widget{
+    height:15rem;
+
+    .image-widget{
+      width:54%;
+    }
   }
-
-  .widgetDynamique {
-    display: grid;
-    grid-template-columns: 300px 300px;
-    gap: 31px;
-    justify-content: center;
-    /* width: 44rem; */
 }
 
-.widgetStatique {
-    width: 39.5rem;
+.widgetsContainer{
+  margin-bottom:7rem;
 }
 }
-
