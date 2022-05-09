@@ -1,18 +1,15 @@
 import React from "react";
 import "../styles/Home.scss";
 import Titre from "../components/Titre";
-import CalendarOps from "../components/Epic/CalendarOps";
-import EpicEvent from "../components/Epic/EpicEvent";
 import EpicPictures from "../components/Epic/EpicPictures";
+import "../styles/EpicPictures.scss";
+import "../styles/CalendarOps.scss";
 
-export default function Home() {
+export default function Epic() {
   return (
-    <>
-      <Titre titre="DSCOVR : EPIC" />
-      <p className="intro-site">intro-site</p>
-      <CalendarOps />
-      <EpicEvent />
+    <div className="epicpage">
+      <Titre className="epicTitle" titre="DSCOVR : EPIC" />
       <EpicPictures />
-    </>
+    </div>
   );
 }

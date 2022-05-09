@@ -1,0 +1,38 @@
+@import "./App.scss";
+
+#globeContainer1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+}
+#counter {
+  font-size: 0.7rem;
+  border-radius: 10px;
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#listEvents {
+  padding-right: 30px;
+  padding-left: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 768px) {
+  #globeContainer1 {
+    width: 95vw;
+    height: 73vh;
+    margin-top: 0%;
+  }
+  #counter {
+    width: 150px;
+    height: 100px;
+    margin-bottom: 10px;
+    margin-right: 15px;
+    font-size: 1rem;
+  }
+}

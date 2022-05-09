@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "../../styles/CalendarOps.scss";
-import "../../styles/CalendarCuriosity.scss";
 
 export default function CalendarCuriosity({ getPic }) {
   const [date, setDate] = useState(new Date());
@@ -9,6 +8,7 @@ export default function CalendarCuriosity({ getPic }) {
     setDate(dat);
     getPic(dat);
   };
+  const minDate = new Date(2012, 7, 5);
 
   return (
     <div className="calendar">
@@ -17,7 +17,12 @@ export default function CalendarCuriosity({ getPic }) {
         you were there :
       </p>
       <div className="calendar-container">
-        <Calendar onChange={handleChange} value={date} />
+        <Calendar
+          onChange={handleChange}
+          value={date}
+          minDate={minDate}
+          maxDate={new Date()}
+        />
       </div>
     </div>
   );

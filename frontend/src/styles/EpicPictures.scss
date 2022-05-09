@@ -1,0 +1,182 @@
+@import "./variables.scss";
+
+.mainTitle {
+  align-self: center;
+}
+
+.picButton {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0 0.5rem;
+  background: #1c0444;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4rem;
+  img {
+    height: 0.5rem;
+  }
+}
+
+.buttonContainer {
+  margin: 0.3rem 1rem 0.3rem 1rem;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.intropage {
+  padding: 0.5em;
+  flex-direction: column;
+  background-color: $primary-color;
+}
+
+.introCalendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.epicEventSelector {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  max-width: 400px;
+}
+
+.epiccalendar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5em;
+  background-color: $primary-color;
+  p {
+    align-self: center;
+    margin: 0;
+    padding: 0em 0em 0.4em 0em;
+  }
+}
+
+.calendarcompo {
+  width: 1100vw;
+}
+
+.epicEventDiaporama {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.epicpics {
+  height: 11em;
+  width: 11em;
+  margin: 0.3em auto 0.3em auto;
+  background-color: black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.epicimg {
+  height: 10em;
+  width: auto;
+  padding: 0;
+}
+
+@media screen and (min-width: 435px) {
+  .picButton {
+    img {
+      height: 0.8rem;
+    }
+  }
+  .epicpics {
+    height: 10em;
+    width: 10em;
+    .epicimg {
+      height: 9em;
+      width: auto;
+      padding: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .picButton {
+    img {
+      height: 1.5rem;
+    }
+  }
+  .epicpics {
+    height: 21em;
+    width: 21em;
+    .epicimg {
+      height: 20em;
+      width: auto;
+      padding: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .picButton {
+    img {
+      height: 2rem;
+    }
+  }
+  .epicpics {
+    height: 31em;
+    width: 31em;
+    .epicimg {
+      height: 30em;
+      width: auto;
+      padding: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .picButton {
+    img {
+      height: 2rem;
+    }
+  }
+
+  .epicpage {
+    left: 4rem;
+    min-height: 100vh;
+    font-size: 120%;
+  }
+
+  .intropage {
+    margin-right: 2em;
+    max-width: 750px;
+    border-radius: 1em;
+    margin-bottom: 0;
+  }
+
+  .introCalendar {
+    flex-direction: row;
+    align-items: center;
+    margin: 0 3em 0 3em;
+  }
+  .epiccalendar {
+    border-radius: 1em;
+  }
+  .epicpics {
+    border-radius: 1em;
+  }
+
+  .epicpics {
+    height: 42em;
+    width: 42em;
+    .epicimg {
+      height: 40em;
+      width: auto;
+      padding: 0;
+    }
+  }
+}

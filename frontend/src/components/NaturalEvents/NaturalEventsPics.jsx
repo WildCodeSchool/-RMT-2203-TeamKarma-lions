@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Globe from "globe.gl";
+import Loader from "../Loader";
+import "../../styles/NaturalEvents.scss";
 
 const correspondance = [
   { id: "severeStorms", color: "#1dfb8f" },
@@ -8,8 +10,15 @@ const correspondance = [
   { id: "seaLakeIce", color: "#1dbefb" },
   { id: "wildfires", color: "#fb441d" },
 ];
-
+const correspondance2 = {
+  severeStorms: "#1dfb8f",
+  volcanoes: "#fbb11d",
+  seaLakeIce: "#1dbefb",
+  wildfires: "#fb441d",
+};
 export default function NaturalEventsPics() {
+  const [uniqueCat, setUniqueCat] = useState([]);
+
   const [eventList, setEventList] = useState([]);
 
   const catColor = (evenement) => {
@@ -47,16 +56,21 @@ export default function NaturalEventsPics() {
         data.events.forEach((ev) => categories.push(ev.categories[0].id));
 
         const uniqueCategories = [...new Set(categories)];
-        uniqueCategories.map((cat) => {
-          let catCount = 0;
-          // eslint-disable-next-line no-plusplus
-          categories.forEach((c) => (c === cat ? catCount++ : null));
+        setUniqueCat(
+          uniqueCategories.map((cat) => {
+            let catCount = 0;
+            categories.forEach((c) => {
+              if (c === cat) {
+                catCount += 1;
+              }
+            });
 
-          return {
-            catName: cat,
-            catCount,
-          };
-        });
+            return {
+              catName: cat,
+              catCount,
+            };
+          })
+        );
         setEventList(
           data.events.map((ev) => {
             const { geometry } = ev;
@@ -133,8 +147,30 @@ export default function NaturalEventsPics() {
   // afficher uniqueCategories dans une div en haut à droite de la div globeViz
 
   return (
-    <div id="globeContainer">
-      <div id="globeViz" />
+    <div id="globeContainer1">
+      {eventList.length === 0 ? (
+        <Loader />
+      ) : (
+        <>
+          <div id="counter">
+            <ul id="listEvents">
+              {uniqueCat.map((cat) => (
+                <li
+                  style={{
+                    color: correspondance2[`${cat.catName}`]
+                      ? correspondance2[`${cat.catName}`]
+                      : "#e01dfb",
+                  }}
+                  key={cat.catName}
+                >
+                  {cat.catName}: {cat.catCount}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div id="globeViz" />
+        </>
+      )}
     </div>
   );
 }

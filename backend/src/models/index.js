@@ -23,13 +23,12 @@ const load = (models) => {
         .forEach((file) => {
           // eslint-disable-next-line global-require, import/no-dynamic-require
           const Manager = require(path.join(__dirname, file));
-
           // eslint-disable-next-line no-param-reassign
           models[Manager.table] = new Manager(connection, Manager.table);
         });
     })
-    .catch(() => {
-      console.error("Warning:", mysqlConnectionFailedMessage);
+    .catch((err) => {
+      console.error("Warning :", err, mysqlConnectionFailedMessage);
     });
 };
 

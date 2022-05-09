@@ -5,28 +5,61 @@
 }
 
 .widgetsContainer {
-  margin-top: 20px;
+  margin-top: 40px;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
+}
+
+.widgetDynamique{
+  display:grid;
+  gap: 10px;
+  width: 30rem;
+}
+
+.widgetStatique{
+  width:30rem;
 }
 
 .widget {
-  margin: 10px;
   color: #ffffff;
   padding: 1rem;
   border-radius: 10px;
   background-color: #1c0444;
   display: flex;
-  justify-content: center;
-  font-family: $font-text;
-  text-align: center;
   align-items: center;
+  font-family: $font-text;
   user-select: none;
+  height:10rem;
 }
 
-img {
+.texteImgWidget{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.textLogo{
+  width: 3rem;
+  display:flex;
+  align-items: center;
+}
+
+.image-widget{
+  padding:0;
+  border-radius: 5px;
+  margin-left:15rem;
+  width:30%;
+}
+
+.logoWidget{
+  padding-right: 3rem;
+  padding-left:1rem;
+}
+
+.imglogo {
   width: 50px;
   padding-right: 0.5em;
 }
@@ -35,15 +68,15 @@ article {
   z-index: 10;
 }
 
+h3 {
+  color: white;
+}
+
+h3:hover {
+  color: $primary-color-full-opacity;
+}
+
 @media screen and (min-width: 767.98px) {
-  .widgetsContainer {
-    margin-top: 20px;
-    width: 80%;
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fill, 300px);
-    grid-gap: 10px;
-  }
 
   article {
     color: #ffffff;
@@ -61,12 +94,62 @@ article {
   article:hover {
     transform: scale(1.05);
     transition: transform 0.4s ease-in-out;
-    border: 2px solid $nav-primary-color;
+    box-shadow: 0 0 7px #1c0444, 0 0 10px #1c0444, 0 0 42px $primary-color,
+      0 0 77px $primary-color, 0 0 80px white;
   }
 
-  .widget {
+
+.widgetDynamique{
+  display:grid;
+  grid-template-columns: 300px 300px;
+  width:auto;
+
+  .widget{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    height:25rem;
+
+  .texteImgWidget{
+    display:flex;
+    flex-direction:column;
+
+    .textLogo{
+      display: flex;
+      flex-direction: column;
+
+      
+    }
   }
+}
+.image-widget{
+  margin:0;
+  width:90%;
+}
+
+.imageWidget{
+  display:flex;
+  justify-content: center;
+}
+
+.logoWidget{
+  padding:0;
+}
+
+}
+
+.widgetStatique{
+  width:38rem;
+
+  .widget{
+    height:15rem;
+
+    .image-widget{
+      width:54%;
+    }
+  }
+}
+
+.widgetsContainer{
+  margin-bottom:7rem;
+}
 }

@@ -6,7 +6,9 @@ import NaturalEventsPics from "../components/NaturalEvents/NaturalEventsPics";
 export default function Home() {
   return (
     <div>
-      <Titre titre="Natural Events from space" />
+      <div>
+        <Titre titre="Natural Events from space" />
+      </div>
       <NaturalEventsPics />
     </div>
   );
