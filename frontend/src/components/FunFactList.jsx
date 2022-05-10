@@ -10,9 +10,7 @@ export default function FunFactList() {
 
   useEffect(() => {
     axios
-      .get(
-        `http://cab.inta-csic.es/rems/wp-content/plugins/marsweather-widget/api.php`
-      )
+      .get(`http://wcs.dev4.me/marsweather/`)
       .then((response) => response.data)
       .then((data) => {
         setMarsTemp([
@@ -24,9 +22,7 @@ export default function FunFactList() {
 
   useEffect(() => {
     axios
-      .get(
-        `https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+count(releasedate)+from+ps+where+default_flag=1&format=json`
-      )
+      .get(`http://wcs.dev4.me/exoplanetarchive/`)
       .then((response) => response.data)
       .then((data) => {
         setNbExo(data[0]["count(releasedate)"]);
