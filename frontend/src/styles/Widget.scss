@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.grille{
+.grille {
   margin-top: 10px;
 }
 
@@ -14,7 +14,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  display: flex;
 }
 
 .widgetDynamique {
@@ -86,7 +85,9 @@ h3:hover {
   color: $primary-color-full-opacity;
 }
 
-@media screen and (min-width: 767.98px) {
+
+
+@media screen and (min-width: 767.98px){
   article {
     color: #ffffff;
     padding: 0rem;
@@ -167,84 +168,78 @@ h3:hover {
     align-items: flex-start;
   }
 
-
   .widgetVertical {
     width: 28rem;
     margin-right: 10px;
-    margin-top:0;
-
+    margin-top: 0;
     .widget {
       display: flex;
       flex-direction: column;
-      height: 40.8rem;
+      height: 40.9rem;
 
       .texteImgWidget {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        .image-widget {
-          margin: 0;
-          margin-top: 6rem;
-          width: 90%;
-        }
-        .imageWidget {
-          display: flex;
-          justify-content: center;
-        }
 
         .textLogo {
           display: flex;
           flex-direction: column;
-          .logoWidget {
-            padding: 0;
-            .imglogo {
-              padding: 0;
-              margin-bottom: 3rem;
-              margin-top: 2rem;
-            }
-          }
+          margin-bottom: 9rem;
         }
       }
     }
-  }
-}
+    .image-widget {
+      margin: 0;
+      width: 90%;
+    }
 
-@media screen and (max-width: 1160px) {
-  .widgetsContainer {
-    margin-top: 40px;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    display: flex;
+    .imageWidget {
+      display: flex;
+      justify-content: center;
+    }
+
+    .logoWidget {
+      padding: 0;
+      margin-bottom: 3.5rem;
+    }
+}
+}
+  
+@media screen and (min-width:767.98px) and (max-width:1160px){
+  .widgetsContainer{
+    display:flex;
+    flex-direction:column;
   }
 
   .widgetVertical{
-    height: 20rem;
-    margin-bottom:15px;
-    .widget{
-      height: 20rem;
-      .texteImgWidget {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+    margin-top: 10px;
+    width: 38.2rem;
+    margin-bottom: 10px;
+
+    .widget {
+      height: 15rem;
+      .texteImgWidget{
+        flex-direction: row;
+        .textLogo{
+          flex-direction: row;
+          margin:0;
+          .logoWidget{
+            margin:0;
+            padding-right: 4rem;
+            padding-left: 1rem;
+          }
+          h3{
+            margin:0;
+          }
+        }
+        .imageWidget{
+          display: flex;
+          justify-content: flex-end;
       .image-widget {
-        margin: 0;
         width: 50%;
+      }
     }
-    .textLogo {
-      display: flex;
-      flex-direction: column;
-      .logoWidget {
-        padding: 0;
-        .imglogo {
-          padding: 0;
-          margin-bottom: 1rem;
-          margin-top: 1rem;
-  }
+    }
+    }
   }
 }
-      }
-      }
-    }
-  }

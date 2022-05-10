@@ -95,7 +95,7 @@ export default function WidgetList() {
       <div className="vertical">
         <div className="widgetVertical">
           {contenuWidgetVertical.map((widget) => (
-            <article>
+            <article key={widget.name}>
               <Widget
                 key={widget.name}
                 name={widget.name}
@@ -110,7 +110,7 @@ export default function WidgetList() {
       <div className="grille">
         <div className="widgetDynamique">
           {contenuWidgetDynamique.map((widget) => (
-            <article>
+            <article key={widget.name}>
               <Widget
                 key={widget.name}
                 name={widget.name}
@@ -123,7 +123,7 @@ export default function WidgetList() {
         </div>
         <div className="widgetStatique">
           {contenuWidgetStatique.map((widget) => (
-            <article>
+            <article key={widget.name}>
               <Widget
                 key={widget.name}
                 name={widget.name}
