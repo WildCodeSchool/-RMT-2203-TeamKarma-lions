@@ -60,13 +60,13 @@ export default function WidgetList() {
   const contenuWidgetDynamique = [
     {
       name: "Curiosity",
-      logo: "../src/assets/perseverance.png",
+      logo: "../src/assets/curiosity.png",
       link: "/Curiosity",
       image: curiosityPic,
     },
     {
       name: "Epic",
-      logo: "../src/assets/perseverance.png",
+      logo: "../src/assets/epic.png",
       link: "/Epic",
       image: epicPic,
     },

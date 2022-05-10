@@ -28,7 +28,7 @@ export default function Navbar() {
         >
           <NavLink to="/Epic">
             <img
-              src="src/assets/perseverance.png"
+              src="src/assets/epic.png"
               alt="Epic"
               className="imgIcone imglogo"
             />
@@ -68,7 +68,7 @@ export default function Navbar() {
         >
           <NavLink to="/Curiosity">
             <img
-              src="src/assets/satellite.png"
+              src="src/assets/curiosity.png"
               alt="Curiosity"
               className="imgIcone imglogo"
             />
@@ -86,7 +86,7 @@ export default function Navbar() {
         >
           <NavLink to="/Satellites">
             <img
-              src="src/assets/comete.png"
+              src="src/assets/satellite.png"
               alt="Meteorites"
               className="imgIcone"
             />
