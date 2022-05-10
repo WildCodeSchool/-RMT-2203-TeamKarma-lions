@@ -6,11 +6,21 @@
 
 .grille {
   margin-top: 10px;
+  width:80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vertical{
+  width: 80%;
+  display: flex;
+  justify-content: center;
 }
 
 .widgetsContainer {
   margin-top: 40px;
-  width: 100vw;
+  width: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,17 +29,17 @@
 .widgetDynamique {
   display: grid;
   gap: 10px;
-  width: 30rem;
+  width: auto;
 }
 
 .widgetStatique {
   margin-top: 10px;
-  width: 30rem;
+  width: auto;
 }
 
 .widgetVertical {
   margin-top: 10px;
-  width: 30rem;
+  width: auto;
 }
 
 .widget {
@@ -59,12 +69,12 @@
 .image-widget {
   padding: 0;
   border-radius: 5px;
-  margin-left: 15rem;
-  width: 30%;
+  margin-left: 60%;
+  width: 27%;
 }
 
 .logoWidget {
-  padding-right: 3rem;
+  padding-right: 20%;
   padding-left: 1rem;
 }
 
@@ -110,7 +120,7 @@ h3:hover {
 
   .widgetDynamique {
     display: grid;
-    grid-template-columns: 300px 300px;
+    grid-template-columns: 1fr 1fr;
     width: auto;
 
     .widget {
@@ -145,33 +155,35 @@ h3:hover {
 
   .grille {
     margin-top: 0;
+    width:80%;
   }
+  
 
   .widgetStatique {
     margin-top: 10px;
-    width: 38.2rem;
+    width: auto;
 
     .widget {
       height: 15rem;
 
       .image-widget {
-        width: 54%;
+        width: 40%;
       }
     }
   }
 
   .widgetsContainer {
     margin-bottom: 7rem;
-    width: auto;
+    width: 80%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
   }
 
   .widgetVertical {
-    width: 28rem;
-    margin-right: 10px;
-    margin-top: 0;
+    width: auto;
+    margin: 0;
+    margin-right:10px;
     .widget {
       display: flex;
       flex-direction: column;
@@ -190,7 +202,7 @@ h3:hover {
     }
     .image-widget {
       margin: 0;
-      width: 90%;
+      width: 80%;
     }
 
     .imageWidget {
@@ -213,8 +225,9 @@ h3:hover {
 
   .widgetVertical{
     margin-top: 10px;
-    width: 38.2rem;
+    width: auto;
     margin-bottom: 10px;
+    margin-right:0;
 
     .widget {
       height: 15rem;
@@ -236,7 +249,7 @@ h3:hover {
           display: flex;
           justify-content: flex-end;
       .image-widget {
-        width: 50%;
+        width: 40%;
       }
     }
     }
