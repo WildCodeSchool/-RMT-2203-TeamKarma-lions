@@ -58,6 +58,7 @@ h1 {
   background-color: rgba(67, 47, 100, 0.5);
 }
 
+
 @media screen and (min-width: 768px) {
   .intro-align {
     display: flex;
@@ -108,5 +109,15 @@ h1 {
   }
   .lionsfooter {
     z-index: 20;
+  }
+}
+
+@media screen and (max-width: 875px) {
+  .introAndCalendar {
+    display: flex;
+    flex-direction: column;
+  }
+  .intro-curio{
+    margin-bottom: 0.5em;
   }
 }
