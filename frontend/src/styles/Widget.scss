@@ -100,9 +100,8 @@ h3:hover {
   color: $primary-color-full-opacity;
 }
 
-
-
 @media screen and (min-width: 767.98px){
+
   article {
     color: #ffffff;
     padding: 0rem;
@@ -142,7 +141,7 @@ h3:hover {
       .texteImgWidget {
         display: flex;
         flex-direction: column;
-
+        
         .textLogo {
           display: flex;
           flex-direction: column;
@@ -281,3 +280,4 @@ h3:hover {
     }
   }
 }
+

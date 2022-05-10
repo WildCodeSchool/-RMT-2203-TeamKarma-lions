@@ -10,6 +10,12 @@
   padding: 0;
 }
 
+@media screen and (max-width: 500px){
+  .timelineCuriosity{
+    display: none;
+  } 
+}
+
 @media screen and (min-width: 768px) {
   .timelineImg {
     padding-left: 2.5em;
