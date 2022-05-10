@@ -21,6 +21,10 @@
 
 // conteneur photos
 
+.bigDiv{
+  width: 100vw;
+}
+
 .buttonContainer {
   display: flex;
   justify-content: center;
@@ -83,6 +87,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .bigDiv{
+    width: calc(100vw - 4rem)
+  }
   .gridpics {
     margin-left: 2.5em;
     margin-right: 2.5em;

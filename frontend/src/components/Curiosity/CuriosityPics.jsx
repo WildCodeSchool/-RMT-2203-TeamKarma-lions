@@ -45,7 +45,7 @@ export default function CuriosityPics({ picList }) {
     }
   };
   return (
-    <div>
+    <div className="bigDiv">
       <div className="filterCam">
         <p>
           <span className="police">Choose a camera :</span>
