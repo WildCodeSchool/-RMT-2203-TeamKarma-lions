@@ -117,6 +117,7 @@ h3:hover {
     transition: transform 0.4s ease-in-out;
     box-shadow: 0 0 7px #1c0444, 0 0 10px #1c0444, 0 0 42px $primary-color,
       0 0 77px $primary-color, 0 0 80px white;
+      z-index: 15;
   }
 
   .widgetDynamique {
@@ -128,6 +129,7 @@ h3:hover {
       display: flex;
       flex-direction: column;
       height: 25rem;
+      z-index: 19;
 
       .texteImgWidget {
         display: flex;
@@ -163,6 +165,9 @@ h3:hover {
   .widgetStatique {
     margin-top: 10px;
     width: auto;
+    .widgetStatique:hover{
+      z-index: 20;
+    }
 
     .widget {
       height: 15rem;
@@ -179,12 +184,16 @@ h3:hover {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    z-index:10;
   }
 
   .widgetVertical {
     width: auto;
     margin: 0;
     margin-right:10px;
+    .widgetVertical:hover{
+      z-index:30;
+    }
     .widget {
       display: flex;
       flex-direction: column;
