@@ -15,7 +15,6 @@
   flex-direction: column;
   align-items: center;
   display: flex;
-  width: 100vw;
 }
 
 .widgetDynamique {
@@ -209,3 +208,43 @@ h3:hover {
     }
   }
 }
+
+@media screen and (max-width: 1160px) {
+  .widgetsContainer {
+    margin-top: 40px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+  }
+
+  .widgetVertical{
+    height: 20rem;
+    margin-bottom:15px;
+    .widget{
+      height: 20rem;
+      .texteImgWidget {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      .image-widget {
+        margin: 0;
+        width: 50%;
+    }
+    .textLogo {
+      display: flex;
+      flex-direction: column;
+      .logoWidget {
+        padding: 0;
+        .imglogo {
+          padding: 0;
+          margin-bottom: 1rem;
+          margin-top: 1rem;
+  }
+  }
+}
+      }
+      }
+    }
+  }
