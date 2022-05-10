@@ -81,33 +81,59 @@ export default function WidgetList() {
     },
   ];
 
+  const contenuWidgetVertical = [
+    {
+      name: "Satellites",
+      logo: "../src/assets/satellite.png",
+      link: "/Satellites",
+      image: "../src/assets/satellites-image.png",
+    },
+  ];
+
   return (
     <div className="widgetsContainer">
-      <div className="widgetDynamique">
-        {contenuWidgetDynamique.map((widget) => (
-          <article>
-            <Widget
-              key={widget.name}
-              name={widget.name}
-              logo={widget.logo}
-              link={widget.link}
-              image={widget.image}
-            />
-          </article>
-        ))}
+      <div className="vertical">
+        <div className="widgetVertical">
+          {contenuWidgetVertical.map((widget) => (
+            <article>
+              <Widget
+                key={widget.name}
+                name={widget.name}
+                logo={widget.logo}
+                link={widget.link}
+                image={widget.image}
+              />
+            </article>
+          ))}
+        </div>
       </div>
-      <div className="widgetStatique">
-        {contenuWidgetStatique.map((widget) => (
-          <article>
-            <Widget
-              key={widget.name}
-              name={widget.name}
-              logo={widget.logo}
-              link={widget.link}
-              image={widget.image}
-            />
-          </article>
-        ))}
+      <div className="grille">
+        <div className="widgetDynamique">
+          {contenuWidgetDynamique.map((widget) => (
+            <article>
+              <Widget
+                key={widget.name}
+                name={widget.name}
+                logo={widget.logo}
+                link={widget.link}
+                image={widget.image}
+              />
+            </article>
+          ))}
+        </div>
+        <div className="widgetStatique">
+          {contenuWidgetStatique.map((widget) => (
+            <article>
+              <Widget
+                key={widget.name}
+                name={widget.name}
+                logo={widget.logo}
+                link={widget.link}
+                image={widget.image}
+              />
+            </article>
+          ))}
+        </div>
       </div>
     </div>
   );
