@@ -12,7 +12,8 @@
 h1 {
   margin-left: 0;
   text-shadow: 0 0 0.1em #ceb8f3, 0 0 0.2em #432f64;
-}
+  text-align: center;
+  }
 .police {
   color: #ff8800;
 }
@@ -55,7 +56,7 @@ h1 {
   padding: 0.5em;
   margin-bottom: 0;
   text-align: center;
-  background-color: rgba(67, 47, 100, 0.5);
+  background-color: $primary-color;
 }
 
 @media screen and (min-width: 768px) {
@@ -68,7 +69,6 @@ h1 {
   .intro-curio {
     margin: 0 4em;
     font-size: 130%;
-    width: 40%;
     border-radius: 1em;
   }
   .intro-site {
@@ -108,5 +108,20 @@ h1 {
   }
   .lionsfooter {
     z-index: 20;
+  }
+}
+@media screen and (min-width: 875px) {
+  .intro-curio{
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 875px) {
+  .introAndCalendar {
+    display: flex;
+    flex-direction: column;
+  }
+  .intro-curio{
+    margin-bottom: 1.5em;
   }
 }
