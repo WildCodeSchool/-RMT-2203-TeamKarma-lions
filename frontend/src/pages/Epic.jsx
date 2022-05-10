@@ -3,7 +3,6 @@ import "../styles/Home.scss";
 import Titre from "../components/Titre";
 import EpicPictures from "../components/Epic/EpicPictures";
 import "../styles/EpicPictures.scss";
-import "../styles/CalendarOps.scss";
 
 export default function Epic() {
   return (

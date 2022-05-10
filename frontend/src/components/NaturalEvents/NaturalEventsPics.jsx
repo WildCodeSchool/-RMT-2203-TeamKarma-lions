@@ -13,7 +13,7 @@ const correspondance = [
 const correspondance2 = {
   severeStorms: "#1dfb8f",
   volcanoes: "#fbb11d",
-  seaLakeIce: "#1dbefb",
+  Iceberg: "#1dbefb",
   wildfires: "#fb441d",
 };
 export default function NaturalEventsPics() {
@@ -66,7 +66,7 @@ export default function NaturalEventsPics() {
             });
 
             return {
-              catName: cat,
+              catName: cat === "seaLakeIce" ? "icebergs" : cat,
               catCount,
             };
           })
