@@ -4,6 +4,10 @@
   align-self: center;
 }
 
+.epicpage {
+  max-width: 100%;
+}
+
 .picButton {
   display: flex;
   justify-content: center;
@@ -110,7 +114,6 @@
 
 @media screen and (min-width: 768px) {
   .epicpage {
-    left: 4rem;
     font-size: 120%;
   }
 
