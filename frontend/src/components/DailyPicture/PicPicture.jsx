@@ -77,6 +77,10 @@ export default function PicPicture({
     return styleObj;
   };
 
+  const handleResize = (urlImg) => {
+    setBackgroundImage(calcBackgroundImage(urlImg, true));
+  };
+
   useEffect(() => {
     if (imgState === "loaded")
       setBackgroundImage(calcBackgroundImage(url, true));
@@ -88,11 +92,15 @@ export default function PicPicture({
         setImgState("loaded");
       });
 
-      window.addEventListener("resize", () => {
-        setBackgroundImage(calcBackgroundImage(url, true));
-      });
+      window.addEventListener("resize", () => handleResize(url));
     }
   }, [url, imgState, showPic]);
+
+  useEffect(() => {
+    return () => {
+      window.removeEventListener("resize", () => handleResize(url));
+    };
+  }, []);
 
   return (
     <div className="picPicture" style={backgroundImage}>
