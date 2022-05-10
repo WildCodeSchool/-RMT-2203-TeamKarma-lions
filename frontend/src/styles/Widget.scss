@@ -13,14 +13,14 @@
   gap: 10px;
 }
 
-.widgetDynamique{
-  display:grid;
+.widgetDynamique {
+  display: grid;
   gap: 10px;
   width: 30rem;
 }
 
-.widgetStatique{
-  width:30rem;
+.widgetStatique {
+  width: 30rem;
 }
 
 .widget {
@@ -32,31 +32,31 @@
   align-items: center;
   font-family: $font-text;
   user-select: none;
-  height:10rem;
+  height: 10rem;
 }
 
-.texteImgWidget{
-  display:flex;
+.texteImgWidget {
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.textLogo{
+.textLogo {
   width: 3rem;
-  display:flex;
+  display: flex;
   align-items: center;
 }
 
-.image-widget{
-  padding:0;
+.image-widget {
+  padding: 0;
   border-radius: 5px;
-  margin-left:15rem;
-  width:30%;
+  margin-left: 15rem;
+  width: 30%;
 }
 
-.logoWidget{
+.logoWidget {
   padding-right: 3rem;
-  padding-left:1rem;
+  padding-left: 1rem;
 }
 
 .imglogo {
@@ -77,7 +77,6 @@ h3:hover {
 }
 
 @media screen and (min-width: 767.98px) {
-
   article {
     color: #ffffff;
     padding: 0rem;
@@ -98,58 +97,54 @@ h3:hover {
       0 0 77px $primary-color, 0 0 80px white;
   }
 
+  .widgetDynamique {
+    display: grid;
+    grid-template-columns: 300px 300px;
+    width: auto;
 
-.widgetDynamique{
-  display:grid;
-  grid-template-columns: 300px 300px;
-  width:auto;
-
-  .widget{
-    display: flex;
-    flex-direction: column;
-    height:25rem;
-
-  .texteImgWidget{
-    display:flex;
-    flex-direction:column;
-
-    .textLogo{
+    .widget {
       display: flex;
       flex-direction: column;
+      height: 25rem;
 
-      
+      .texteImgWidget {
+        display: flex;
+        flex-direction: column;
+
+        .textLogo {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+    .image-widget {
+      margin: 0;
+      width: 90%;
+    }
+
+    .imageWidget {
+      display: flex;
+      justify-content: center;
+    }
+
+    .logoWidget {
+      padding: 0;
     }
   }
-}
-.image-widget{
-  margin:0;
-  width:90%;
-}
 
-.imageWidget{
-  display:flex;
-  justify-content: center;
-}
+  .widgetStatique {
+    width: 38rem;
 
-.logoWidget{
-  padding:0;
-}
+    .widget {
+      height: 15rem;
 
-}
-
-.widgetStatique{
-  width:38rem;
-
-  .widget{
-    height:15rem;
-
-    .image-widget{
-      width:54%;
+      .image-widget {
+        width: 54%;
+      }
     }
   }
-}
 
-.widgetsContainer{
-  margin-bottom:7rem;
-}
+  .widgetsContainer {
+    margin-bottom: 7rem;
+  }
 }

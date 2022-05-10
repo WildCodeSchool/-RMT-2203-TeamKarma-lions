@@ -57,13 +57,11 @@ h1 {
   background-color: rgba(67, 47, 100, 0.5);
 }
 
-@media screen and (min-width: 810px) {
+@media screen and (min-width: 768px) {
   .intro-align {
     display: flex;
   }
-  .intro-bloc {
-    width: 70%;
-  }
+
   .intro-curio {
     margin: 0 4em;
     font-size: 130%;

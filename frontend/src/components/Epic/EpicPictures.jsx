@@ -143,7 +143,6 @@ export default function EpicPictures() {
             <span className="police">&quot;epic&quot;</span> slideshow !
           </p>
           <Calendar
-            className="calendarcompo"
             minDate={minDate}
             maxDate={new Date()}
             onChange={setCalendarDate}
