@@ -30,7 +30,7 @@ h1 {
 
 // footer
 
-.intropfooter{
+.intropfooter {
   font-weight: bold;
 }
 
@@ -58,32 +58,7 @@ h1 {
   background-color: rgba(67, 47, 100, 0.5);
 }
 
-@media screen and (min-width: 900px) {
-  .lionsfooter div {
-    width: 100vw;
-  }
-
-  .lionsfooter ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: baseline;
-  }
-  .lionsfooter li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    padding-left: 0.5em;
-  }
-
-  .lionsfooter {
-    z-index: 20;
-  }
-
-}
-
-@media screen and (min-width: 810px) {
-
+@media screen and (min-width: 768px) {
   .intro-align {
     display: flex;
   }
@@ -110,5 +85,28 @@ h1 {
     display: flex;
     align-items: center;
     margin: 1em 1em 1em 0;
+  }
+
+  .lionsfooter div {
+    width: 100vw;
+  }
+
+  .lionsfooter ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+  }
+  .lionsfooter li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding-left: 0.5em;
+  }
+  .lionsfooter li:first-child {
+    padding-left: 0;
+  }
+  .lionsfooter {
+    z-index: 20;
   }
 }
