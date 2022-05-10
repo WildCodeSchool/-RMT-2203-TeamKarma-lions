@@ -28,6 +28,8 @@ export default function Satellites() {
   const [filteredSatList, setFilteredSatList] = useState([]);
   const baseHeight = useRef(window.innerHeight - 400);
   const baseWidth = useRef(window.innerWidth);
+  if (baseWidth.current > 768) baseWidth.current = window.innerWidth - 164;
+  else baseHeight.current = window.innerHeight - 464;
   const addFilter = useRef([]);
   const excludeFilter = useRef([]);
 
@@ -61,8 +63,6 @@ export default function Satellites() {
 
   const drawGlobe = () => {
     if (satList.length > 0) {
-      if (baseWidth.current > 768) baseWidth.current = window.innerWidth - 164;
-      else baseHeight.current = window.innerHeight - 464;
       setGlobeRadius(myGlobe.current.getGlobeRadius());
 
       setShowLoader(false);
