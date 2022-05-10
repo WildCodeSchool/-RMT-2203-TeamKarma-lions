@@ -5,7 +5,7 @@ export default function Footer() {
     <div className="lionsfooter">
       <ul>
         <li>
-          <p>2022 © Wild Code School x Team Lion</p>
+          <p className="intropfooter">2022 © Wild Code School x Team Lion</p>
         </li>
         <li>
           <a href="https://github.com/gnos28" target="_blank" rel="noreferrer">
