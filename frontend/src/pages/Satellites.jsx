@@ -11,6 +11,8 @@ import Loader from "../components/Loader";
 import "../styles/Satellites.scss";
 import categories from "../components/Datas/categories";
 
+let controller;
+
 export default function Satellites() {
   const [showLoader, setShowLoader] = useState(true);
   const [satList, setSatList] = useState([]);
@@ -26,15 +28,28 @@ export default function Satellites() {
   const keywords = useRef([]);
   const myGlobe = useRef();
   const [filteredSatList, setFilteredSatList] = useState([]);
-  const baseHeight = useRef(window.innerHeight - 400);
-  const baseWidth = useRef(window.innerWidth);
-  if (baseWidth.current > 768) baseWidth.current = window.innerWidth - 164;
-  else baseHeight.current = window.innerHeight - 464;
   const addFilter = useRef([]);
   const excludeFilter = useRef([]);
 
+  const baseHeight = useRef(window.innerHeight - 400);
+  const baseWidth = useRef(document.body.clientWidth);
+  if (baseWidth.current > 768)
+    baseWidth.current = document.body.clientWidth - 164;
+  else baseHeight.current = window.innerHeight - 464;
+
+  if (baseHeight.current > baseWidth.current * 1.5)
+    baseHeight.current = baseWidth.current * 1.5;
+
   const EARTH_RADIUS_KM = 6371; // km
   const SAT_SIZE = 100; // km
+
+  const resizeGlobe = () => {
+    baseHeight.current = window.innerHeight - 400;
+    baseWidth.current = document.body.clientWidth;
+    if (baseWidth.current > 768)
+      baseWidth.current = document.body.clientWidth - 164;
+    else baseHeight.current = window.innerHeight - 464;
+  };
 
   const getTooltip = (d) => {
     // pas vraiment utilisé, en attente de débug
@@ -124,8 +139,11 @@ export default function Satellites() {
   };
 
   useEffect(() => {
+    controller = new AbortController();
+    const { signal } = controller;
+
     axios
-      .get(`http://localhost:5000/api/n2yo/catbysatid`)
+      .get(`http://localhost:5000/api/n2yo/catbysatid`, { signal })
       .then((catById) => catById.data)
       .then((catById) => {
         const catBySatId = catById;
@@ -152,6 +170,13 @@ export default function Satellites() {
             )
           );
       });
+
+    window.addEventListener("resize", resizeGlobe);
+
+    return () => {
+      window.removeEventListener("resize", resizeGlobe);
+      controller.abort();
+    };
   }, []);
 
   useEffect(() => {

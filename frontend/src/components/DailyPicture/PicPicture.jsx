@@ -77,8 +77,8 @@ export default function PicPicture({
     return styleObj;
   };
 
-  const handleResize = (urlImg) => {
-    setBackgroundImage(calcBackgroundImage(urlImg, true));
+  const handleResize = () => {
+    setBackgroundImage(calcBackgroundImage(url, true));
   };
 
   useEffect(() => {
@@ -91,14 +91,13 @@ export default function PicPicture({
       img.addEventListener("load", () => {
         setImgState("loaded");
       });
-
-      window.addEventListener("resize", () => handleResize(url));
+      window.addEventListener("resize", handleResize);
     }
   }, [url, imgState, showPic]);
 
   useEffect(() => {
     return () => {
-      window.removeEventListener("resize", () => handleResize(url));
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
