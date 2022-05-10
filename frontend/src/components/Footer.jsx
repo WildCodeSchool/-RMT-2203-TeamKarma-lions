@@ -5,7 +5,7 @@ export default function Footer() {
     <div className="lionsfooter">
       <ul>
         <li>
-          <p className="introFooter">2022 © Wild Code School x Team Lion :</p>
+          <p>2022 © Wild Code School x Team Lion</p>
         </li>
         <li>
           <a href="https://github.com/gnos28" target="_blank" rel="noreferrer">
@@ -16,7 +16,7 @@ export default function Footer() {
             />
           </a>
 
-          <p>Julien Vigneron,</p>
+          <p>Julien Vigneron</p>
         </li>
         <li>
           <a href="https://github.com/ClemDSC" target="_blank" rel="noreferrer">
@@ -26,7 +26,7 @@ export default function Footer() {
               alt="logo Github"
             />
           </a>
-          <p>Clémence Pham,</p>
+          <p>Clémence Pham</p>
         </li>
         <li>
           <a href="https://github.com/Lora048" target="_blank" rel="noreferrer">
@@ -36,7 +36,7 @@ export default function Footer() {
               alt="logo Github"
             />
           </a>
-          <p>Lora Perrichon,</p>
+          <p>Lora Perrichon</p>
         </li>
         <li>
           <a
@@ -50,7 +50,7 @@ export default function Footer() {
               alt="logo Github"
             />
           </a>
-          <p>Frédérique Demas,</p>
+          <p>Frédérique Demas</p>
         </li>
         <li>
           <a
@@ -64,7 +64,7 @@ export default function Footer() {
               alt="logo Github"
             />
           </a>
-          <p>Paul Sanchez.</p>
+          <p>Paul Sanchez</p>
         </li>
       </ul>
     </div>
