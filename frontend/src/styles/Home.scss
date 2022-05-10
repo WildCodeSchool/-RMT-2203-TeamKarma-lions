@@ -55,9 +55,8 @@ h1 {
   padding: 0.5em;
   margin-bottom: 0;
   text-align: center;
-  background-color: rgba(67, 47, 100, 0.5);
+  background-color: $primary-color;
 }
-
 
 @media screen and (min-width: 768px) {
   .intro-align {
@@ -118,6 +117,6 @@ h1 {
     flex-direction: column;
   }
   .intro-curio{
-    margin-bottom: 0.5em;
+    margin-bottom: 1.5em;
   }
 }
