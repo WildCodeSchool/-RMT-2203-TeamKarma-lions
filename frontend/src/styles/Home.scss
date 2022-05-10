@@ -30,18 +30,19 @@ h1 {
 
 // footer
 
-.introFooter {
-  color: #1c0444;
-  background-color: rgba(255, 136, 0, 0.8);
+.intropfooter {
+  font-weight: bold;
 }
+
 .lionsfooter p {
   margin: 0.7rem 0;
 }
 .lionsfooter ul {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-left: 0;
+  align-items: baseline;
+  padding-left: 0.2em;
+  padding-right: 0.3em;
 }
 .lionsfooter li {
   display: flex;
@@ -61,7 +62,9 @@ h1 {
   .intro-align {
     display: flex;
   }
-
+  .intro-bloc {
+    width: 70%;
+  }
   .intro-curio {
     margin: 0 4em;
     font-size: 130%;
