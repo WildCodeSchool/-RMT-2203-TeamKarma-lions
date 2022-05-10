@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+.lien{
+  text-decoration: none;
+}
+
 .grille {
   margin-top: 10px;
   width:80%;
@@ -120,6 +124,10 @@ h3:hover {
       z-index: 15;
   }
 
+  h3:hover{
+    color: $nav-secondary-color;
+  }
+
   .widgetDynamique {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -159,6 +167,7 @@ h3:hover {
   .grille {
     margin-top: 0;
     width:80%;
+    z-index: 15;
   }
   
 
@@ -174,6 +183,7 @@ h3:hover {
 
       .image-widget {
         width: 40%;
+        z-index: 10;
       }
     }
   }
