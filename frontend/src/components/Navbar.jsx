@@ -28,15 +28,15 @@ export default function Navbar() {
         >
           <NavLink to="/Epic">
             <img
-              src="src/assets/perseverance.png"
+              src="src/assets/epic.png"
               alt="Epic"
               className="imgIcone imglogo"
             />
-          </NavLink>
 
-          <div className="onglet">
-            <h3 className="texteOnglet">Epic</h3>
-          </div>
+            <div className="onglet">
+              <h3 className="texteOnglet">Epic</h3>
+            </div>
+          </NavLink>
         </div>
 
         <div
@@ -52,12 +52,12 @@ export default function Navbar() {
               alt="Natural events"
               className="imgIcone imglogo"
             />
-          </NavLink>
-          <div className="ongletContainer">
-            <div className="onglet">
-              <h3 className="texteOnglet">Natural Events</h3>
+            <div className="ongletContainer">
+              <div className="onglet">
+                <h3 className="texteOnglet">Natural Events</h3>
+              </div>
             </div>
-          </div>
+          </NavLink>
         </div>
         <div
           className="iconeContainer"
@@ -68,14 +68,15 @@ export default function Navbar() {
         >
           <NavLink to="/Curiosity">
             <img
-              src="src/assets/satellite.png"
+              src="src/assets/curiosity.png"
               alt="Curiosity"
               className="imgIcone imglogo"
             />
+
+            <div className="onglet">
+              <h3 className="texteOnglet">Curiosity</h3>
+            </div>
           </NavLink>
-          <div className="onglet">
-            <h3 className="texteOnglet">Curiosity</h3>
-          </div>
         </div>
         <div
           className="iconeContainer"
@@ -86,15 +87,15 @@ export default function Navbar() {
         >
           <NavLink to="/Satellites">
             <img
-              src="src/assets/comete.png"
+              src="src/assets/satellite.png"
               alt="Meteorites"
               className="imgIcone"
             />
-          </NavLink>
 
-          <div className="onglet">
-            <h3 className="texteOnglet">Satellites</h3>
-          </div>
+            <div className="onglet">
+              <h3 className="texteOnglet">Satellites</h3>
+            </div>
+          </NavLink>
         </div>
       </div>
       <img src="src/assets/login.png" alt="Login" className="login imglogo" />

@@ -2,7 +2,7 @@
 
 .funfactlist {
   z-index: 20;
-  margin: 0em 4em;
+  margin: 0 25%;
   width: 60%;
   .funfact {
     & > img {
@@ -47,9 +47,10 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 810px) {
   .funfactlist {
     align-self: end;
     width: initial;
+    margin: 0 4em;
   }
 }
