@@ -6,6 +6,12 @@ import EpicCard from "./EpicCard";
 import "../../styles/CalendarOps.scss";
 import "../../styles/EpicPictures.scss";
 
+import firstFirstPic from "../../assets/firstfirst.png";
+import arrowLeftPic from "../../assets/dbl-arrow-left.png";
+import arrowRightPic from "../../assets/dbl-arrow-right.png";
+import lastLastPic from "../../assets/lastlast.png";
+import pausePic from "../../assets/playpause.png";
+
 export default function EpicPictures() {
   const [calendarDate, setCalendarDate] = useState(new Date());
   const [tableEpic, setTableEpic] = useState([]);
@@ -195,35 +201,35 @@ export default function EpicPictures() {
               className="picButton"
               onClick={() => handleButtonClick(0)}
             >
-              <img src="../src/assets/firstfirst.png" alt="first arrow" />
+              <img src={firstFirstPic} alt="first arrow" />
             </button>
             <button
               type="button"
               className="picButton"
               onClick={() => handleButtonClick("Previous")}
             >
-              <img src="../src/assets/dbl-arrow-left.png" alt="left arrow" />
+              <img src={arrowRightPic} alt="left arrow" />
             </button>
             <button
               type="button"
               className="picButton"
               onClick={() => handleButtonClick("Diapo")}
             >
-              <img src="../src/assets/playpause.png" alt="play and stop" />
+              <img src={pausePic} alt="play and stop" />
             </button>
             <button
               type="button"
               className="picButton"
               onClick={() => handleButtonClick("Next")}
             >
-              <img src="../src/assets/dbl-arrow-right.png" alt="right arrow" />
+              <img src={arrowLeftPic} alt="right arrow" />
             </button>
             <button
               type="button"
               className="picButton"
               onClick={() => handleButtonClick("Last")}
             >
-              <img src="../src/assets/lastlast.png" alt="last arrow" />
+              <img src={lastLastPic} alt="last arrow" />
             </button>
           </div>
 

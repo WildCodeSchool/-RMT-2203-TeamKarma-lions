@@ -3,6 +3,10 @@ import Globe from "react-globe.gl";
 import * as THREE from "three";
 import ToolTipContext from "../../contexts/Tooltip";
 
+import globPic from "../../assets/earth-blue-marble.jpg";
+import nightPic from "../../assets/night-sky.png";
+import earthTopoPic from "../../assets/earth-topology.png";
+
 const EARTH_RADIUS_KM = 6371; // km
 const SAT_SIZE = 100; // km
 
@@ -87,9 +91,9 @@ export default memo(function GlobeContainer({ filteredSatListAsProps }) {
     <div id="globeContainerSat">
       <Globe
         ref={myGlobe}
-        globeImageUrl="../src/assets/earth-blue-marble.jpg"
-        bumpImageUrl="../src/assets/earth-topology.png"
-        backgroundImageUrl="../src/assets/night-sky.png"
+        globeImageUrl={globPic}
+        bumpImageUrl={earthTopoPic}
+        backgroundImageUrl={nightPic}
         height={baseHeight.current}
         width={baseWidth.current}
         customLayerData={filteredSatList}

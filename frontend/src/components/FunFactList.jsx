@@ -15,7 +15,7 @@ export default function FunFactList() {
     const { signal } = controller;
 
     axios
-      .get(`http://wcs.dev4.me/marsweather/`, { signal })
+      .get(`https://wcs.dev4.me/marsweather/`, { signal })
       .then((response) => response.data)
       .then((data) => {
         setMarsTemp([
@@ -25,7 +25,7 @@ export default function FunFactList() {
       });
 
     axios
-      .get(`http://wcs.dev4.me/exoplanetarchive/`, { signal })
+      .get(`https://wcs.dev4.me/exoplanetarchive/`, { signal })
       .then((response) => response.data)
       .then((data) => {
         setNbExo(data[0]["count(releasedate)"]);
