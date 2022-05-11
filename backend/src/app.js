@@ -18,7 +18,7 @@ const router = require("./router");
 
 app.use("/api", router);
 
-//require("./N2yoListener");
+require("./N2yoListener");
 
 // Allow front rooter
 app.get("/*", (req, res) => {
