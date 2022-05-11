@@ -13,7 +13,7 @@ h1 {
   margin-left: 0;
   text-shadow: 0 0 0.1em #ceb8f3, 0 0 0.2em #432f64;
   text-align: center;
-  }
+}
 .police {
   color: #ff8800;
 }
@@ -111,7 +111,7 @@ h1 {
   }
 }
 @media screen and (min-width: 875px) {
-  .intro-curio{
+  .intro-curio {
     width: 40%;
   }
 }
@@ -121,7 +121,7 @@ h1 {
     display: flex;
     flex-direction: column;
   }
-  .intro-curio{
+  .intro-curio {
     margin-bottom: 1.5em;
   }
 }
