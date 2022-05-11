@@ -10,8 +10,10 @@
 }
 
 .filterCam select {
+  width: 80vw;
   font-family: $font-text;
   font-size: 0.8em;
+  max-width: 400px;
 }
 
 .picListEmpty {
@@ -21,11 +23,12 @@
 
 // conteneur photos
 
-.bigDiv{
-  width: 100vw;
+.bigDiv {
+  max-width: 100%;
 }
 
 .buttonContainer {
+  max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,11 +42,13 @@
 }
 
 .containerPic {
+  max-width: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .gridpics {
+  max-width: 100%;
   padding-top: 1em;
   display: grid;
   grid-template-columns: repeat(auto-fill, 250px);
@@ -79,8 +84,8 @@
 
 .picButton:hover {
   transform: translate(-0.05em, -0.05em);
-  box-shadow: 0.15em 0.15em rgba(255, 136, 0, 0.8), ;
- }
+  box-shadow: 0.15em 0.15em rgba(255, 136, 0, 0.8);
+}
 
 .picButton img:first-child {
   padding-right: 0.5em;
@@ -91,17 +96,17 @@
 }
 
 @media screen and (max-width: 767px) {
-  .containerPic{
+  .containerPic {
     align-items: center;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .bigDiv{
-    width: calc(100vw - 4rem)
+  .bigDiv {
+    width: calc(100vw - 4rem);
   }
 
-  .buttonContainer{
+  .buttonContainer {
     margin-left: 2.5em;
     margin-right: 2.5em;
   }

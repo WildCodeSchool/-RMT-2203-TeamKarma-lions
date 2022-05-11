@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import moment from "moment";
 import axios from "axios";
 import Widget from "./Widget";
-
 import "../styles/Widget.scss";
 
 export default function WidgetList() {
@@ -60,13 +59,13 @@ export default function WidgetList() {
   const contenuWidgetDynamique = [
     {
       name: "Curiosity",
-      logo: "../src/assets/perseverance.png",
+      logo: "../src/assets/curiosity.png",
       link: "/Curiosity",
       image: curiosityPic,
     },
     {
       name: "Epic",
-      logo: "../src/assets/perseverance.png",
+      logo: "../src/assets/epic.png",
       link: "/Epic",
       image: epicPic,
     },
@@ -81,33 +80,59 @@ export default function WidgetList() {
     },
   ];
 
+  const contenuWidgetVertical = [
+    {
+      name: "Satellites",
+      logo: "../src/assets/satellite.png",
+      link: "/Satellites",
+      image: "../src/assets/satellites-image.png",
+    },
+  ];
+
   return (
     <div className="widgetsContainer">
-      <div className="widgetDynamique">
-        {contenuWidgetDynamique.map((widget) => (
-          <article>
-            <Widget
-              key={widget.name}
-              name={widget.name}
-              logo={widget.logo}
-              link={widget.link}
-              image={widget.image}
-            />
-          </article>
-        ))}
+      <div className="vertical">
+        <div className="widgetVertical">
+          {contenuWidgetVertical.map((widget) => (
+            <article key={widget.name}>
+              <Widget
+                key={widget.name}
+                name={widget.name}
+                logo={widget.logo}
+                link={widget.link}
+                image={widget.image}
+              />
+            </article>
+          ))}
+        </div>
       </div>
-      <div className="widgetStatique">
-        {contenuWidgetStatique.map((widget) => (
-          <article>
-            <Widget
-              key={widget.name}
-              name={widget.name}
-              logo={widget.logo}
-              link={widget.link}
-              image={widget.image}
-            />
-          </article>
-        ))}
+      <div className="grille">
+        <div className="widgetDynamique">
+          {contenuWidgetDynamique.map((widget) => (
+            <article key={widget.name}>
+              <Widget
+                key={widget.name}
+                name={widget.name}
+                logo={widget.logo}
+                link={widget.link}
+                image={widget.image}
+              />
+            </article>
+          ))}
+        </div>
+        <div className="widgetStatique">
+          {contenuWidgetStatique.map((widget) => (
+            <article key={widget.name}>
+              <Widget
+                key={widget.name}
+                name={widget.name}
+                logo={widget.logo}
+                link={widget.link}
+                image={widget.image}
+              />
+            </article>
+          ))}
+        </div>
       </div>
     </div>
   );

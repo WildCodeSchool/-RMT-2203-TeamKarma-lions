@@ -126,6 +126,9 @@
       font-size: 1rem;
       margin: 0;
     }
+    h3:hover {
+      color: $nav-secondary-color;
+    }
   }
 
   .iconeContainer:hover .onglet {
