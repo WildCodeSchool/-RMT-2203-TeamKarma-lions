@@ -20,6 +20,10 @@
   "keywords": [],
   "author": "Wild Code School",
   "license": "ISC",
+   "dependencies": {
+    "dotenv": "^10.0.0",
+    "mysql2": "^2.3.3"
+  },
   "devDependencies": {
     "concurrently": "^7.0.0",
     "husky": "^7.0.0"
