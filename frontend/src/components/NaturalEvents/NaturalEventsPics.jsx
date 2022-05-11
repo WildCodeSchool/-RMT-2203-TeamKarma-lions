@@ -4,6 +4,8 @@ import Globe from "globe.gl";
 import Loader from "../Loader";
 import "../../styles/NaturalEvents.scss";
 
+let controller;
+
 const correspondance = [
   { id: "severeStorms", color: "#1dfb8f" },
   { id: "volcanoes", color: "#fbb11d" },
@@ -47,8 +49,11 @@ export default function NaturalEventsPics() {
   };
 
   const getPicEvent = () => {
+    controller = new AbortController();
+    const { signal } = controller;
+
     axios
-      .get("https://eonet.gsfc.nasa.gov/api/v3/events")
+      .get("https://eonet.gsfc.nasa.gov/api/v3/events", { signal })
       .then((response) => response.data)
       .then((data) => {
         const categories = [];
@@ -138,10 +143,12 @@ export default function NaturalEventsPics() {
 
   useEffect(() => {
     getPicEvent();
+    window.addEventListener("resize", drawGlobe);
 
-    window.addEventListener("resize", () => {
-      drawGlobe();
-    });
+    return () => {
+      window.removeEventListener("resize", drawGlobe);
+      controller.abort();
+    };
   }, []);
 
   // afficher uniqueCategories dans une div en haut à droite de la div globeViz

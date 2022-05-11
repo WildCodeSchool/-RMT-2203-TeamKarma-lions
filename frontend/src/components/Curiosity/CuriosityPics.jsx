@@ -45,7 +45,7 @@ export default function CuriosityPics({ picList }) {
     }
   };
   return (
-    <div>
+    <div className="bigDiv">
       <div className="filterCam">
         <p>
           <span className="police">Choose a camera :</span>
@@ -60,7 +60,7 @@ export default function CuriosityPics({ picList }) {
                 ) === index
             )
             .map((el) => (
-              <PicSelect picList={picList} cameraList={el} />
+              <PicSelect key={el.id} picList={picList} cameraList={el} />
             ))}
         </select>
       </div>
