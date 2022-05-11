@@ -4,6 +4,13 @@ import axios from "axios";
 import Widget from "./Widget";
 import "../styles/Widget.scss";
 
+import epicLogo from "../assets/epic.png";
+import tornadoLogo from "../assets/tornade.png";
+import curiosityLogo from "../assets/curiosity.png";
+import satelliteLogo from "../assets/satellite.png";
+import satImg from "../assets/satellites-image.png";
+import widgetEventPic from "../assets/image-widget-events.png";
+
 export default function WidgetList() {
   const [curiosityPic, setCuriosityPic] = useState([]);
   const [epicPic, setEpicPic] = useState([]);
@@ -59,13 +66,13 @@ export default function WidgetList() {
   const contenuWidgetDynamique = [
     {
       name: "Curiosity",
-      logo: "../src/assets/curiosity.png",
+      logo: curiosityLogo,
       link: "/Curiosity",
       image: curiosityPic,
     },
     {
       name: "Epic",
-      logo: "../src/assets/epic.png",
+      logo: epicLogo,
       link: "/Epic",
       image: epicPic,
     },
@@ -74,18 +81,18 @@ export default function WidgetList() {
   const contenuWidgetStatique = [
     {
       name: "Natural Events",
-      logo: "../src/assets/tornade.png",
+      logo: tornadoLogo,
       link: "/NaturalEvents",
-      image: "../src/assets/image-widget-events.png",
+      image: widgetEventPic,
     },
   ];
 
   const contenuWidgetVertical = [
     {
       name: "Satellites",
-      logo: "../src/assets/satellite.png",
+      logo: satelliteLogo,
       link: "/Satellites",
-      image: "../src/assets/satellites-image.png",
+      image: satImg,
     },
   ];
 
