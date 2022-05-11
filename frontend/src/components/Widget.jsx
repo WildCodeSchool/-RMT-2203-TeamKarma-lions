@@ -1,7 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import "../styles/Widget.scss";
 import "../styles/App.scss";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function Widget({ logo, name, image, link }) {
   return (
@@ -17,7 +19,12 @@ export default function Widget({ logo, name, image, link }) {
             </div>
           </div>
           <div className="imageWidget">
-            <img src={image} alt={name} className="image-widget" />
+            <LazyLoadImage
+              effect="blur"
+              src={image}
+              alt={name}
+              className="image-widget"
+            />
           </div>
         </div>
       </NavLink>
