@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import "../styles/Widget.scss";
 import "../styles/App.scss";
 import { LazyLoadImage } from "react-lazy-load-image-component";

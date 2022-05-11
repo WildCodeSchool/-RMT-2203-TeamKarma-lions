@@ -13,7 +13,7 @@ h1 {
   margin-left: 0;
   text-shadow: 0 0 0.1em #ceb8f3, 0 0 0.2em #432f64;
   text-align: center;
-  }
+}
 .police {
   color: #ff8800;
 }
@@ -109,27 +109,26 @@ h1 {
   .lionsfooter {
     z-index: 20;
   }
-
 }
 
-@media screen and (max-width:809.98px){
-  .intro-align{
+@media screen and (max-width: 809.98px) {
+  .intro-align {
     z-index: 10;
   }
-  .intro-site{
+  .intro-site {
     z-index: 10;
-  margin: 1em;
-  margin-left: 2em;
-  user-select: none;
+    margin: 1em;
+    margin-left: 2em;
+    user-select: none;
   }
 
-  .intro-bloc{
+  .intro-bloc {
     width: 70%;
-    margin:1em 3em;
+    margin: 1em 3em;
   }
 }
 @media screen and (min-width: 875px) {
-  .intro-curio{
+  .intro-curio {
     width: 40%;
   }
 }
@@ -139,7 +138,7 @@ h1 {
     display: flex;
     flex-direction: column;
   }
-  .intro-curio{
+  .intro-curio {
     margin-bottom: 1.5em;
   }
 }
