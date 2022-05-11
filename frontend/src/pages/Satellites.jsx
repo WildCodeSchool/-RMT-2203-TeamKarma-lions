@@ -1,72 +1,27 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
-import Globe from "react-globe.gl";
-import * as THREE from "three";
 import "bootstrap/dist/css/bootstrap.css";
 import { Typeahead } from "react-bootstrap-typeahead";
+import GlobeContainer from "../components/Satellites/GlobeContainer";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import Titre from "../components/Titre";
 import HoverInfo from "../components/Satellites/HoverInfo";
 import Loader from "../components/Loader";
 import "../styles/Satellites.scss";
 import categories from "../components/Datas/categories";
+import { ToolTipContextProvider } from "../contexts/Tooltip";
 
 let controller;
 
 export default function Satellites() {
   const [showLoader, setShowLoader] = useState(true);
   const [satList, setSatList] = useState([]);
-  const [globeRadius, setGlobeRadius] = useState();
-  let hoverInfo = {
-    satname: "",
-    satalt: "",
-    satcat: [],
-    satLaunchDate: "",
-    satObsDate: "",
-  };
-
   const keywords = useRef([]);
-  const myGlobe = useRef();
   const [filteredSatList, setFilteredSatList] = useState([]);
   const addFilter = useRef([]);
   const excludeFilter = useRef([]);
 
-  const baseHeight = useRef(window.innerHeight - 400);
-  const baseWidth = useRef(document.body.clientWidth);
-  if (baseWidth.current > 768)
-    baseWidth.current = document.body.clientWidth - 164;
-  else baseHeight.current = window.innerHeight - 464;
-
-  if (baseHeight.current > baseWidth.current * 1.5)
-    baseHeight.current = baseWidth.current * 1.5;
-
   const EARTH_RADIUS_KM = 6371; // km
-  const SAT_SIZE = 100; // km
-
-  const resizeGlobe = () => {
-    baseHeight.current = window.innerHeight - 400;
-    baseWidth.current = document.body.clientWidth;
-    if (baseWidth.current > 768)
-      baseWidth.current = document.body.clientWidth - 164;
-    else baseHeight.current = window.innerHeight - 464;
-  };
-
-  const getTooltip = (d) => {
-    // pas vraiment utilisé, en attente de débug
-    if (d) {
-      const tooltipDatas = {
-        satname: d.satname,
-        satalt: d.satalt,
-        satcat: d.category_name,
-        satLaunchDate: d.satLaunchDate,
-        satObsDate: d.satObsDate,
-      };
-      hoverInfo = { ...tooltipDatas };
-      console.warn(hoverInfo); // juste pour la démo !!
-      return <div>{d.satname}</div>;
-    }
-    return null;
-  };
 
   const getColorFromCategory = (cat) => {
     let catId = "";
@@ -74,14 +29,6 @@ export default function Satellites() {
       if (categories[i].name === cat) catId = categories[i].id;
 
     return `rgb(${catId * 4},${255 - catId * 4},${Math.min(255, catId * 8)})`;
-  };
-
-  const drawGlobe = () => {
-    if (satList.length > 0) {
-      setGlobeRadius(myGlobe.current.getGlobeRadius());
-
-      setShowLoader(false);
-    }
   };
 
   const updateGlobe = () => {
@@ -139,17 +86,20 @@ export default function Satellites() {
   };
 
   useEffect(() => {
+    let baseUrl = "http://localhost:5000";
+    if (import.meta.env.PROD) baseUrl = import.meta.env.BASEURL;
+
     controller = new AbortController();
     const { signal } = controller;
 
     axios
-      .get(`http://localhost:5000/api/n2yo/catbysatid`, { signal })
+      .get(`${baseUrl}/api/n2yo/catbysatid`, { signal })
       .then((catById) => catById.data)
       .then((catById) => {
         const catBySatId = catById;
 
         axios
-          .get(`http://localhost:5000/api/n2yo`)
+          .get(`${baseUrl}/api/n2yo`)
           .then((res) => res.data)
           .then((res) =>
             setSatList(
@@ -171,13 +121,14 @@ export default function Satellites() {
           );
       });
 
-    window.addEventListener("resize", resizeGlobe);
-
     return () => {
-      window.removeEventListener("resize", resizeGlobe);
       controller.abort();
     };
   }, []);
+
+  const drawGlobe = () => {
+    if (satList.length > 0) setShowLoader(false);
+  };
 
   useEffect(() => {
     setFilteredSatList(satList);
@@ -205,85 +156,47 @@ export default function Satellites() {
     drawGlobe();
   }, [satList]);
 
-  const customThreeObject = (d) => {
-    // bottleneck !!!!
-    if (!satList.length) return null;
-
-    return new THREE.Mesh(
-      new THREE.OctahedronGeometry(
-        ((SAT_SIZE * globeRadius) / EARTH_RADIUS_KM / 2) * (1 + d.satalt * 0.5),
-        0
-      ),
-      new THREE.MeshLambertMaterial({
-        color: d.color,
-        transparent: true,
-        opacity: 0.7,
-      })
-    );
-  };
-
-  const customThreeObjectUpdate = (obj, d) => {
-    if (!satList.length) return null;
-
-    return Object.assign(
-      obj.position,
-      myGlobe.current.getCoords(d.satlat, d.satlng, d.satalt)
-    );
-  };
-
   const refTypeAhead = useRef();
 
   return (
-    <div className="globalContainerSat">
-      <Titre titre="Satellites 3D view" />
-      {showLoader && (
-        <div className="loaderContainer">
-          <Loader />
+    <ToolTipContextProvider>
+      <div className="globalContainerSat">
+        <Titre titre="Satellites 3D view" />
+        {showLoader && (
+          <div className="loaderContainer">
+            <Loader />
+          </div>
+        )}
+        <div className="globeHeader">
+          {keywords.current.length ? (
+            <>
+              <Typeahead
+                id="filterAdd"
+                labelKey="name"
+                multiple
+                options={keywords.current}
+                placeholder="Add a keyword..."
+                ref={refTypeAhead}
+                onChange={handleAddFilter}
+              />
+              <Typeahead
+                id="filterExclude"
+                labelKey="name"
+                multiple
+                options={keywords.current}
+                placeholder="Exclude a keyword..."
+                ref={refTypeAhead}
+                onChange={handleExcludeFilter}
+              />
+            </>
+          ) : null}
         </div>
-      )}
-      <div className="globeHeader">
-        {keywords.current.length ? (
-          <>
-            <Typeahead
-              id="filterAdd"
-              labelKey="name"
-              multiple
-              options={keywords.current}
-              placeholder="Add a keyword..."
-              ref={refTypeAhead}
-              onChange={handleAddFilter}
-            />
-            <Typeahead
-              id="filterExclude"
-              labelKey="name"
-              multiple
-              options={keywords.current}
-              placeholder="Exclude a keyword..."
-              ref={refTypeAhead}
-              onChange={handleExcludeFilter}
-            />
-          </>
-        ) : null}
+        <GlobeContainer filteredSatListAsProps={filteredSatList} />
+        <div className="nbRenderedItem">
+          {filteredSatList.length} satellites rendered
+        </div>
+        <HoverInfo />
       </div>
-      <div id="globeContainerSat">
-        <Globe
-          ref={myGlobe}
-          globeImageUrl="../src/assets/earth-blue-marble.jpg"
-          bumpImageUrl="../src/assets/earth-topology.png"
-          backgroundImageUrl="../src/assets/night-sky.png"
-          height={baseHeight.current}
-          width={baseWidth.current}
-          customLayerData={filteredSatList}
-          customThreeObject={customThreeObject}
-          customThreeObjectUpdate={customThreeObjectUpdate}
-          onCustomLayerHover={getTooltip}
-          enablePointerInteraction
-        />
-      </div>
-      <HoverInfo key={hoverInfo} data={hoverInfo} />
-      <div className="nbRenderedItem">
-        {filteredSatList.length} satellites rendered
-      </div>
-    </div>
+    </ToolTipContextProvider>
   );
 }

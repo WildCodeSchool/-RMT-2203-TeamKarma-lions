@@ -1,22 +1,40 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import ToolTipContext from "../../contexts/Tooltip";
 
 const EARTH_RADIUS_KM = 6371; // km
 
-export default function HoverInfo({ data }) {
+export default function HoverInfo() {
+  const tooltip = useContext(ToolTipContext);
+  const [render, setRender] = useState(false);
+
+  useEffect(() => {
+    setRender(!render);
+  }, [{ tooltip }]);
+
   return (
-    <div className="hoverContent">
-      {data.satname && (
-        <>
+    <div>
+      {tooltip && tooltip.satname && (
+        <div className="hoverContent">
           <div>
-            name : {data.satname} launch date : {data.satLaunchDate}
+            <div>
+              Name : <span>{tooltip.satname}</span>
+            </div>
+            <div>
+              Altitude :{" "}
+              <span>{Math.round(tooltip.satalt * EARTH_RADIUS_KM)}km</span>
+            </div>
           </div>
           <div>
-            data date : {data.satObsDate} altitude :{" "}
-            {data.satalt * EARTH_RADIUS_KM}km
+            <div>
+              Launch date : <span>{tooltip.satLaunchDate.split("T")[0]}</span>
+            </div>
+            <div>
+              Observation date : <span>{tooltip.satObsDate.split("T")[0]}</span>
+            </div>
           </div>
-          <div>
+          <div className="hoverContentCategories">
             Categories :{" "}
-            {data.satcat.map((cat, catIndex) =>
+            {tooltip.satcat.map((cat, catIndex) =>
               catIndex ? (
                 <span key={cat}>, {cat}</span>
               ) : (
@@ -24,7 +42,7 @@ export default function HoverInfo({ data }) {
               )
             )}
           </div>
-        </>
+        </div>
       )}
     </div>
   );

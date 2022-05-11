@@ -144,7 +144,7 @@ h3:hover {
         .textLogo {
           display: flex;
           flex-direction: column;
-          margin-bottom:25%;
+          margin-bottom: 25%;
         }
       }
     }
@@ -219,7 +219,7 @@ h3:hover {
       }
     }
     .image-widget {
-      margin-left: 4rem;
+      margin-left: 15.5%;
       width: 70%;
     }
 
@@ -269,9 +269,11 @@ h3:hover {
         .imageWidget {
           display: flex;
           justify-content: flex-end;
-      .image-widget {
-        width: 40%;
-        margin-left:60%;
+          .image-widget {
+            width: 40%;
+            margin-left: 60%;
+          }
+        }
       }
     }
   }
