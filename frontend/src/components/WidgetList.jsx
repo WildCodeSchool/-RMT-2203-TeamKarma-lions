@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import moment from "moment";
 import axios from "axios";
 import Widget from "./Widget";
-
 import "../styles/Widget.scss";
 
 export default function WidgetList() {
