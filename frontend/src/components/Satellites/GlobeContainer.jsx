@@ -24,27 +24,12 @@ export default memo(function GlobeContainer({ filteredSatListAsProps }) {
     baseHeight.current = baseWidth.current * 1.5;
 
   const getTooltip = (d) => {
-    console.log("*** getTooltip *** ", d, tooltip);
-
-    // pas vraiment utilisé, en attente de débug
     if (d) {
-      //   const tooltipDatas = {
-      //     satname: d.satname,
-      //     satalt: d.satalt,
-      //     satcat: d.category_name,
-      //     satLaunchDate: d.satLaunchDate,
-      //     satObsDate: d.satObsDate,
-      //   };
-
       tooltip.satname = d.satname;
       tooltip.satalt = d.satalt;
       tooltip.satcat = d.category_name;
       tooltip.satLaunchDate = d.satLaunchDate;
       tooltip.satObsDate = d.satObsDate;
-
-      //   setTooltip(tooltipDatas);
-      // hoverInfo = { ...tooltipDatas };
-      console.warn(tooltip); // juste pour la démo !!
     }
     return null;
   };
@@ -92,21 +77,11 @@ export default memo(function GlobeContainer({ filteredSatListAsProps }) {
   }, []);
 
   useEffect(() => {
-    console.log("filteredSatListAsProps modified");
-
     if (filteredSatListAsProps.length > 0) {
       setGlobeRadius(myGlobe.current.getGlobeRadius());
       setFilteredSatList(filteredSatListAsProps);
     }
   }, [filteredSatListAsProps]);
-
-  useEffect(() => {
-    console.log("getTooltip modified");
-  }, [getTooltip]);
-
-  useEffect(() => {
-    console.log("render Globe");
-  });
 
   return (
     <div id="globeContainerSat">

@@ -86,17 +86,20 @@ export default function Satellites() {
   };
 
   useEffect(() => {
+    let baseUrl = "http://localhost:5000";
+    if (import.meta.env.PROD) baseUrl = import.meta.env.BASEURL;
+
     controller = new AbortController();
     const { signal } = controller;
 
     axios
-      .get(`http://localhost:5000/api/n2yo/catbysatid`, { signal })
+      .get(`${baseUrl}/api/n2yo/catbysatid`, { signal })
       .then((catById) => catById.data)
       .then((catById) => {
         const catBySatId = catById;
 
         axios
-          .get(`http://localhost:5000/api/n2yo`)
+          .get(`${baseUrl}/api/n2yo`)
           .then((res) => res.data)
           .then((res) =>
             setSatList(
@@ -153,10 +156,6 @@ export default function Satellites() {
     drawGlobe();
   }, [satList]);
 
-  useEffect(() => {
-    console.log("render Globe Parent");
-  });
-
   const refTypeAhead = useRef();
 
   return (
@@ -193,10 +192,10 @@ export default function Satellites() {
           ) : null}
         </div>
         <GlobeContainer filteredSatListAsProps={filteredSatList} />
-        <HoverInfo />
         <div className="nbRenderedItem">
           {filteredSatList.length} satellites rendered
         </div>
+        <HoverInfo />
       </div>
     </ToolTipContextProvider>
   );

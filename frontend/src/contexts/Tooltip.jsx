@@ -6,8 +6,6 @@ export default ToolTipContext;
 
 // eslint-disable-next-line react/prop-types
 export function ToolTipContextProvider({ children }) {
-  // const [tooltip, setTooltip] = useState([]);
-
   const tooltip = useMemo(() => ({}));
 
   return (
