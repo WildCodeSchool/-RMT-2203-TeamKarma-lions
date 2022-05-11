@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+let timeoutId;
+
 export default function FunFact({
   textFront,
   factData,
@@ -19,11 +21,12 @@ export default function FunFact({
     callback(
       (data - (data - dataStart) * ((100 - count) / 100)).toFixed(dataRound)
     );
-    if (count < 100)
-      window.setTimeout(
+    if (count < 100) {
+      timeoutId = window.setTimeout(
         () => increaseNumber(data, count + 1, callback, timeoutIndex),
         20
       );
+    }
   };
 
   useEffect(() => {
@@ -34,6 +37,12 @@ export default function FunFact({
       increaseNumber(factData2, 0, setDisplayNumber2);
     }
   }, [factData, factData2]);
+
+  useEffect(() => {
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
+  }, []);
 
   return (
     <div className="funfact">

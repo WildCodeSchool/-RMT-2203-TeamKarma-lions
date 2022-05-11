@@ -11,19 +11,29 @@
 
   & > h1 {
     align-self: center;
-    text-align: center;
+    font-size: clamp(1rem, 5vw, 5.5rem);
   }
-}
+
 
 .globeHeader {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   gap: 20px;
   padding: 10px 0;
 
   & > div {
-    width: 40vw;
+    width: 90vw;
+  }
+}
+
+@media screen and (min-width: 767.98px) {
+  .globeHeader {
+    flex-direction: row;
+
+    & > div {
+      width: 40vw;
+    }
   }
 }
 
