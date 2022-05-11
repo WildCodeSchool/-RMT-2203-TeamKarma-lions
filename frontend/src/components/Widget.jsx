@@ -6,7 +6,7 @@ import "../styles/App.scss";
 export default function Widget({ logo, name, image, link }) {
   return (
     <div className="widget">
-      <NavLink to={link}>
+      <NavLink className="lien" to={link}>
         <div className="texteImgWidget">
           <div className="textWidget">
             <div className="textLogo">

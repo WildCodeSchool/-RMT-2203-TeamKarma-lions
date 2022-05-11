@@ -109,6 +109,24 @@ h1 {
   .lionsfooter {
     z-index: 20;
   }
+
+}
+
+@media screen and (max-width:809.98px){
+  .intro-align{
+    z-index: 10;
+  }
+  .intro-site{
+    z-index: 10;
+  margin: 1em;
+  margin-left: 2em;
+  user-select: none;
+  }
+
+  .intro-bloc{
+    width: 70%;
+    margin:1em 3em;
+  }
 }
 @media screen and (min-width: 875px) {
   .intro-curio {
