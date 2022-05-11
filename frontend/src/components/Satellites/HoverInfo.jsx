@@ -12,9 +12,9 @@ export default function HoverInfo() {
   }, [{ tooltip }]);
 
   return (
-    <div className="hoverContent">
+    <div>
       {tooltip && tooltip.satname && (
-        <>
+        <div className="hoverContent">
           <div>
             <div>
               Name : <span>{tooltip.satname}</span>
@@ -42,7 +42,7 @@ export default function HoverInfo() {
               )
             )}
           </div>
-        </>
+        </div>
       )}
     </div>
   );

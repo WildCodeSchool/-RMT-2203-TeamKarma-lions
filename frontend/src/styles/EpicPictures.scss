@@ -32,7 +32,7 @@
 }
 
 .intropage {
-  max-width: 90%;
+  max-width: 100%;
   height: auto;
   padding: 0.5em;
   flex-direction: column;
@@ -54,7 +54,7 @@
 }
 
 .epiccalendar {
-  max-width: 90%;
+  max-width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -81,8 +81,9 @@
 }
 
 .epicpics {
-  margin: 0;
   max-width: 90%;
+  width: 90vw;
+  min-height: 80vw;
   background-color: black;
   border-radius: 10px;
   display: flex;
@@ -90,8 +91,11 @@
 }
 
 .epicimg {
+  margin: auto;
+  display: flex;
+  align-items: center;
   max-width: 88%;
-  height: auto;
+  aspect-ratio: 1/1;
   padding: 0;
 }
 
@@ -119,14 +123,12 @@
 
   .epicpics {
     border-radius: 1em;
-  }
-
-  .epicpics {
     max-width: 75%;
-    height: auto;
+    width: 75vw;
+    min-height: 40vw;
     .epicimg {
       max-width: 70%;
-      height: auto;
+      aspect-ratio: 1/1;
       padding: 0;
     }
   }
