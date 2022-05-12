@@ -5,24 +5,35 @@
   position: relative;
   width: calc(100vw - 4rem);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 
   & > h1 {
-    align-self: flex-start;
+    align-self: center;
+    font-size: clamp(1rem, 5vw, 5.5rem);
   }
 }
 
 .globeHeader {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   gap: 20px;
   padding: 10px 0;
 
   & > div {
-    width: 40vw;
+    width: 90vw;
+  }
+}
+
+@media screen and (min-width: 767.98px) {
+  .globeHeader {
+    flex-direction: row;
+
+    & > div {
+      width: 40vw;
+    }
   }
 }
 
@@ -79,4 +90,35 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.hoverContent {
+  user-select: none;
+  background-color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+
+  span {
+    font-weight: bold;
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+  }
+
+  & div.hoverContentCategories {
+    display: inline;
+  }
+}
+
+@media screen and (min-width: 767.98px) {
+  .hoverContent {
+    & > div {
+      display: flex;
+      flex-direction: row;
+    }
+  }
 }

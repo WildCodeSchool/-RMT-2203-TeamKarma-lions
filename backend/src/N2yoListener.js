@@ -64,29 +64,64 @@ mysql
             lonArrayIndex,
             N2YO_API_KEY
           ).then((resFetch) => {
-            if (resFetch.data)
-              resFetch.data.above.forEach((sat) => {
-                connection.query(
-                  `insert into n2yo (request_date, category_name, obslat, obslng, satid, satname, int_designator, launch_date, satlat, satlng, satalt) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-                  [
-                    currentDate,
-                    categories[categoriesIndex].name,
-                    latArray[latArrayIndex],
-                    lonArray[lonArrayIndex],
-                    sat.satid,
-                    sat.satname,
-                    sat.intDesignator,
-                    new Date(
-                      parseInt(sat.launchDate.split("-")[0], 10),
-                      parseInt(sat.launchDate.split("-")[1], 10) - 1,
-                      parseInt(sat.launchDate.split("-")[2], 10)
-                    ),
-                    sat.satlat,
-                    sat.satlng,
-                    sat.satalt,
-                  ]
-                );
-              });
+            if (resFetch.data && !resFetch.data.error) {
+              console.warn(
+                "*** transaction count",
+                resFetch.data.info.transactionscount
+              );
+
+              if (resFetch.data.above)
+                resFetch.data.above.forEach((sat) => {
+                  connection
+                    .query(
+                      `insert into n2yo (request_date, category_name, obslat, obslng, satid, satname, int_designator, launch_date, satlat, satlng, satalt) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                      [
+                        currentDate,
+                        categories[categoriesIndex].name,
+                        latArray[latArrayIndex],
+                        lonArray[lonArrayIndex],
+                        sat.satid,
+                        sat.satname,
+                        sat.intDesignator,
+                        new Date(
+                          parseInt(sat.launchDate.split("-")[0], 10),
+                          parseInt(sat.launchDate.split("-")[1], 10) - 1,
+                          parseInt(sat.launchDate.split("-")[2], 10)
+                        ),
+                        sat.satlat,
+                        sat.satlng,
+                        sat.satalt,
+                      ]
+                    )
+                    .then(() => {
+                      connection
+                        .query(
+                          `select id, request_date from n2yo where satid=? order by request_date`,
+                          [sat.satid]
+                        )
+                        .then((allDates) => {
+                          if (allDates[0].length > 10) {
+                            const toDelete = allDates[0].splice(
+                              0,
+                              allDates[0].length - 10
+                            );
+
+                            toDelete.forEach((item) => {
+                              connection
+                                .query(`delete from n2yo where id=?`, [item.id])
+                                .then(() => {});
+                            });
+                            console.warn(
+                              `${toDelete.length} items from satid: ${sat.satid} deleted !`
+                            );
+                          } else
+                            console.warn(
+                              `******* satellite ${sat.satid} is already clean !`
+                            );
+                        });
+                    });
+                });
+            }
           });
         }, 5000);
       });

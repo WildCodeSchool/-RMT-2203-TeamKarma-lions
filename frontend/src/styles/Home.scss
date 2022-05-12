@@ -12,6 +12,7 @@
 h1 {
   margin-left: 0;
   text-shadow: 0 0 0.1em #ceb8f3, 0 0 0.2em #432f64;
+  text-align: center;
 }
 .police {
   color: #ff8800;
@@ -30,18 +31,19 @@ h1 {
 
 // footer
 
-.introFooter {
-  color: #1c0444;
-  background-color: rgba(255, 136, 0, 0.8);
+.intropfooter {
+  font-weight: bold;
 }
+
 .lionsfooter p {
   margin: 0.7rem 0;
 }
 .lionsfooter ul {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-left: 0;
+  align-items: baseline;
+  padding-left: 0.2em;
+  padding-right: 0.3em;
 }
 .lionsfooter li {
   display: flex;
@@ -54,10 +56,10 @@ h1 {
   padding: 0.5em;
   margin-bottom: 0;
   text-align: center;
-  background-color: rgba(67, 47, 100, 0.5);
+  background-color: $primary-color;
 }
 
-@media screen and (min-width: 810px) {
+@media screen and (min-width: 768px) {
   .intro-align {
     display: flex;
   }
@@ -67,7 +69,6 @@ h1 {
   .intro-curio {
     margin: 0 4em;
     font-size: 130%;
-    width: 40%;
     border-radius: 1em;
   }
   .intro-site {
@@ -107,5 +108,37 @@ h1 {
   }
   .lionsfooter {
     z-index: 20;
+  }
+}
+
+@media screen and (max-width: 809.98px) {
+  .intro-align {
+    z-index: 10;
+  }
+  .intro-site {
+    z-index: 10;
+    margin: 1em;
+    margin-left: 2em;
+    user-select: none;
+  }
+
+  .intro-bloc {
+    width: 70%;
+    margin: 1em 3em;
+  }
+}
+@media screen and (min-width: 875px) {
+  .intro-curio {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 875px) {
+  .introAndCalendar {
+    display: flex;
+    flex-direction: column;
+  }
+  .intro-curio {
+    margin-bottom: 1.5em;
   }
 }

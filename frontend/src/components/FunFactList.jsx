@@ -3,16 +3,19 @@ import "../styles/Funfactlist.scss";
 import axios from "axios";
 import FunFact from "./FunFact";
 
+let controller;
+
 export default function FunFactList() {
   const [marsTemp, setMarsTemp] = useState([0, 0]);
   const [nbExo, setNbExo] = useState(0);
   const [fireBallImpact, setFireBallImpact] = useState(0);
 
   useEffect(() => {
+    controller = new AbortController();
+    const { signal } = controller;
+
     axios
-      .get(
-        `http://cab.inta-csic.es/rems/wp-content/plugins/marsweather-widget/api.php`
-      )
+      .get(`http://wcs.dev4.me/marsweather/`, { signal })
       .then((response) => response.data)
       .then((data) => {
         setMarsTemp([
@@ -20,26 +23,24 @@ export default function FunFactList() {
           parseInt(data.soles[0].max_temp, 10),
         ]);
       });
-  }, []);
 
-  useEffect(() => {
     axios
-      .get(
-        `https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+count(releasedate)+from+ps+where+default_flag=1&format=json`
-      )
+      .get(`http://wcs.dev4.me/exoplanetarchive/`, { signal })
       .then((response) => response.data)
       .then((data) => {
         setNbExo(data[0]["count(releasedate)"]);
       });
-  }, []);
 
-  useEffect(() => {
     axios
-      .get(`https://ssd-api.jpl.nasa.gov/fireball.api?limit=1`)
+      .get(`https://ssd-api.jpl.nasa.gov/fireball.api?limit=1`, { signal })
       .then((response) => response.data)
       .then((data) => {
         setFireBallImpact(data.data["0"][2]);
       });
+
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   const funFacts = [
