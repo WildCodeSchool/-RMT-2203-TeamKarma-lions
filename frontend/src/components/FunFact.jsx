@@ -46,7 +46,7 @@ export default function FunFact({
 
   return (
     <div className="funfact">
-      <img className="imglogo" src={`src/assets/${icon}`} alt={icon} />
+      <img className="imglogo" src={icon} alt={icon} />
       <div>
         {textFront}
         <p>

@@ -3,6 +3,10 @@ import "../styles/Funfactlist.scss";
 import axios from "axios";
 import FunFact from "./FunFact";
 
+import sunPicfrom from "../assets/sun.png";
+import meteorPic from "../assets/meteor.png";
+import orbitfrom from "../assets/orbit.png";
+
 let controller;
 
 export default function FunFactList() {
@@ -52,7 +56,7 @@ export default function FunFactList() {
       text3: " °C",
       start: 30,
       round: 0,
-      icon: "sun.png",
+      icon: sunPicfrom,
     },
 
     {
@@ -62,7 +66,7 @@ export default function FunFactList() {
       text2: "",
       start: 0,
       round: 0,
-      icon: "orbit.png",
+      icon: orbitfrom,
     },
 
     {
@@ -72,7 +76,7 @@ export default function FunFactList() {
       text2: " kt",
       start: 0,
       round: 2,
-      icon: "meteor.png",
+      icon: meteorPic,
     },
   ];
 
